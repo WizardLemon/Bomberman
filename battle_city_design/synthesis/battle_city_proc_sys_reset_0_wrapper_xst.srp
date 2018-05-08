@@ -3,8 +3,8 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to C:\Users\student\Desktop\Boomberman\Boomberman\battle_city_design\synthesis\xst_temp_dir\
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.28 secs
  
 --> 
 TABLE OF CONTENTS
@@ -476,8 +476,8 @@ Slowest_sync_clk|    3.120|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.00 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.61 secs
  
 --> 
 
