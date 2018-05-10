@@ -152,6 +152,7 @@ void create_test_map( )
 {
     unsigned int    x;
     unsigned int    y;
+	int temp = 0;
     char            tmp;
     FILE *          f;
 
@@ -163,7 +164,8 @@ void create_test_map( )
     x = 0;
 
     while( ( tmp = fgetc( f ) ) != EOF ) {
-        if( tmp >= '0' && tmp <= '9' ) {
+			temp++;
+			if( tmp >= '0' && tmp <= '9' ) {
             map[ x ].rot = 0;
 			
 			
@@ -195,6 +197,9 @@ void create_test_map( )
             } else if( tmp == '5' ) {
                 map[ x ].z = 5;
 				map[ x++ ].ptr = 0x023F; // nepr
+			} else if(tmp == '6'){
+				map[ x ].z = 6;
+				map[ x++ ].ptr = 0x00FF; // bomba
 			}else{
 				 map[ x ].z = 0;
 				 map[ x++ ].ptr = 0x0000; // null
@@ -207,8 +212,9 @@ void create_test_map( )
 
 void map_to_mem(FILE * mem_file, FILE * def_file, FILE * hdr_file, unsigned long * base_addr)
 {
-	unsigned int i, j = 0;
-
+	unsigned int i, ii, j = 0;
+	int x = 40;
+	int y = 30;
 	fprintf(def_file, "#define MAP_BASE_ADDRESS\t\t\t0x%.4X", *base_addr);
 	for (i = 0; i < NUM_MAP_ENTRIES; i++) {
 
@@ -216,7 +222,7 @@ void map_to_mem(FILE * mem_file, FILE * def_file, FILE * hdr_file, unsigned long
 
 		fprintf(hdr_file, "#ifndef _MAP_H_\n", *base_addr);
 
-		fprintf(hdr_file, "unsigned char  map1[30][160] = {\n");
+		fprintf(hdr_file, "unsigned char  map1[30][40] = {\n");
 
 		for (i = 0; i < NUM_MAP_ENTRIES; i++) {
 			//fprintf( mem_file, "%d\n", map[ i ].z );
@@ -227,7 +233,7 @@ void map_to_mem(FILE * mem_file, FILE * def_file, FILE * hdr_file, unsigned long
 				map[i].z,
 				map[i].rot,
 				map[i].ptr);
-			if (j == 0)
+			/*if (j == 0)
 			{
 				fprintf(hdr_file, "{ ");
 			}
@@ -247,9 +253,23 @@ void map_to_mem(FILE * mem_file, FILE * def_file, FILE * hdr_file, unsigned long
 			else
 			{
 				j++;
-			}
+			}*/
 
 			*base_addr += 1;
+		}
+
+		for( ii = 0; ii<y; ii++){
+			for( j = 0; j<x; j++){
+				if(j == 0){
+					fprintf(hdr_file, "{");
+				}
+				if(j == x-1){
+					fprintf(hdr_file, "%d},\n", map[ii*x+y].z);
+				}else{
+					fprintf(hdr_file, "%d, ", map[ii*x+y].z);
+					
+				}
+			}
 		}
 
 		fprintf(hdr_file, "\n};\n");

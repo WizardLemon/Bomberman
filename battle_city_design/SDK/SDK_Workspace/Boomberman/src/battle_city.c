@@ -11,12 +11,13 @@
  */
 
 // ***** 16x16 IMAGES *****
-#define IMG_16x16_cigle			0x00FF //2
-#define IMG_16x16_coin			0x013F //5
-#define IMG_16x16_crno			0x017F //0
-#define IMG_16x16_enemi1		0x01BF //4
-#define IMG_16x16_mario			0x01FF //1
-#define IMG_16x16_plavacigla	0x023F //3
+#define IMG_16x16_block			0x017F //2 - blok
+#define IMG_16x16_enemie			0x023F //5 - nepr
+#define IMG_16x16_bckgnd			0x027F //0 - poz
+#define IMG_16x16_door		0x01FF //4 - vrata
+#define IMG_16x16_bomberman			0x013F //1 - bomberm
+#define IMG_16x16_brick	0x01BF //3 - cigla
+#define IMG_16x16_bomb 		0x00FF //6 - bomba
 // ***** MAP *****
 
 #define MAP_BASE_ADDRESS			0x02BF // MAP_OFFSET in battle_city.vhd
@@ -82,10 +83,10 @@ typedef struct {
 	unsigned int reg_h;
 } characters;
 
-characters mario = { 10,	                        // x
-		431, 		                     // y
+characters bomberman = { 128,	                        // x
+		49, 		                     // y
 		DIR_RIGHT,              		// dir
-		IMG_16x16_mario,  			// type
+		IMG_16x16_bomberman,  			// type
 
 		b_false,                		// destroyed
 
@@ -96,7 +97,7 @@ characters mario = { 10,	                        // x
 characters enemie1 = { 331,						// x
 		431,						// y
 		DIR_LEFT,              		// dir
-		IMG_16x16_enemi1,  		// type
+		IMG_16x16_door,  		// type
 
 		b_false,                		// destroyed
 
@@ -107,7 +108,7 @@ characters enemie1 = { 331,						// x
 characters enemie2 = { 450,						// x
 		431,						// y
 		DIR_LEFT,              		// dir
-		IMG_16x16_enemi1,  		// type
+		IMG_16x16_door,  		// type
 
 		b_false,                		// destroyed
 
@@ -118,7 +119,7 @@ characters enemie2 = { 450,						// x
 characters enemie3 = { 330,						// x
 		272,						// y
 		DIR_LEFT,              		// dir
-		IMG_16x16_enemi1,  		// type
+		IMG_16x16_door,  		// type
 
 		b_false,                		// destroyed
 
@@ -129,7 +130,7 @@ characters enemie3 = { 330,						// x
 characters enemie4 = { 635,						// x
 		431,						// y
 		DIR_LEFT,              		// dir
-		IMG_16x16_enemi1,  		// type
+		IMG_16x16_door,  		// type
 
 		b_false,                		// destroyed
 
@@ -177,25 +178,28 @@ static void map_update(characters * mario) {
 					+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
 			switch (map1[y][x + map_move]) {
 			case 0:
-				Xil_Out32(addr, IMG_16x16_crno);
+				Xil_Out32(addr, IMG_16x16_bckgnd);
 				break;
 			case 1:
-				Xil_Out32(addr, IMG_16x16_mario);
+				Xil_Out32(addr, IMG_16x16_bomberman);
 				break;
 			case 2:
-				Xil_Out32(addr, IMG_16x16_cigle);
+				Xil_Out32(addr, IMG_16x16_block);
 				break;
 			case 3:
-				Xil_Out32(addr, IMG_16x16_plavacigla);
+				Xil_Out32(addr, IMG_16x16_brick);
 				break;
 			case 4:
-				Xil_Out32(addr, IMG_16x16_enemi1);
+				Xil_Out32(addr, IMG_16x16_door);
 				break;
 			case 5:
-				Xil_Out32(addr, IMG_16x16_coin);
+				Xil_Out32(addr, IMG_16x16_enemie);
+				break;
+			case 6:
+				Xil_Out32(addr, IMG_16x16_bomb);
 				break;
 			default:
-				Xil_Out32(addr, IMG_16x16_crno);
+				Xil_Out32(addr, IMG_16x16_bckgnd);
 				break;
 			}
 		}
@@ -447,13 +451,13 @@ void battle_city() {
 	int block;
 
 	map_reset(map1);
-	map_update(&mario);
+	map_update(&bomberman);
 
 	//chhar_spawn(&enemie1);
 	//chhar_spawn(&enemie2);
 	//chhar_spawn(&enemie3);
 	//chhar_spawn(&enemie4);
-	chhar_spawn(&mario);
+	chhar_spawn(&bomberman);
 
 	while (1) {
 
@@ -473,9 +477,9 @@ void battle_city() {
 		if (BTN_UP (buttons) && !BTN_LEFT(buttons) && !BTN_RIGHT(buttons)) {
 			d = DIR_UP;
 		}
-		mario_move(map1, &mario, d, start_jump);
+		mario_move(map1, &bomberman, d, start_jump);
 
-		map_update(&mario);
+		map_update(&bomberman);
 
 		for (i = 0; i < 100000; i++) {
 		}
