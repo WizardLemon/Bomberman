@@ -197,11 +197,20 @@ static void map_update(characters * mario) {
 	int x, y;
 	long int addr;
 
+	if (mario->x >= 330) {
+		if (udario_u_blok <= 0) {
+			map_move++;
+		}
+		if (mario->x == 2560) {
+			map_move = 2520;
+		}
+	}
+
 	for (y = 0; y < MAP_HEIGHT; y++) {
 		for (x = 0; x < MAP_WIDTH; x++) {
 			addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
 					+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
-			switch (map1[y][x]) {
+			switch (map1[y][x + map_move]) {
 			case 0:
 				Xil_Out32(addr, IMG_16x16_bckgnd);
 				break;
@@ -373,12 +382,75 @@ static bool_t mario_move(unsigned char * map, characters * mario,
 	unsigned int y;
 	int i, j;
 
+	float Xx;
+	float Yy;
+	int roundX = 0;
+	int roundY = 0;
+
 	int obstackle = 0;
 
+	/*if (mario->x > ((MAP_X + MAP_WIDTH) * 16 - 16)
+			|| mario->y > (MAP_Y + MAP_HEIGHT) * 16 - 16) {
+		return b_false;
+	}
+*/
 	x = mario->x;
 	y = mario->y;
 
+	/*if (dir == DIR_LEFT) {
+		if (x > MAP_X * 16) {
+			x--;
+		}
+	} else if (dir == DIR_RIGHT) {
+		x++;
+	} else if (dir == DIR_UP) {
+		if (y > MAP_Y * 16) {
+			for (i = 0; i < 30; i++) {
+				y--;
+				brojac++;
 
+				mario->y = y;
+
+				Xil_Out32(
+						XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + mario->reg_h ),
+						(mario->y << 16) | mario->x);
+				for (j = 0; j < 100000; j++) {
+				}
+			}
+		}
+		while (brojac != 0) {
+			y++;
+			brojac--;
+		}
+	}
+	if (start_jump == 1) {
+		if (y > MAP_Y * 16) {
+			for (i = 0; i < 30; i++) {
+				y--;
+				brojac++;
+				if (dir == DIR_LEFT)
+					x--;
+				else
+					x++;
+				mario->x = x;
+				mario->y = y;
+
+				Xil_Out32(
+						XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + mario->reg_h ),
+						(mario->y << 16) | mario->x);
+				for (j = 0; j < 100000; j++) {
+				}
+			}
+		}
+	}
+	while (brojac != 0) {
+		y++;
+		brojac--;
+	}
+
+	Xx = x;
+	Yy = y;
+	*/
 	if (dir == DIR_LEFT) {
 		obstackle = obstackles_detection(x, y, mapPart, map, 1);
 		if(obstackle == 0){
@@ -401,7 +473,47 @@ static bool_t mario_move(unsigned char * map, characters * mario,
 		}
 	}
 
+	roundX = floor(Xx / 16);
+	roundY = floor(Yy / 16);
 
+	/*switch (obstackle) {
+
+	case 2: {
+		//blok
+		if (dir == DIR_LEFT) {
+			if (x > MAP_X * 16) {
+				x++;
+			}
+		} else if (dir == DIR_RIGHT) {
+			x--;
+		}
+		udario_u_blok = 1;
+	}
+		break;
+	case 3: {
+		//cigla
+
+		if (dir == DIR_LEFT) {
+			if (x > MAP_X * 16) {
+				x++;
+			}
+		} else if (dir == DIR_RIGHT) {
+			x--;
+		}
+		udario_u_blok = 1;
+	}
+		break;
+	case 5: {
+		//coin
+		score++;
+		map1[roundY + 1][roundX + 1] = 0;
+		map_update(&mario);
+	}
+		break;
+	default:
+		udario_u_blok = 0;
+	}
+*/
 	mario->x = x;
 	mario->y = y;
 
@@ -409,7 +521,7 @@ static bool_t mario_move(unsigned char * map, characters * mario,
 			XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + mario->reg_h ),
 			(mario->y << 16) | mario->x);
 
-	for (i = 0; i < 1000000; i++) {
+	for (i = 0; i < 10000000; i++) {
 			}
 
 	return b_false;
