@@ -384,7 +384,7 @@ static bool_t mario_move(unsigned char * map, characters * mario,
 		direction_t dir, int start_jump) {
 	unsigned int x;
 	unsigned int y;
-	int i, j;
+	int i;
 
 	int obstackle = 0;
 
@@ -423,40 +423,94 @@ static bool_t mario_move(unsigned char * map, characters * mario,
 			(mario->y << 16) | mario->x);
 
 	for (i = 0; i < 1000000; i++) {
-			}
+	}
 
 	return b_false;
 }
 
-static void set_bomb(characters *bomberman, characters *bombc, int *bomb){
-
-	if(bomberman->x == bombc->x && bomberman->y == bombc->y){
-
-
-			  chhar_spawn(&bombc);
+static int destroy_direction(int x, int y, int obstacle){
+	if(obstacle == 1 || obstacle == 3 || obstacle == 5){
+		return 1;
+	}else if(obstacle == 2){
+		return -1;
+	}else{
+		return 0;
 	}
 }
+
+static void destroy(unsigned char * map, int x, int y){
+	int obstackle = 0;
+	int mapPart = 0;
+	//Right destroy
+	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 0);
+	if(destroy_direction(x, y, obstackle) == 1){
+		map1[y][x+1] = 0;
+	}else if(destroy_direction(x, y, obstackle) == 0) {
+		obstackle = obstackles_detection(x*16+16, y*16, mapPart, map, 0);
+		if(destroy_direction(x, y, obstackle) == 1){
+				map1[y][x+2] = 0;
+		}
+	}
+
+	//Left destroy
+	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 1);
+	if(destroy_direction(x, y, obstackle) == 1){
+		map1[y][x-1] = 0;
+	}else if(destroy_direction(x, y, obstackle) == 0) {
+		obstackle = obstackles_detection(x*16-16, y*16, mapPart, map, 1);
+		if(destroy_direction(x-1, y, obstackle) == 1){
+				map1[y][x-2] = 0;
+		}
+	}
+
+	//Up destroy
+	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 2);
+	if(destroy_direction(x, y, obstackle) == 1){
+		map1[y-1][x] = 0;
+	}else if(destroy_direction(x, y, obstackle) == 0) {
+		obstackle = obstackles_detection(x*16, y*16-16, mapPart, map, 2);
+		if(destroy_direction(x, y-1, obstackle) == 1){
+				map1[y-2][x] = 0;
+		}
+	}
+
+	//Down destroy
+	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 3);
+	if(destroy_direction(x, y, obstackle) == 1){
+		map1[y+1][x] = 0;
+	}else if(destroy_direction(x, y, obstackle) == 0) {
+		obstackle = obstackles_detection(x*16, y*16+16, mapPart, map, 3);
+		if(destroy_direction(x, y+1, obstackle) == 1){
+			map1[y+2][x] = 0;
+		}
+	}
+
+
+}
+
 
 
 void battle_city() {
 
-	unsigned int buttons, tmpBtn = 0, tmpUp = 0;
-	int i, change = 0, jumpFlag = 0;
-	int block;
-	int bomb = 0;
+	unsigned int buttons;
+	int i;
+
+
 
 	map_reset(map1);
 	map_update(&bomberman);
 
-	//chhar_spawn(&enemie1);
-	//chhar_spawn(&enemie2);
+	chhar_spawn(&enemie1);
+	chhar_spawn(&enemie2);
 	//chhar_spawn(&enemie3);
 	//chhar_spawn(&enemie4);
 	chhar_spawn(&bomberman);
+	int bomb_act = 0;
 	float xX;
 	float yY;
 	int roundX;
 	int roundY;
+	int cnt = 15;
 	while (1) {
 
 		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
@@ -472,22 +526,29 @@ void battle_city() {
 			d = DIR_UP;
 		} else if (BTN_DOWN(buttons)){
 			d = DIR_DOWN;
-		}else if(BTN_SHOOT(buttons)){
-			bomb = 1;
-			bombc.x = bomberman.x;
-			bombc.y = bomberman.y;
+		}else if(BTN_SHOOT(buttons) && bomb_act == 0){
 			xX = bomberman.x;
 			yY = bomberman.y;
 			roundX = floor(xX/16);
 			roundY = floor(yY/16);
 			map1[roundY][roundX] = 6;
+			bomb_act = 1;
 		}
 
-		//chhar_spawn(&bombc);
+		if(--cnt == 0){
+			map1[roundY][roundX] = 0;
+			cnt = 15;
+			destroy(map1, roundX, roundY);
+			bomb_act = 0;
+		}
+
+
 
 		int start_jump = 0;
 		mario_move(map1, &bomberman, d, start_jump);
+
 		map_update(&bomberman);
+
 		for (i = 0; i < 100000; i++) {
 		}
 
