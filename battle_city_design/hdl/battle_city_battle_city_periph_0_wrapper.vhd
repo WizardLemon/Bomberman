@@ -108,7 +108,7 @@ begin
       C_USE_WSTRB => 0,
       C_DPHASE_TIMEOUT => 8,
       C_BASEADDR => X"72800000",
-      C_HIGHADDR => X"7280FFFF",
+      C_HIGHADDR => X"7280ffff",
       C_FAMILY => "spartan6",
       C_NUM_REG => 1,
       C_NUM_MEM => 1,

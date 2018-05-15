@@ -15,9 +15,13 @@ NET RESET LOC = "AE24"  |  IOSTANDARD = "LVCMOS33"  |  TIG;
 NET CLK_N LOC = "AF14"  |  IOSTANDARD = "LVDS_33";
 NET CLK_P LOC = "AD14"  |  IOSTANDARD = "LVDS_33";
 
+
+NET RS232_TX_pin LOC = "A20"  |  IOSTANDARD = "LVCMOS33";
+NET RS232_RX_pin LOC = "A21"  |  IOSTANDARD = "LVCMOS33";
+
 ## battle city controler
 
-NET battle_city_periph_0_clk_24MHz_i_pin             LOC = m21 | IOSTANDARD = LVTTL;
+NET battle_city_periph_0_clk_24MHz_i_pin             LOC = M21 | IOSTANDARD = LVTTL;
 NET battle_city_periph_0_rst_in_pin         LOC = AE24 | IOSTANDARD = LVCMOS33; # AKA UI_JOY2
 
 NET battle_city_periph_0_clk_24MHz_i_pin TNM_NET = clk_24MHz_i;

@@ -79,7 +79,8 @@ implementation/battle_city_debug_module_wrapper.ngc \
 implementation/battle_city_clock_generator_0_wrapper.ngc \
 implementation/battle_city_axi4lite_0_wrapper.ngc \
 implementation/battle_city_battle_city_periph_0_wrapper.ngc \
-implementation/battle_city_io_periph_wrapper.ngc
+implementation/battle_city_io_periph_wrapper.ngc \
+implementation/battle_city_rs232_wrapper.ngc
 
 POSTSYN_NETLIST = implementation/$(SYSTEM).ngc
 

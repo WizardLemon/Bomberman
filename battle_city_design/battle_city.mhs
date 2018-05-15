@@ -27,6 +27,8 @@
  PORT battle_city_periph_0_green_o_pin = battle_city_periph_0_green_o, DIR = O, VEC = [7:0]
  PORT battle_city_periph_0_blue_o_pin = battle_city_periph_0_blue_o, DIR = O, VEC = [7:0]
  PORT io_periph_GPIO_IO_I_pin = net_io_periph_GPIO_IO_I_pin, DIR = I, VEC = [4:0]
+ PORT RS232_RX_pin = RS232_RX, DIR = I
+ PORT RS232_TX_pin = RS232_TX, DIR = O
 
 
 BEGIN proc_sys_reset
@@ -142,7 +144,7 @@ BEGIN battle_city_periph
  PARAMETER INSTANCE = battle_city_periph_0
  PARAMETER HW_VER = 1.01.a
  PARAMETER C_BASEADDR = 0x72800000
- PARAMETER C_HIGHADDR = 0x7280FFFF
+ PARAMETER C_HIGHADDR = 0x7280ffff
  BUS_INTERFACE S_AXI = axi4lite_0
  PORT S_AXI_ACLK = clk_100_0000MHz
  PORT clk_24MHz_i = net_battle_city_periph_0_clk_24MHz_i_pin
@@ -161,11 +163,22 @@ END
 BEGIN axi_gpio
  PARAMETER INSTANCE = io_periph
  PARAMETER HW_VER = 1.01.b
+ PARAMETER C_GPIO_WIDTH = 5
  PARAMETER C_BASEADDR = 0x40000000
  PARAMETER C_HIGHADDR = 0x4000ffff
- PARAMETER C_GPIO_WIDTH = 5
  BUS_INTERFACE S_AXI = axi4lite_0
  PORT S_AXI_ACLK = clk_100_0000MHz
  PORT GPIO_IO_I = net_io_periph_GPIO_IO_I_pin
+END
+
+BEGIN axi_uartlite
+ PARAMETER INSTANCE = RS232
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_BASEADDR = 0x40600000
+ PARAMETER C_HIGHADDR = 0x4060ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ PORT S_AXI_ACLK = clk_100_0000MHz
+ PORT RX = RS232_RX
+ PORT TX = RS232_TX
 END
 

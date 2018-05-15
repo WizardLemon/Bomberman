@@ -52,6 +52,8 @@
 #define TANK_AI_REG_H6                  15
 #define TANK_AI_REG_L7                  16
 #define TANK_AI_REG_H7                  17
+#define TANK_AI_REG_L8					18
+#define TANK_AI_REG_H8					19
 #define BASE_REG_L						0
 #define BASE_REG_H	                    1
 
@@ -170,6 +172,17 @@ characters enemie7 = { 635,						// x
 
 		TANK_AI_REG_L7,            		// reg_l
 		TANK_AI_REG_H7             		// reg_h
+		};
+
+characters bombc = { 0,						// x
+		0,						// y
+		DIR_LEFT,              		// dir
+		IMG_16x16_bomb,  		// type
+
+		b_false,                		// destroyed
+
+		TANK_AI_REG_L8,            		// reg_l
+		TANK_AI_REG_H8             		// reg_h
 		};
 
 unsigned int rand_lfsr113(void) {
@@ -415,6 +428,14 @@ static bool_t mario_move(unsigned char * map, characters * mario,
 	return b_false;
 }
 
+static void set_bomb(characters *bomberman, characters *bombc, int *bomb){
+
+	if(bomberman->x == bombc->x && bomberman->y == bombc->y){
+
+			  chhar_spawn(&bombc);
+	}
+}
+
 
 void battle_city() {
 
@@ -436,7 +457,7 @@ void battle_city() {
 
 		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
 
-		bomb = 0;
+
 
 		direction_t d = DIR_STILL;
 		if (BTN_LEFT(buttons)) {
@@ -451,12 +472,17 @@ void battle_city() {
 
 		if(BTN_SHOOT(buttons)){
 			bomb = 1;
+			bombc.x = bomberman.x;
+			bombc.y = bomberman.y;
 		}
+
+		//set_bomb(&bomberman, &bombc, bomb);
+
 		int start_jump = 0;
 		mario_move(map1, &bomberman, d, start_jump);
 
 		map_update(&bomberman);
-
+		set_bomb(&bomberman, &bombc, &bomb);
 		for (i = 0; i < 100000; i++) {
 		}
 
