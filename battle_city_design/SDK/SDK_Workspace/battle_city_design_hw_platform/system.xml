@@ -1,7 +1,7 @@
 
-<EDKSYSTEM EDKVERSION="14.6" EDWVERSION="1.2" TIMESTAMP="Tue May 15 10:01:55 2018">
+<EDKSYSTEM EDKVERSION="14.6" EDWVERSION="1.2" TIMESTAMP="Wed May 16 16:04:03 2018">
 
-  <SYSTEMINFO ARCH="spartan6" DEVICE="xc6slx45" PACKAGE="fgg676" PART="xc6slx45fgg676-2" SOURCE="C:/Users/student/Desktop/Boomberman/Boomberman/battle_city_design/battle_city.xmp" SPEEDGRADE="-2"/>
+  <SYSTEMINFO ARCH="spartan6" DEVICE="xc6slx45" PACKAGE="fgg676" PART="xc6slx45fgg676-2" SOURCE="D:/Bmbrman/Boomberman/battle_city_design/battle_city.xmp" SPEEDGRADE="-2"/>
 
   <EXTERNALPORTS>
     <PORT DIR="I" MHS_INDEX="0" NAME="RESET" RSTPOLARITY="0" SIGIS="RST" SIGNAME="RESET">
