@@ -66,6 +66,18 @@ int map_move = 0;
 int brojac = 0;
 int udario_u_blok = 0;
 
+#define enemy1X 19
+#define enemy1Y 3
+
+#define enemy2X 27
+#define enemy2Y 5
+
+#define enemy3X 20
+#define enemy3Y 17
+
+#define enemy4X 8
+#define enemy4Y 18
+
 typedef enum {
 	b_false, b_true
 } bool_t;
@@ -86,6 +98,14 @@ typedef struct {
 	unsigned int reg_h;
 } characters;
 
+typedef struct{
+	unsigned int x;
+	unsigned int y;
+	unsigned int type;
+
+	unsigned int destroyed;
+} enemie;
+
 characters bomberman = { 128,	                        // x
 		49, 		                     // y
 		DIR_RIGHT,              		// dir
@@ -97,93 +117,33 @@ characters bomberman = { 128,	                        // x
 		TANK1_REG_H             		// reg_h
 		};
 
-characters enemie1 = { 304,						// x
-		49,						// y
-		DIR_LEFT,              		// dir
-		IMG_16x16_enemie,  		// type
+enemie enemie1 = { enemy1X,						// x
+		enemy1Y,						// y
+		5,              		// dir
+		0
 
-		b_false,                		// destroyed
+};
 
-		TANK_AI_REG_L,            		// reg_l
-		TANK_AI_REG_H             		// reg_h
-		};
+enemie enemie2 = { enemy2X,						// x
+		enemy2Y,						// y
+		5,              		// dir
+		0
 
-characters enemie2 = { 432,						// x
-		81,						// y
-		DIR_LEFT,              		// dir
-		IMG_16x16_enemie,  		// type
+};
 
-		b_false,                		// destroyed
+enemie enemie3 = { enemy3X,						// x
+		enemy3Y,						// y
+		5,              		// dir
+		0
 
-		TANK_AI_REG_L2,            		// reg_l
-		TANK_AI_REG_H2             		// reg_h
-		};
+};
 
-characters enemie3 = { 330,						// x
-		272,						// y
-		DIR_LEFT,              		// dir
-		IMG_16x16_enemie,  		// type
+enemie enemie4 = { enemy4X,						// x
+		enemy4Y,						// y
+		5,              		// dir
+		0
 
-		b_false,                		// destroyed
-
-		TANK_AI_REG_L3,            		// reg_l
-		TANK_AI_REG_H3             		// reg_h
-		};
-
-characters enemie4 = { 635,						// x
-		431,						// y
-		DIR_LEFT,              		// dir
-		IMG_16x16_enemie,  		// type
-
-		b_false,                		// destroyed
-
-		TANK_AI_REG_L4,            		// reg_l
-		TANK_AI_REG_H4             		// reg_h
-		};
-
-characters enemie5 = { 635,						// x
-		431,						// y
-		DIR_LEFT,              		// dir
-		IMG_16x16_enemie,  		// type
-
-		b_false,                		// destroyed
-
-		TANK_AI_REG_L5,            		// reg_l
-		TANK_AI_REG_H5             		// reg_h
-		};
-
-characters enemie6 = { 635,						// x
-		431,						// y
-		DIR_LEFT,              		// dir
-		IMG_16x16_enemie,  		// type
-
-		b_false,                		// destroyed
-
-		TANK_AI_REG_L6,            		// reg_l
-		TANK_AI_REG_H6             		// reg_h
-		};
-
-characters enemie7 = { 635,						// x
-		431,						// y
-		DIR_LEFT,              		// dir
-		IMG_16x16_enemie,  		// type
-
-		b_false,                		// destroyed
-
-		TANK_AI_REG_L7,            		// reg_l
-		TANK_AI_REG_H7             		// reg_h
-		};
-
-characters bombc = { 0,						// x
-		0,						// y
-		DIR_LEFT,              		// dir
-		IMG_16x16_bomb,  		// type
-
-		b_false,                		// destroyed
-
-		TANK_AI_REG_L8,            		// reg_l
-		TANK_AI_REG_H8             		// reg_h
-		};
+};
 
 unsigned int rand_lfsr113(void) {
 	static unsigned int z1 = 12345, z2 = 12345;
@@ -428,8 +388,23 @@ static bool_t mario_move(unsigned char * map, characters * mario,
 	return b_false;
 }
 
+static void find_enemie(int x, int y){
+	if(enemie1.x == x && enemie1.y == y){
+		enemie1.type = 0;
+	}else if(enemie2.x == x && enemie2.y == y){
+		enemie2.type= 0;
+	}else if(enemie3.x == x && enemie3.y == y){
+		enemie3.type = 0;
+	}else if(enemie4.x == x && enemie4.y == y){
+		enemie4.type = 0;
+	}
+}
+
 static int destroy_direction(int x, int y, int obstacle){
-	if(obstacle == 1 || obstacle == 3 || obstacle == 5){
+	if(obstacle == 1 || obstacle == 3){
+		return 1;
+	}else if(obstacle == 5){
+		find_enemie(x, y);
 		return 1;
 	}else if(obstacle == 2){
 		return -1;
@@ -443,44 +418,44 @@ static void destroy(unsigned char * map, int x, int y){
 	int mapPart = 0;
 	//Right destroy
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 0);
-	if(destroy_direction(x, y, obstackle) == 1){
+	if(destroy_direction(x+1, y, obstackle) == 1){
 		map1[y][x+1] = 0;
-	}else if(destroy_direction(x, y, obstackle) == 0) {
+	}else if(destroy_direction(x+1, y, obstackle) == 0) {
 		obstackle = obstackles_detection(x*16+16, y*16, mapPart, map, 0);
-		if(destroy_direction(x, y, obstackle) == 1){
+		if(destroy_direction(x+2, y, obstackle) == 1){
 				map1[y][x+2] = 0;
 		}
 	}
 
 	//Left destroy
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 1);
-	if(destroy_direction(x, y, obstackle) == 1){
+	if(destroy_direction(x-1, y, obstackle) == 1){
 		map1[y][x-1] = 0;
-	}else if(destroy_direction(x, y, obstackle) == 0) {
+	}else if(destroy_direction(x-1, y, obstackle) == 0) {
 		obstackle = obstackles_detection(x*16-16, y*16, mapPart, map, 1);
-		if(destroy_direction(x-1, y, obstackle) == 1){
+		if(destroy_direction(x-2, y, obstackle) == 1){
 				map1[y][x-2] = 0;
 		}
 	}
 
 	//Up destroy
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 2);
-	if(destroy_direction(x, y, obstackle) == 1){
+	if(destroy_direction(x, y-1, obstackle) == 1){
 		map1[y-1][x] = 0;
-	}else if(destroy_direction(x, y, obstackle) == 0) {
+	}else if(destroy_direction(x, y-1, obstackle) == 0) {
 		obstackle = obstackles_detection(x*16, y*16-16, mapPart, map, 2);
-		if(destroy_direction(x, y-1, obstackle) == 1){
+		if(destroy_direction(x, y-2, obstackle) == 1){
 				map1[y-2][x] = 0;
 		}
 	}
 
 	//Down destroy
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 3);
-	if(destroy_direction(x, y, obstackle) == 1){
+	if(destroy_direction(x, y+1, obstackle) == 1){
 		map1[y+1][x] = 0;
-	}else if(destroy_direction(x, y, obstackle) == 0) {
+	}else if(destroy_direction(x, y+1, obstackle) == 0) {
 		obstackle = obstackles_detection(x*16, y*16+16, mapPart, map, 3);
-		if(destroy_direction(x, y+1, obstackle) == 1){
+		if(destroy_direction(x, y+2, obstackle) == 1){
 			map1[y+2][x] = 0;
 		}
 	}
@@ -488,7 +463,38 @@ static void destroy(unsigned char * map, int x, int y){
 
 }
 
+static void random_move_enemy(unsigned int *x, unsigned int *y, unsigned int type)
+{
+	int i = 0;
 
+
+	int t = rand() % 4;
+	int obstacle = obstackles_detection(*x*16, *y*16, 0, map1, t);
+
+	if(obstacle == 0){
+		if(t == 0){
+			map1[*y][*x] = 0;
+			*x = *x + 1;
+			map1[*y][*x] = type;
+		}else if(t == 1){
+			map1[*y][*x] = 0;
+			*x = *x - 1;
+			map1[*y][*x] = type;
+		}else if(t == 2){
+			map1[*y][*x] = 0;
+			*y = *y - 1;
+			map1[*y][*x] = type;
+		}else{
+			map1[*y][*x] = 0;
+			*y =*y + 1;
+			map1[*y][*x] = type;
+		}
+	}
+
+
+	for (i = 0; i < 100000; i++) {
+			}
+}
 
 void battle_city() {
 
@@ -500,22 +506,28 @@ void battle_city() {
 	map_reset(map1);
 	map_update(&bomberman);
 
-	chhar_spawn(&enemie1);
-	chhar_spawn(&enemie2);
-	//chhar_spawn(&enemie3);
-	//chhar_spawn(&enemie4);
 	chhar_spawn(&bomberman);
+
 	int bomb_act = 0;
 	float xX;
 	float yY;
 	int roundX;
 	int roundY;
 	int cnt = 15;
+
+
+
+	map1[enemy1Y][enemy1X] = 5;
+
+	map1[enemy2Y][enemy2X] = 5;
+
+	map1[enemy3Y][enemy3X] = 5;
+
+	map1[enemy4Y][enemy4X] = 5;
+
 	while (1) {
 
 		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
-
-
 
 		direction_t d = DIR_STILL;
 		if (BTN_LEFT(buttons)) {
@@ -535,14 +547,22 @@ void battle_city() {
 			bomb_act = 1;
 		}
 
+
+
 		if(--cnt == 0){
 			map1[roundY][roundX] = 0;
 			cnt = 15;
 			destroy(map1, roundX, roundY);
 			bomb_act = 0;
+			//enemie1.type = 0;
+
 		}
 
 
+		random_move_enemy(&enemie1.x, &enemie1.y, enemie1.type);
+		random_move_enemy(&enemie2.x, &enemie2.y, enemie2.type);
+		random_move_enemy(&enemie3.x, &enemie3.y, enemie3.type);
+		random_move_enemy(&enemie4.x, &enemie4.y, enemie4.type);
 
 		int start_jump = 0;
 		mario_move(map1, &bomberman, d, start_jump);
