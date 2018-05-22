@@ -401,13 +401,15 @@ static void find_enemie(int x, int y){
 }
 
 static int destroy_direction(int x, int y, int obstacle){
-	if(obstacle == 1 || obstacle == 3){
+	if(obstacle == 3){					// cigla
 		return 1;
-	}else if(obstacle == 5){
+	}else if(obstacle == 5){			// enemie
 		find_enemie(x, y);
 		return 1;
-	}else if(obstacle == 2){
+	}else if(obstacle == 2){			// blok
 		return -1;
+	}else if(obstacle == 1){				// bomberman
+		return 2;
 	}else{
 		return 0;
 	}
@@ -420,6 +422,7 @@ static void destroy(unsigned char * map, int x, int y){
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 0);
 	if(destroy_direction(x+1, y, obstackle) == 1){
 		map1[y][x+1] = 0;
+		//map1[2][35] = 0;
 	}else if(destroy_direction(x+1, y, obstackle) == 0) {
 		obstackle = obstackles_detection(x*16+16, y*16, mapPart, map, 0);
 		if(destroy_direction(x+2, y, obstackle) == 1){
@@ -459,7 +462,6 @@ static void destroy(unsigned char * map, int x, int y){
 			map1[y+2][x] = 0;
 		}
 	}
-
 
 }
 
