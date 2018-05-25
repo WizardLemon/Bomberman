@@ -108,43 +108,39 @@ typedef struct{
 	unsigned int destroyed;
 } enemie;
 
-characters bomberman = { 128,	                        // x
+characters bomberman = { 128,	         // x
 		49, 		                     // y
-		DIR_RIGHT,              		// dir
-		IMG_16x16_bomberman,  			// type
+		DIR_RIGHT,              		 // dir
+		IMG_16x16_bomberman,  			 // type
 
-		b_false,                		// destroyed
+		b_false,                		 // destroyed
 
-		TANK1_REG_L,            		// reg_l
-		TANK1_REG_H             		// reg_h
+		TANK1_REG_L,            		 // reg_l
+		TANK1_REG_H             		 // reg_h
 		};
 
-enemie enemie1 = { enemy1X,						// x
+enemie enemie1 = { enemy1X,				// x
 		enemy1Y,						// y
-		5,              		// dir
+		5,              		        // dir
 		0
-
 };
 
-enemie enemie2 = { enemy2X,						// x
+enemie enemie2 = { enemy2X,			    // x
 		enemy2Y,						// y
-		5,              		// dir
+		5,              		        // dir
 		0
-
 };
 
-enemie enemie3 = { enemy3X,						// x
+enemie enemie3 = { enemy3X,				// x
 		enemy3Y,						// y
-		5,              		// dir
+		5,              		        // dir
 		0
-
 };
 
-enemie enemie4 = { enemy4X,						// x
+enemie enemie4 = { enemy4X,				// x
 		enemy4Y,						// y
-		5,              		// dir
+		5,              		        // dir
 		0
-
 };
 
 unsigned int rand_lfsr113(void) {
@@ -172,7 +168,7 @@ static void map_update(characters * mario) {
 	int x, y;
 	long int addr;
 
-/*	for (y = 0; y < MAP_HEIGHT; y++) {
+	for (y = 0; y < MAP_HEIGHT; y++) {
 		for (x = 0; x < MAP_WIDTH; x++) {
 			addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
 					+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
@@ -204,7 +200,7 @@ static void map_update(characters * mario) {
 			}
 		}
 	}
-
+/*
 	for (y = 0; y < MAP_HEIGHT; y++) {
 		for (x = 0; x < MAP_WIDTH; x++) {
 			addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
@@ -224,7 +220,7 @@ static void map_update(characters * mario) {
 				break;
 			}
 		}
-	}*/
+	}
 
 	for (y = 0; y < MAP_HEIGHT; y++) {
 			for (x = 0; x < MAP_WIDTH; x++) {
@@ -242,14 +238,13 @@ static void map_update(characters * mario) {
 					break;
 				}
 			}
-		}
+		}*/
 
 
 
 }
 
 static void map_reset(unsigned char * map) {
-
 	unsigned int i;
 
 	for (i = 0; i <= 20; i += 2) {
@@ -257,11 +252,9 @@ static void map_reset(unsigned char * map) {
 				XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + i ),
 				(unsigned int )0x0F000000);
 	}
-
 }
 
-int obstackles_detection(int x, int y, int deoMape, unsigned char * map,
-		int dir) {
+int obstackles_detection(int x, int y, int deoMape, unsigned char * map,int dir) {
 	unsigned char mario_position_right;
 	unsigned char mario_position_left;
 	unsigned char mario_position_up;
@@ -356,36 +349,34 @@ int obstackles_detection(int x, int y, int deoMape, unsigned char * map,
 		}
 	}
 	else if (dir == 3) {
-			switch (mario_position_down) {
-			case 0:
-				return 0;
-				break;
-			case 1:
-				return 1;
-				break;
-			case 2:
-				return 2;
-				break;
-			case 3:
-				return 3;
-				break;
-			case 4:
-				return 0;
-				break;
-			case 5:
-				return 5;
-				break;
-			case 6:
-				return 6;
-				break;
-			}
+		switch (mario_position_down) {
+		case 0:
+			return 0;
+			break;
+		case 1:
+			return 1;
+			break;
+		case 2:
+			return 2;
+			break;
+		case 3:
+			return 3;
+			break;
+		case 4:
+			return 0;
+			break;
+		case 5:
+			return 5;
+			break;
+		case 6:
+			return 6;
+			break;
 		}
-
+	}
 }
 
 
-static bool_t mario_move(unsigned char * map, characters * mario,
-		direction_t dir, int start_jump) {
+static bool_t mario_move(unsigned char * map, characters * mario,direction_t dir, int start_jump) {
 	unsigned int x;
 	unsigned int y;
 	int i;
@@ -444,158 +435,143 @@ static void find_enemie(int x, int y){
 	}
 }
 
-static int destroy_direction(int x, int y, int obstacle){
-	if(obstacle == 3){					// cigla
+
+static int find_bomberman(characters *mario, int x, int y)
+{
+	unsigned int xX=mario->x;
+	unsigned int yY=mario->y;
+
+	if(xX==x && yY==y){
 		return 1;
-	}else if(obstacle == 5){			// enemie
+	}else{
+		return 0;
+	}
+}
+
+static int destroy_direction(int x, int y, int obstacle, characters * mario){
+	if(obstacle == 3){										// cigla
+		return 1;
+	}else if(obstacle == 5){								// enemie
 		find_enemie(x, y);
 		return 3;
-	}else if(obstacle == 2){			// blok
+	}else if(obstacle == 2){								// blok
 		return -1;
-	}else if(obstacle == 1){				// bomberman
+	}else if(find_bomberman(mario, x,y)==1){				// bomberman
 		return 2;
 	}else{
 		return 0;
 	}
 }
 
-static int destroy_bomberman(unsigned char * map,characters * mario)
-{
-	unsigned int xX;
-	unsigned int yY;
-
-	xX=mario->x;
-	yY=mario->y;
-
-	if(map1[yY+1][xX]==6)
-	{
-		map1[2][35]=0;
-	}
-	else if(map1[yY][xX+1]==6)
-	{
-		map1[2][35]=0;
-	}else if(map1[yY-1][xX]==6){
-		map1[2][35]=0;
-	}
-	else if(map1[yY][xX-1]==6){
-		map1[2][35]=0;
-	}
-
-
-}
 
 static void destroy(unsigned char * map, int x, int y, characters * mario){
 	int obstackle = 0;
 	int mapPart = 0;
-	unsigned int xB;
-	unsigned int yB;
+
 	//Right destroy
-
-	xB=mario->x;
-	yB=mario->y;
-
-
-
-
-
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 0);
-	if(destroy_direction(x+1, y, obstackle) == 1){
+	if(destroy_direction(x+1, y, obstackle, mario) == 1){
 		map1[y][x+1] = 0;
-
-	}else if (destroy_direction(x+1, y, obstackle) == 3){
+	}else if (destroy_direction(x+1, y, obstackle, mario) == 3){
 		map1[y][x+1]=0;
-
 		if(++enemieCnt==2){
 			map1[12][18]=4;
 		}
-
+	}else if(destroy_direction(x+1,y,obstackle, mario )==2){
+		map1[2][35]=4;
 	}
-	else if(destroy_direction(x+1, y, obstackle) == 0) {
+	else if(destroy_direction(x+1, y, obstackle, mario) == 0) {
 		obstackle = obstackles_detection(x*16+16, y*16, mapPart, map, 0);
-		if(destroy_direction(x+2, y, obstackle) == 1){
+		if(destroy_direction(x+2, y, obstackle, mario) == 1){
 				map1[y][x+2] = 0;
-
-		}
-		else if (destroy_direction(x+1, y, obstackle) == 3){
+		}else if (destroy_direction(x+2, y, obstackle,mario) == 3){
 				map1[y][x-1]=0;
 				if(++enemieCnt==2){
 					map1[12][18]=4;
 				}
-			}
+		}else if(destroy_direction(x+2,y,obstackle, mario )==2){
+			map1[2][35]=4;
+		}
 	}
 
 	//Left destroy
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 1);
-	if(destroy_direction(x-1, y, obstackle) == 1){
+	if(destroy_direction(x-1, y, obstackle,mario) == 1){
 		map1[y][x-1] = 0;
 	}
-	else if (destroy_direction(x+1, y, obstackle) == 3){
+	else if (destroy_direction(x-1, y, obstackle,mario) == 3){
 			map1[y][x-1]=0;
 			if(++enemieCnt==2){
 				map1[12][18]=4;
 			}
-		}
-	else if(destroy_direction(x-1, y, obstackle) == 0) {
+	}else if(destroy_direction(x-1,y,obstackle, mario )==2){
+		map1[2][35]=4;
+	}
+	else if(destroy_direction(x-1, y, obstackle,mario) == 0) {
 		map1[mario->y+1][mario->x]=4;
 		obstackle = obstackles_detection(x*16-16, y*16, mapPart, map, 1);
-		if(destroy_direction(x-2, y, obstackle) == 1){
+		if(destroy_direction(x-2, y, obstackle,mario) == 1){
 				map1[y][x-2] = 0;
-
-		}
-		else if (destroy_direction(x+1, y, obstackle) == 3){
+		}else if (destroy_direction(x-2, y, obstackle,mario) == 3){
 				map1[y][x-1]=0;
 				if(++enemieCnt==2){
 					map1[12][18]=4;
 				}
-			}
+		}else if(destroy_direction(x-2,y,obstackle, mario )==2){
+			map1[2][35]=4;
+		}
 	}
 
 	//Up destroy
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 2);
-	if(destroy_direction(x, y-1, obstackle) == 1){
+	if(destroy_direction(x, y-1, obstackle,mario) == 1){
 		map1[y-1][x] = 0;
-	}else if (destroy_direction(x+1, y, obstackle) == 3){
+	}else if (destroy_direction(x, y-1, obstackle,mario) == 3){
 		map1[y-1][x]=0;
 		if(++enemieCnt==2){
 			map1[12][18]=4;
 		}
+	}else if(destroy_direction(x,y-1,obstackle, mario )==2){
+		map1[2][35]=4;
 	}
-	else if(destroy_direction(x, y-1, obstackle) == 0) {
+	else if(destroy_direction(x, y-1, obstackle,mario) == 0) {
 		obstackle = obstackles_detection(x*16, y*16-16, mapPart, map, 2);
-		if(destroy_direction(x, y-2, obstackle) == 1){
+		if(destroy_direction(x, y-2, obstackle,mario) == 1){
 				map1[y-2][x] = 0;
-
-		}
-		else if (destroy_direction(x+1, y, obstackle) == 3){
+		}else if (destroy_direction(x, y-2, obstackle,mario) == 3){
 				map1[y][x-1]=0;
 				if(++enemieCnt==2){
 					map1[12][18]=4;
 				}
-			}
+		}else if(destroy_direction(x,y-2,obstackle, mario )==2){
+			map1[2][35]=4;
+		}
 	}
 
 	//Down destroy
 	obstackle = obstackles_detection(x*16, y*16, mapPart, map, 3);
-	if(destroy_direction(x, y+1, obstackle) == 1){
+	if(destroy_direction(x, y+1, obstackle,mario) == 1){
 		map1[y+1][x] = 0;
-	}else if (destroy_direction(x+1, y, obstackle) == 3){
+	}else if (destroy_direction(x, y+1, obstackle,mario) == 3){
 		map1[y+1][x]=0;
 		if(++enemieCnt==2){
 			map1[12][18]=4;
 		}
+	}else if(destroy_direction(x,y+1,obstackle, mario )==2){
+		map1[2][35]=4;
 	}
-	else if(destroy_direction(x, y+1, obstackle) == 0) {
+	else if(destroy_direction(x, y+1, obstackle,mario) == 0) {
 		obstackle = obstackles_detection(x*16, y*16+16, mapPart, map, 3);
-		if(destroy_direction(x, y+2, obstackle) == 1){
+		if(destroy_direction(x, y+2, obstackle,mario) == 1){
 			map1[y+2][x] = 0;
-
-		}
-		else if (destroy_direction(x+1, y, obstackle) == 3){
+		}else if (destroy_direction(x, y+2, obstackle,mario) == 3){
 				map1[y][x-1]=0;
 				if(++enemieCnt==2){
 					map1[12][18]=4;
 				}
-			}
+		}else if(destroy_direction(x,y+2,obstackle, mario )==2){
+			map1[2][35]=4;
+		}
 	}
 
 }
@@ -607,9 +583,6 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 static void random_move_enemy(unsigned int *x, unsigned int *y, unsigned int type)
 {
 	int i = 0;
-
-
-
 	int t = rand() % 4;
 	int obstacle = obstackles_detection(*x*16, *y*16, 0, map1, t);
 
@@ -633,22 +606,16 @@ static void random_move_enemy(unsigned int *x, unsigned int *y, unsigned int typ
 		}
 	}
 
-
 	for (i = 0; i < 100000; i++) {
 			}
 }
 
 void battle_city() {
-
 	unsigned int buttons;
 	int i;
 
-
-
-
 	map_reset(map1);
 	map_update(&bomberman);
-
 	chhar_spawn(&bomberman);
 
 	int bomb_act = 0;
@@ -657,8 +624,6 @@ void battle_city() {
 	int roundX;
 	int roundY;
 	int cnt = 15;
-
-
 
 	map1[enemy1Y][enemy1X] = 5;
 
@@ -669,7 +634,6 @@ void battle_city() {
 	map1[enemy4Y][enemy4X] = 5;
 
 	while (1) {
-
 		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
 
 		direction_t d = DIR_STILL;
@@ -690,20 +654,12 @@ void battle_city() {
 			bomb_act = 1;
 		}
 
-
-
 		if(--cnt == 0){
 			map1[roundY][roundX] = 0;
 			cnt = 15;
 			destroy(map1, roundX, roundY, &bomberman);
-			//destroy_bomberman(map1, &bomberman);
-			//map_update(&bomberman);
-
 			bomb_act = 0;
-			//enemie1.type = 0;
-
 		}
-
 
 		random_move_enemy(&enemie1.x, &enemie1.y, enemie1.type);
 		random_move_enemy(&enemie2.x, &enemie2.y, enemie2.type);
