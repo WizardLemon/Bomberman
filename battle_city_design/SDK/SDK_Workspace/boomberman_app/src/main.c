@@ -39,6 +39,8 @@ int main()
 {
     init_platform();
 
+    xil_printf("Hello World\n\r");
+
     battle_city();
 
     return 0;
