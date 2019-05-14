@@ -1,0 +1,41 @@
+3 programa:
+	Boomberman 	- prva program, samo mapa, lik i kretanje
+	bomberman_app1	- drugi program, mapa lik i protivnici, jako baguje
+	boomberman_app 	- glavni, zavrseni deo
+
+bomberman_app1 bugs:
+	-protivnici neunistivi
+	-bomberman ne gubi zivote
+	-bomba se ne pojavi svaki put
+	-bombe nasumicno eksplodiraju
+	-nikakva interakcija sa protivnicima, samo sa ciglama
+
+bomberman_app bugs:
+	-prikaz zivota ne radi kako treba
+	-bomberman prolazi kroz protivnike
+	-bombe se nekad ne iscrtaju
+	-neprijatelji nekad nestanu pa se ponovo pojave iako nisu unisteni
+	-u donjem levom delu mape, levi zid ima jedno polje koje moze da se unisti, ali ne radi svaki put
+	-bombe nasumicno eksplodiraju, mozda tako i treba, ali nekad bude previse brzo	
+	
+todo:
+	-ispraviti dokumentaciju i dodati komentare za funkcije
+	-promeniti imena promenljivih da imaju smisla
+	-ispraviti pravopisne i gramaticke greske
+
+	-popraviti prikaz zivota
+	-dodati eksploziju za bombe
+	-mozda da bomberman krene da treperi kad izgubi zivot
+
+	-dodati interakciju sa protivnicima, ili da ih bomberman zaustavi ili da gubi zivot kad ih dodirne
+	-mozda da se sporije krecu?
+
+	-game over i game won ulepsati
+	-splash screen
+	-poraditi na grafici
+
+	
+
+beleske:
+	u mapi 0 je background, 1 je bomberman, 2 su blokovi, 3 su ciglice, 4 vrata, 5 neprijatelj, 6 bomba
+	ako se jedan protivnik spawnuje u cigli, nijedan se ne spawnuje posle njega

@@ -13,30 +13,30 @@
  */
 
 // ***** 16x16 IMAGES *****
-#define IMG_16x16_block			0x017F //2 - blok
-#define IMG_16x16_enemie			0x023F //5 - nepr
-#define IMG_16x16_bckgnd			0x027F //0 - poz
-#define IMG_16x16_door		0x01FF //4 - vrata
-#define IMG_16x16_bomberman			0x013F //1 - bomberm
-#define IMG_16x16_brick	0x01BF //3 - cigla
-#define IMG_16x16_bomb 		0x00FF //6 - bomba
+#define IMG_16x16_block			0x017F 		//2 - blok
+#define IMG_16x16_enemie		0x023F 		//5 - nepr
+#define IMG_16x16_bckgnd		0x027F 		//0 - poz
+#define IMG_16x16_door			0x01FF 		//4 - vrata
+#define IMG_16x16_bomberman		0x013F 		//1 - bomberm
+#define IMG_16x16_brick			0x01BF 		//3 - cigla
+#define IMG_16x16_bomb 			0x00FF 		//6 - bomba
 // ***** MAP *****
 
-#define MAP_BASE_ADDRESS			0x02BF // MAP_OFFSET in battle_city.vhd
-#define MAP_X							0
-#define MAP_X2							640
-#define MAP_Y							4
-#define MAP_W							64
-#define MAP_H							56
+#define MAP_BASE_ADDRESS		0x02BF 	// MAP_OFFSET in battle_city.vhd
+#define MAP_X					0
+#define MAP_X2					640
+#define MAP_Y					4
+#define MAP_W					64
+#define MAP_H					56
 
-#define REGS_BASE_ADDRESS               ( MAP_BASE_ADDRESS + MAP_WIDTH * MAP_HEIGHT )
-//#define REGS_BASE_ADDRESS               (5439)
+#define REGS_BASE_ADDRESS       ( MAP_BASE_ADDRESS + MAP_WIDTH * MAP_HEIGHT )
+//#define REGS_BASE_ADDRESS     (5439)
 
-#define BTN_DOWN( b )                   ( !( b & 0x01 ) )
-#define BTN_UP( b )                     ( !( b & 0x10 ) )
-#define BTN_LEFT( b )                   ( !( b & 0x02 ) )
-#define BTN_RIGHT( b )                  ( !( b & 0x08 ) )
-#define BTN_SHOOT( b )                  ( !( b & 0x04 ) )
+#define BTN_DOWN( b )           ( !( b & 0x01 ) )
+#define BTN_UP( b )             ( !( b & 0x10 ) )
+#define BTN_LEFT( b )           ( !( b & 0x02 ) )
+#define BTN_RIGHT( b )          ( !( b & 0x08 ) )
+#define BTN_SHOOT( b )          ( !( b & 0x04 ) )
 
 #define TANK1_REG_L                     8
 #define TANK1_REG_H                     9
@@ -59,7 +59,7 @@
 #define BASE_REG_L						0
 #define BASE_REG_H	                    1
 
-
+// ***** GLOBAL VARIABLES *****
 int lives = 0;
 int score = 0;
 int mapPart = 1;
@@ -71,6 +71,8 @@ int enemieCnt;
 int bW;
 int lifeDestroyR=-1;
 
+
+// ***** ENEMY SPAWN LOCATIONS *****
 #define enemy1X 19
 #define enemy1Y 3
 
@@ -83,14 +85,17 @@ int lifeDestroyR=-1;
 #define enemy4X 8
 #define enemy4Y 18
 
+// definicija za true i false
 typedef enum {
 	b_false, b_true
 } bool_t;
 
+// definicija za directione
 typedef enum {
 	DIR_LEFT, DIR_RIGHT, DIR_UP, DIR_DOWN, DIR_STILL, BOMB
 } direction_t;
 
+// struktura koja sadrzi osobine bombermana
 typedef struct {
 	unsigned int x;
 	unsigned int y;
@@ -103,6 +108,7 @@ typedef struct {
 	unsigned int reg_h;
 } characters;
 
+// struktura koja sadrzi osobine protivnika
 typedef struct{
 	unsigned int x;
 	unsigned int y;
@@ -111,41 +117,47 @@ typedef struct{
 	unsigned int destroyed;
 } enemie;
 
-characters bomberman = { 128,	         // x
-		49, 		                     // y
+characters bomberman = {
+		128,	         				 // x trenutni
+		49, 		                     // y trenutni
 		DIR_RIGHT,              		 // dir
 		IMG_16x16_bomberman,  			 // type
 
-		b_false,                		 // destroyed
+		b_false,                		 // destroyed, false znaci da je ziv
 
-		TANK1_REG_L,            		 // reg_l
-		TANK1_REG_H             		 // reg_h
+		TANK1_REG_L,            		 // reg_l ?
+		TANK1_REG_H             		 // reg_h ?
 		};
 
-enemie enemie1 = { enemy1X,				// x
+enemie enemie1 = {
+		enemy1X,						// x
 		enemy1Y,						// y
-		5,              		        // dir
-		0
+		5,              		        // tip objekta, 5 je za protivnike
+		0								// destroyed, 0 znaci da je ziv, 1 da je mrtav, unsigned int
 };
 
-enemie enemie2 = { enemy2X,			    // x
+enemie enemie2 = {
+		enemy2X,			    		// x
 		enemy2Y,						// y
-		5,              		        // dir
-		0
+		5,              		        // tip objekta, 5 je za protivnike
+		0								// destroyed, 0 znaci da je ziv, 1 da je mrtav, unsigned int
 };
 
-enemie enemie3 = { enemy3X,				// x
+enemie enemie3 = {
+		enemy3X,						// x
 		enemy3Y,						// y
-		5,              		        // dir
-		0
+		5,              		        // tip objekta, 5 je za protivnike
+		0								// destroyed, 0 znaci da je ziv, 1 da je mrtav, unsigned int
 };
 
-enemie enemie4 = { enemy4X,				// x
+enemie enemie4 = {
+		enemy4X,						// x
 		enemy4Y,						// y
-		5,              		        // dir
-		0
+		5,              		        // tip objekta, 5 je za protivnike
+		0								// destroyed, 0 znaci da je ziv, 1 da je mrtav, unsigned int
 };
 
+// random generator, nije za kretanje protivnika, ako ova funkcija ne radi ona se lik ne krece i treperi
 unsigned int rand_lfsr113(void) {
 	static unsigned int z1 = 12345, z2 = 12345;
 	unsigned int b;
@@ -158,6 +170,7 @@ unsigned int rand_lfsr113(void) {
 	return (z1 ^ z2);
 }
 
+// chhar promenljiva je tip karaktera koji treba postaviti na mapu
 static void chhar_spawn(characters * chhar) {
 	Xil_Out32(
 			XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + chhar->reg_l ),

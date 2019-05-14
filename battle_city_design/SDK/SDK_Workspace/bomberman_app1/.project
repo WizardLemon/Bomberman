@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>bomberman_app1</name>
-	<comment>bomb_bsp - microblaze_0</comment>
+	<comment></comment>
 	<projects>
+		<project>batle_city_bsp_0</project>
 		<project>bomb_bsp</project>
 	</projects>
 	<buildSpec>
