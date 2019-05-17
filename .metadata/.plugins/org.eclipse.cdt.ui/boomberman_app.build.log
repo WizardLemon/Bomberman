@@ -1,4 +1,4 @@
-16:15:19 **** Auto Build of configuration Debug for project boomberman_app ****
+16:40:32 **** Auto Build of configuration Debug for project boomberman_app ****
 make all 
 'Building file: ../src/battle_city.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -12,10 +12,11 @@ mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0
 ../src/battle_city.c: In function 'battle_city':
 ../src/battle_city.c:750:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
 ../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
-../src/battle_city.c:793:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:802:5: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
 ../src/battle_city.c:518:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
-../src/battle_city.c:806:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:816:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
 ../src/battle_city.c:361:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:760:6: warning: unused variable 'bombs_tick_counter' [-Wunused-variable]
 ../src/battle_city.c:748:6: warning: unused variable 'mapChange' [-Wunused-variable]
 ../src/battle_city.c: At top level:
 ../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
@@ -29,7 +30,7 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -m
 'Invoking: MicroBlaze Print Size'
 mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+  25084	   5012	   2160	  32256	   7e00	boomberman_app.elf
 'Finished building: boomberman_app.elf.size'
 ' '
 'Invoking: Xilinx ELF Check'
@@ -46,5 +47,5 @@ elfcheck passed.
 'Finished building: boomberman_app.elf.elfcheck'
 ' '
 
-16:15:21 Build Finished (took 1s.675ms)
+16:40:34 Build Finished (took 1s.477ms)
 

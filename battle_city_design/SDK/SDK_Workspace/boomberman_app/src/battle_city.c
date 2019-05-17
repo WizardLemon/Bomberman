@@ -164,7 +164,7 @@ enemy enemy4 = {
 // random generator, nije za kretanje protivnika, ako ova funkcija ne radi ona se lik ne krece i treperi
 static void place_explosion(int x, int y, unsigned char ** map, unsigned char bomb_power) {
 	int i;
-	for(i = 0; i < bomb_power; i++) {
+	for(i = 1; i <= bomb_power; i++) {
 		int obstacle_left = obstacles_detection(x, y, map1, DIR_LEFT, i);
 		int obstacle_right = obstacles_detection(x, y, map1, DIR_RIGHT, i);
 		int obstacle_up = obstacles_detection(x, y, map1, DIR_UP, i);
@@ -751,12 +751,15 @@ void battle_city() {
 	map_update(&bomberman);
 	char_spawn(&bomberman);
 
-	int bomb_act = 0;
+	int active_bombs = 0;
 	float xX;
 	float yY;
 	int roundX;
 	int roundY;
-	int cnt = 15;
+	int bombs_coordinates[3][2], active_bombs_index = 0, exploding_bombs_index = 0;
+	int bombs_tick_counter[3];
+	int cnt;
+	int pom;
 
 	map1[enemy1Y][enemy1X] = 5;
 
@@ -778,23 +781,30 @@ void battle_city() {
 			d = DIR_UP;
 		} else if (BTN_DOWN(buttons)){
 			d = DIR_DOWN;
-		}else if(BTN_SHOOT(buttons) && bomb_act == 0){
+		}else if(BTN_SHOOT(buttons) && active_bombs <= 2){
 			xX = bomberman.x;
 			yY = bomberman.y;
 			roundX = floor(xX/16);
 			roundY = floor(yY/16);
-			map1[roundY][roundX] = BOMB;
-			bomb_act = 1;
+
+			pom = (active_bombs_index++)%3;
+			bombs_coordinates[pom][0] = roundX;
+			bombs_coordinates[pom][1] = roundY;
+			map1[bombs_coordinates[pom][0]][bombs_coordinates[pom][1]] = BOMB;
+			active_bombs++;
 		}
 		//Ovde se ulazi kad istekne bomba
-		if(--cnt == 0){
-			map1[roundY][roundX] = BACKGROUND;
-			cnt = 25;
-			destroy(map1, roundX, roundY, &bomberman);
-			//place_explosion(roundY, roundX, map1, 1);
-			bomb_act = 0;
-			roundX=0;
-			roundY=0;
+		if(active_bombs > 0){
+			if(--cnt <= 0){
+				pom = (exploding_bombs_index++)%3;
+				map1[bombs_coordinates[pom][0]][bombs_coordinates[pom][1]] = BACKGROUND;
+				cnt = 25;
+				destroy(map1, roundX, roundY, &bomberman);
+
+				active_bombs--;
+				roundX=0;
+				roundY=0;
+			}
 		}
 
 		random_move_enemy(&enemy1.x, &enemy1.y, enemy1.type);
