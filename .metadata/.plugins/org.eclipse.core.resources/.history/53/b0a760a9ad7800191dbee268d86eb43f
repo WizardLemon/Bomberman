@@ -309,7 +309,11 @@ static void map_reset(unsigned char * map) {
 }
 
 int obstacles_detection(int x, int y, int deoMape, unsigned char * map, int dir, int position_distance) {
-	if(position_distance > 0) {
+	if(positin_distance > 0) {
+		unsigned char position_right;
+		unsigned char position_left;
+		unsigned char position_up;
+		unsigned char position_down;
 
 		float Xx = x;
 		float Yy = y;
@@ -320,10 +324,10 @@ int obstacles_detection(int x, int y, int deoMape, unsigned char * map, int dir,
 		roundX = floor(Xx / 16);
 		roundY = floor(Yy / 16);
 
-		unsigned char position_right = map1[roundY][roundX + position_distance];
-		unsigned char position_left = map1[roundY][roundX - position_distance];
-		unsigned char position_up = map1[roundY - position_distance][roundX];
-		unsigned char position_down = map1[roundY + position_distance][roundX];
+		position_right = map1[roundY][roundX + position_distance];
+		position_left = map1[roundY][roundX - position_distance];
+		position_up = map1[roundY - position_distance][roundX];
+		position_down = map1[roundY + position_distance][roundX];
 		if (dir == 0) {
 			if(position_right == 4) {
 				return 0;
@@ -791,7 +795,7 @@ void battle_city() {
 			map1[roundY][roundX] = BACKGROUND;
 			cnt = 25;
 			destroy(map1, roundX, roundY, &bomberman);
-			//place_explosion(roundY, roundX, map1, 1);
+			place_explosion(roundY, roundX, map1, 1);
 			bomb_act = 0;
 			roundX=0;
 			roundY=0;

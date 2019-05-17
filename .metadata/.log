@@ -1,0 +1,35 @@
+!SESSION 2019-05-17 15:39:28.763 -----------------------------------------------
+eclipse.buildId=Release 14.6 Build SDK_P.68d
+java.version=1.6.0_21
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sr
+Command-line arguments:  -data D:\ra126-2016\Bomberman -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-17 15:41:58.001
+!MESSAGE Indexed 'boomberman_app' (5 sources, 41 headers) in 0.61 sec: 2,189 declarations; 3,009 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-17 15:41:58.319
+!MESSAGE Indexed 'bomberman_app1' (5 sources, 39 headers) in 0.31 sec: 2,161 declarations; 2,514 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-17 15:41:58.650
+!MESSAGE Indexed 'batle_city_bsp_0' (30 sources, 26 headers) in 0.33 sec: 718 declarations; 3,454 references; 5 unresolved inclusions; 0 syntax errors; 58 unresolved names (1.37%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-17 15:41:58.885
+!MESSAGE Indexed 'Boomberman' (5 sources, 31 headers) in 0.23 sec: 2,015 declarations; 2,205 references; 5 unresolved inclusions; 0 syntax errors; 6 unresolved names (0.14%)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-05-17 16:13:58.194
+!MESSAGE An internal error occurred during: "Launching boomberman_app.elf".
+!STACK 0
+java.lang.RuntimeException: No Target with ID 0 in the System
+
+
+	at com.xilinx.sdk.targetmanager.internal.TM.stop(Unknown Source)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.stopRun(Unknown Source)
+	at com.xilinx.sdk.debug.core.internal.RemoteProcess.terminate(Unknown Source)
+	at org.eclipse.debug.core.Launch.terminate(Launch.java:252)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(Unknown Source)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

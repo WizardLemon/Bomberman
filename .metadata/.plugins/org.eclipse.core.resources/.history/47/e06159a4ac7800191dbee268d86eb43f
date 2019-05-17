@@ -228,25 +228,25 @@ static void map_update(characters * mario) {
 				addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
 						+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
 				switch (map1[y][x]) {								//ovde menjam mapu
-				case BACKGROUND:
+				case 0:
 					Xil_Out32(addr, IMG_16x16_bckgnd);
 					break;
-				case BOMBERMAN:
+				case 1:
 					Xil_Out32(addr, IMG_16x16_bomberman);
 					break;
-				case BLOCK:
+				case 2:
 					Xil_Out32(addr, IMG_16x16_block);
 					break;
-				case BRICK:
+				case 3:
 					Xil_Out32(addr, IMG_16x16_brick);
 					break;
-				case DOOR:
+				case 4:
 					Xil_Out32(addr, IMG_16x16_door);
 					break;
-				case ENEMY:
+				case 5:
 					Xil_Out32(addr, IMG_16x16_enemy);
 					break;
-				case BOMB:
+				case 6:
 					Xil_Out32(addr, IMG_16x16_bomb);
 					break;
 				default:
@@ -308,8 +308,12 @@ static void map_reset(unsigned char * map) {
 	}
 }
 
-int obstacles_detection(int x, int y, int deoMape, unsigned char * map, int dir, int position_distance) {
-	if(position_distance > 0) {
+int obstacles_detection(int x, int y, int deoMape, unsigned char * map, int dir, int positin_distance) {
+	if(positin_distance > 0) {
+		unsigned char position_right;
+		unsigned char position_left;
+		unsigned char position_up;
+		unsigned char position_down;
 
 		float Xx = x;
 		float Yy = y;
@@ -320,10 +324,10 @@ int obstacles_detection(int x, int y, int deoMape, unsigned char * map, int dir,
 		roundX = floor(Xx / 16);
 		roundY = floor(Yy / 16);
 
-		unsigned char position_right = map1[roundY][roundX + position_distance];
-		unsigned char position_left = map1[roundY][roundX - position_distance];
-		unsigned char position_up = map1[roundY - position_distance][roundX];
-		unsigned char position_down = map1[roundY + position_distance][roundX];
+		position_right = map1[roundY][roundX + positin_distance];
+		position_left = map1[roundY][roundX - positin_distance];
+		position_up = map1[roundY - positin_distance][roundX];
+		position_down = map1[roundY + positin_distance][roundX];
 		if (dir == 0) {
 			if(position_right == 4) {
 				return 0;
@@ -416,7 +420,7 @@ static void find_enemy(int x, int y){
 	}
 }
 
-static int bomberman_and_enemy(characters *mario)
+static int bombermanAndenemy(characters *mario)
 {
 	unsigned int xX;
 	unsigned int yY;
@@ -521,10 +525,12 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 	int fB=0;
 	int bE=0;
 
+
+
 	//Right destroy
 	obstacle = obstacles_detection(x*16, y*16, mapPart, map, 0, 1);
 	fB = find_bomberman(mario, x,y);
-	bE=bomberman_and_enemy(mario);
+	bE=bombermanAndenemy(mario);
 	bW=bomberman_win(mario);
 	if(bW==1){
 		map_update(mario);
@@ -552,7 +558,7 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 	else if(destroy_direction(x+1, y, obstacle, mario, fB, bE) == 0) {
 		obstacle = obstacles_detection(x*16+16, y*16, mapPart, map, 0, 1);
 		fB = find_bomberman(mario, x,y);
-		bE=bomberman_and_enemy(mario);
+		bE=bombermanAndenemy(mario);
 		if(destroy_direction(x+2, y, obstacle, mario, fB, bE) == 1){
 				map1[y][x+2] = 0;
 		}else if (destroy_direction(x+2, y, obstacle,mario, fB, bE) == 3){
@@ -575,7 +581,7 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 	//Left destroy
 	obstacle = obstacles_detection(x*16, y*16, mapPart, map, 1, 1);
 	fB = find_bomberman(mario, x,y);
-	bE=bomberman_and_enemy(mario);
+	bE=bombermanAndenemy(mario);
 	if(destroy_direction(x-1, y, obstacle,mario, fB, bE) == 1){
 		map1[y][x-1] = 0;
 	}
@@ -598,7 +604,7 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 		map1[mario->y+1][mario->x]=4;
 		obstacle = obstacles_detection(x*16-16, y*16, mapPart, map, 1, 1);
 		fB = find_bomberman(mario, x,y);
-		bE=bomberman_and_enemy(mario);
+		bE=bombermanAndenemy(mario);
 		if(destroy_direction(x-2, y, obstacle,mario, fB, bE) == 1){
 				map1[y][x-2] = 0;
 		}else if (destroy_direction(x-2, y, obstacle,mario, fB, bE) == 3){
@@ -621,7 +627,7 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 	//Up destroy
 	obstacle = obstacles_detection(x*16, y*16, mapPart, map, 2, 1);
 	fB = find_bomberman(mario, x,y);
-	bE=bomberman_and_enemy(mario);
+	bE=bombermanAndenemy(mario);
 	if(destroy_direction(x, y-1, obstacle,mario, fB, bE) == 1){
 		map1[y-1][x] = 0;
 	}else if (destroy_direction(x, y-1, obstacle,mario, fB, bE) == 3){
@@ -642,7 +648,7 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 	else if(destroy_direction(x, y-1, obstacle,mario, fB, bE) == 0) {
 		obstacle = obstacles_detection(x*16, y*16-16, mapPart, map, 2, 1);
 		fB = find_bomberman(mario, x,y);
-		bE=bomberman_and_enemy(mario);
+		bE=bombermanAndenemy(mario);
 		if(destroy_direction(x, y-2, obstacle,mario, fB, bE) == 1){
 				map1[y-2][x] = 0;
 		}else if (destroy_direction(x, y-2, obstacle,mario, fB, bE) == 3){
@@ -665,7 +671,7 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 	//Down destroy
 	obstacle = obstacles_detection(x*16, y*16, mapPart, map, 3, 1);
 	fB = find_bomberman(mario, x,y);
-	bE=bomberman_and_enemy(mario);
+	bE=bombermanAndenemy(mario);
 	if(destroy_direction(x, y+1, obstacle,mario, fB, bE) == 1){
 		map1[y+1][x] = 0;
 	}else if (destroy_direction(x, y+1, obstacle,mario, fB, bE) == 3){
@@ -686,7 +692,7 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 	else if(destroy_direction(x, y+1, obstacle,mario, fB, bE) == 0) {
 		obstacle = obstacles_detection(x*16, y*16+16, mapPart, map, 3, 1);
 		fB = find_bomberman(mario, x,y);
-		bE=bomberman_and_enemy(mario);
+		bE=bombermanAndenemy(mario);
 		if(destroy_direction(x, y+2, obstacle,mario, fB, bE) == 1){
 			map1[y+2][x] = 0;
 		}else if (destroy_direction(x, y+2, obstacle,mario, fB, bE) == 3){
@@ -783,15 +789,14 @@ void battle_city() {
 			yY = bomberman.y;
 			roundX = floor(xX/16);
 			roundY = floor(yY/16);
-			map1[roundY][roundX] = BOMB;
+			map1[roundY][roundX] = 6;
 			bomb_act = 1;
 		}
-		//Ovde se ulazi kad istekne bomba
+
 		if(--cnt == 0){
-			map1[roundY][roundX] = BACKGROUND;
+			map1[roundY][roundX] = 0;
 			cnt = 25;
 			destroy(map1, roundX, roundY, &bomberman);
-			//place_explosion(roundY, roundX, map1, 1);
 			bomb_act = 0;
 			roundX=0;
 			roundY=0;
@@ -804,6 +809,7 @@ void battle_city() {
 
 		int start_jump = 0;
 		mario_move(map1, &bomberman, d, start_jump);
+
 
 		map_update(&bomberman);
 

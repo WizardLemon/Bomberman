@@ -791,7 +791,7 @@ void battle_city() {
 			map1[roundY][roundX] = BACKGROUND;
 			cnt = 25;
 			destroy(map1, roundX, roundY, &bomberman);
-			//place_explosion(roundY, roundX, map1, 1);
+			place_explosion(roundY, roundX, map1, 1);
 			bomb_act = 0;
 			roundX=0;
 			roundY=0;

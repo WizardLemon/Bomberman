@@ -1,0 +1,2299 @@
+15:41:57 **** Build of project batle_city_bsp_0 ****
+make -k all 
+libgen -hw ../battle_city_design_hw_platform/system.xml\
+	       \
+	       -pe microblaze_0 \
+	       -log libgen.log \
+	       system.mss
+libgen
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: libgen -hw ../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 -log libgen.log system.mss 
+
+
+Staging source files.
+Running DRCs.
+Running generate.
+Running post_generate.
+Running include - 'make -s include "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mlittle-endian -mno-xl-soft-mul -mxl-barrel-shift
+-mxl-pattern-compare -mcpu=v8.50.b  -O2 -c" "EXTRA_COMPILER_FLAGS=-g
+-ffunction-sections -fdata-sections"'.
+
+Running libs - 'make -s libs "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mlittle-endian -mno-xl-soft-mul -mxl-barrel-shift
+-mxl-pattern-compare -mcpu=v8.50.b  -O2 -c" "EXTRA_COMPILER_FLAGS=-g
+-ffunction-sections -fdata-sections"'.
+"Compiling common"
+"Compiling standalone";
+"Compiling uartlite"
+"Compiling gpio"
+"Compiling bram"
+"Compiling cpu"
+Running execs_generate.
+'Finished building libraries'
+15:42:11 **** Build of configuration Debug for project Boomberman ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'mario_move':
+../src/battle_city.c:387:9: warning: unused variable 'j' [-Wunused-variable]
+../src/battle_city.c: In function 'set_bomb':
+../src/battle_city.c:435:6: warning: passing argument 1 of 'chhar_spawn' from incompatible pointer type [enabled by default]
+../src/battle_city.c:200:13: note: expected 'struct characters *' but argument is of type 'struct characters **'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:447:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:247:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:482:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:383:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:444:6: warning: unused variable 'block' [-Wunused-variable]
+../src/battle_city.c:443:21: warning: unused variable 'jumpFlag' [-Wunused-variable]
+../src/battle_city.c:443:9: warning: unused variable 'change' [-Wunused-variable]
+../src/battle_city.c:442:36: warning: unused variable 'tmpUp' [-Wunused-variable]
+../src/battle_city.c:442:24: warning: unused variable 'tmpBtn' [-Wunused-variable]
+../src/battle_city.c: In function 'obstackles_detection':
+../src/battle_city.c:380:1: warning: control reaches end of non-void function [-Wreturn-type]
+'Finished building: ../src/battle_city.c'
+' '
+'Building file: ../src/bitmap.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/bitmap.d" -MT"src/bitmap.d" -o "src/bitmap.o" "../src/bitmap.c"
+'Finished building: ../src/bitmap.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.d" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/tools.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/tools.d" -MT"src/tools.d" -o "src/tools.o" "../src/tools.c"
+'Finished building: ../src/tools.c'
+' '
+'Building target: Boomberman.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "Boomberman.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Boomberman.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size Boomberman.elf  |tee "Boomberman.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  13756	   2568	   2148	  18472	   4828	Boomberman.elf
+'Finished building: Boomberman.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck Boomberman.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "Boomberman.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 Boomberman.elf 
+
+ELF file	: Boomberman.elf
+elfcheck passed.
+'Finished building: Boomberman.elf.elfcheck'
+' '
+15:42:13 **** Build of configuration Debug for project bomberman_app1 ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:469:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:470:2: warning: passing argument 4 of 'obstackles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:219:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:507:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:207:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:556:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:416:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:569:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:343:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'obstackles_detection':
+../src/battle_city.c:340:1: warning: control reaches end of non-void function [-Wreturn-type]
+'Finished building: ../src/battle_city.c'
+' '
+'Building file: ../src/bitmap.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/bitmap.d" -MT"src/bitmap.d" -o "src/bitmap.o" "../src/bitmap.c"
+'Finished building: ../src/bitmap.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.d" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/tools.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/tools.d" -MT"src/tools.d" -o "src/tools.o" "../src/tools.c"
+'Finished building: ../src/tools.c'
+' '
+'Building target: bomberman_app1.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "bomberman_app1.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: bomberman_app1.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size bomberman_app1.elf  |tee "bomberman_app1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  17192	   2604	   2148	  21944	   55b8	bomberman_app1.elf
+'Finished building: bomberman_app1.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck bomberman_app1.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "bomberman_app1.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 bomberman_app1.elf 
+
+ELF file	: bomberman_app1.elf
+elfcheck passed.
+'Finished building: bomberman_app1.elf.elfcheck'
+' '
+15:42:15 **** Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:755:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:756:2: warning: passing argument 4 of 'obstackles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:274:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:787:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:264:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:830:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:553:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:842:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:396:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:785:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: In function 'obstackles_detection':
+../src/battle_city.c:393:1: warning: control reaches end of non-void function [-Wreturn-type]
+'Finished building: ../src/battle_city.c'
+' '
+'Building file: ../src/bitmap.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/bitmap.d" -MT"src/bitmap.d" -o "src/bitmap.o" "../src/bitmap.c"
+'Finished building: ../src/bitmap.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.d" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/tools.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/tools.d" -MT"src/tools.d" -o "src/tools.o" "../src/tools.c"
+'Finished building: ../src/tools.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24964	   5012	   2160	  32136	   7d88	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:42:26 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:164:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:785:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:786:2: warning: passing argument 4 of 'obstackles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:304:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:817:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:294:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:860:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:583:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:872:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:426:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:815:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:161:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstackles_detection':
+../src/battle_city.c:423:1: warning: control reaches end of non-void function [-Wreturn-type]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24964	   5012	   2160	  32136	   7d88	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:42:41 **** Auto Build of project batle_city_bsp_0 ****
+make -k all 
+'Finished building libraries'
+15:42:48 **** Incremental Build of configuration Debug for project Boomberman ****
+make all 
+make: Ništa za napraviti za `all'.
+15:42:49 **** Incremental Build of configuration Debug for project bomberman_app1 ****
+make all 
+make: Ništa za napraviti za `all'.
+15:42:49 **** Incremental Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+15:44:21 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:100:1: error: expected identifier before '}' token
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:789:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:790:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:821:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:864:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:587:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:876:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:430:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:819:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:427:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:44:52 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:789:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:790:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:821:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:864:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:587:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:876:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:430:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:819:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:427:1: warning: control reaches end of non-void function [-Wreturn-type]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24964	   5012	   2160	  32136	   7d88	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:45:17 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:789:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:790:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:821:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:864:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:587:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:876:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:430:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:819:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:427:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:46:37 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:771:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:772:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:803:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:846:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:569:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:858:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:412:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:801:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:409:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:47:04 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:753:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:754:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:785:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:828:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:551:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:840:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:394:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:783:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:391:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:47:19 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:734:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:735:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:766:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:809:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:532:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:821:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:375:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:764:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:372:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:47:41 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:715:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:716:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:747:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:790:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:513:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:802:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:356:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:745:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:353:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:47:44 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:715:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:716:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:747:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:790:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:513:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:802:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:356:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:745:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:353:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:47:52 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'mario_move':
+../src/battle_city.c:367:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:372:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:377:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:382:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:522:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:550:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:573:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:596:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:619:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:640:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:663:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:684:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:715:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:716:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:716:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:747:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:790:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:513:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:802:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:356:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:745:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:353:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:47:54 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:715:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:716:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:747:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:790:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:513:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:802:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:356:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:745:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:353:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:49:00 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:309:5: error: 'i' undeclared (first use in this function)
+../src/battle_city.c:309:5: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c:357:15: error: invalid storage class for function 'mario_move'
+../src/battle_city.c: In function 'mario_move':
+../src/battle_city.c:368:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:373:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:378:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:383:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:403:13: error: invalid storage class for function 'find_enemy'
+../src/battle_city.c:415:12: error: invalid storage class for function 'bombermanAndenemy'
+../src/battle_city.c:438:12: error: invalid storage class for function 'find_bomberman'
+../src/battle_city.c:478:12: error: invalid storage class for function 'bomberman_win'
+../src/battle_city.c:492:12: error: invalid storage class for function 'destroy_direction'
+../src/battle_city.c:514:13: error: invalid storage class for function 'destroy'
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:523:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:551:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:574:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:597:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:620:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:641:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:664:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:685:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:713:13: error: invalid storage class for function 'random_move_enemy'
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:716:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:717:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:717:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:748:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:791:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:514:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:803:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:357:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:746:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:812:1: error: expected declaration or statement at end of input
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:812:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:49:07 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:309:5: error: 'i' undeclared (first use in this function)
+../src/battle_city.c:309:5: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c: In function 'mario_move':
+../src/battle_city.c:371:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:376:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:381:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:386:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:526:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:554:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:577:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:600:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:623:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:644:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:667:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:688:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:719:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:720:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:720:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:751:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:794:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:517:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:806:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:360:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:749:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:357:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:49:15 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:309:5: error: 'i' undeclared (first use in this function)
+../src/battle_city.c:309:5: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c: In function 'mario_move':
+../src/battle_city.c:373:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:378:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:383:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:388:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:528:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:556:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:579:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:602:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:625:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:646:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:669:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:690:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:722:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:359:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:49:31 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'mario_move':
+../src/battle_city.c:373:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:378:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:383:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:388:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:528:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:556:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:579:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:602:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:625:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:646:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:669:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:690:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:722:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+make: *** [src/battle_city.o] Greška 1
+15:49:57 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'mario_move':
+../src/battle_city.c:373:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:378:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:383:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:388:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:528:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:556:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:579:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:602:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:625:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:646:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:669:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:690:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:722:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+make: *** [src/battle_city.o] Greška 1
+15:50:22 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:52: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:528:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:556:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:579:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:602:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:625:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:646:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:669:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:690:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:722:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+make: *** [src/battle_city.o] Greška 1
+15:50:36 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:99:56: error: redeclaration of enumerator 'BOMB'
+../src/battle_city.c:95:52: note: previous definition of 'BOMB' was here
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:528:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:556:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:579:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:602:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:625:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:646:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:669:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:690:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:722:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+make: *** [src/battle_city.o] Greška 1
+15:50:42 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:528:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:556:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:579:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:602:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:625:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:646:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:669:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:690:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:722:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+make: *** [src/battle_city.o] Greška 1
+15:51:10 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'destroy':
+../src/battle_city.c:556:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:579:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:602:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:625:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:646:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:669:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c:690:3: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:722:2: error: too few arguments to function 'obstacles_detection'
+../src/battle_city.c:308:5: note: declared here
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+make: *** [src/battle_city.o] Greška 1
+15:51:39 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:51:46 **** Incremental Build of configuration Debug for project Boomberman ****
+make all 
+make: Ništa za napraviti za `all'.
+15:51:47 **** Incremental Build of configuration Debug for project bomberman_app1 ****
+make all 
+make: Ništa za napraviti za `all'.
+15:51:47 **** Incremental Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+15:53:31 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:324:3: error: 'position_right' undeclared (first use in this function)
+../src/battle_city.c:324:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c:310:17: warning: unused variable 'position_right_item' [-Wunused-variable]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:359:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+15:54:25 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:54:53 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:56:25 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:56:54 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:57:40 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:57:56 **** Incremental Build of configuration Debug for project Boomberman ****
+make all 
+make: Ništa za napraviti za `all'.
+15:57:57 **** Incremental Build of configuration Debug for project bomberman_app1 ****
+make all 
+make: Ništa za napraviti za `all'.
+15:57:57 **** Incremental Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+15:58:23 **** Auto Build of project batle_city_bsp_0 ****
+make -k all 
+'Finished building libraries'
+15:58:30 **** Incremental Build of configuration Debug for project Boomberman ****
+make all 
+make: Ništa za napraviti za `all'.
+15:58:30 **** Incremental Build of configuration Debug for project bomberman_app1 ****
+make all 
+make: Ništa za napraviti za `all'.
+15:58:31 **** Incremental Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+15:59:24 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:721:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:722:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:308:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:753:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:298:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:796:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:519:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:808:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:362:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:751:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+15:59:41 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:720:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:721:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:307:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:752:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:297:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:795:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:518:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:807:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:361:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:750:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:01:32 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:724:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:725:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:756:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:799:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:811:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:754:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:04:10 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:724:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:725:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:756:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:799:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:811:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:754:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:04:19 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:809:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:08:07 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:809:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:09:24 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:809:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:09:32 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:809:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:09:52 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:809:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:10:17 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:798:20: error: 'x' undeclared (first use in this function)
+../src/battle_city.c:798:20: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c:798:23: error: 'y' undeclared (first use in this function)
+../src/battle_city.c:798:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:810:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+make: *** [src/battle_city.o] Greška 1
+16:10:43 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:798:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:810:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25372	   5016	   2156	  32544	   7f20	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:11:20 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:312:5: error: 'positin_distance' undeclared (first use in this function)
+../src/battle_city.c:312:5: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:798:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:810:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:362:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/battle_city.o] Greška 1
+16:11:27 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:798:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:810:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25372	   5016	   2156	  32544	   7f20	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:11:42 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:327:17: error: redeclaration of 'position_right' with no linkage
+../src/battle_city.c:313:17: note: previous declaration of 'position_right' was here
+../src/battle_city.c:328:17: error: redeclaration of 'position_left' with no linkage
+../src/battle_city.c:314:17: note: previous declaration of 'position_left' was here
+../src/battle_city.c:329:17: error: redeclaration of 'position_up' with no linkage
+../src/battle_city.c:315:17: note: previous declaration of 'position_up' was here
+../src/battle_city.c:330:17: error: redeclaration of 'position_down' with no linkage
+../src/battle_city.c:316:17: note: previous declaration of 'position_down' was here
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:722:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:723:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:754:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:797:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:522:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:798:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:810:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:365:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:752:6: warning: unused variable 'mapChange' [-Wunused-variable]
+make: *** [src/battle_city.o] Greška 1
+16:11:47 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:718:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:719:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:750:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:793:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:518:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:794:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:806:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:361:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:748:6: warning: unused variable 'mapChange' [-Wunused-variable]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25372	   5016	   2156	  32544	   7f20	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:12:49 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'obstacles_detection':
+../src/battle_city.c:314:3: error: 'roundX' undeclared (first use in this function)
+../src/battle_city.c:314:3: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c:314:18: error: 'Xx' undeclared (first use in this function)
+../src/battle_city.c:315:3: error: 'roundY' undeclared (first use in this function)
+../src/battle_city.c:315:18: error: 'Yy' undeclared (first use in this function)
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:712:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:713:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:744:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:787:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:512:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:788:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:800:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:355:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:742:6: warning: unused variable 'mapChange' [-Wunused-variable]
+make: *** [src/battle_city.o] Greška 1
+16:12:53 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:718:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:719:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:750:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:793:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:518:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:794:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:806:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:361:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:748:6: warning: unused variable 'mapChange' [-Wunused-variable]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25372	   5016	   2156	  32544	   7f20	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:13:01 **** Incremental Build of configuration Debug for project Boomberman ****
+make all 
+make: Ništa za napraviti za `all'.
+16:13:01 **** Incremental Build of configuration Debug for project bomberman_app1 ****
+make all 
+make: Ništa za napraviti za `all'.
+16:13:02 **** Incremental Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+16:13:48 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:718:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:719:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:750:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:793:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:518:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:806:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:361:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:748:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:13:54 **** Incremental Build of configuration Debug for project Boomberman ****
+make all 
+make: Ništa za napraviti za `all'.
+16:13:55 **** Incremental Build of configuration Debug for project bomberman_app1 ****
+make all 
+make: Ništa za napraviti za `all'.
+16:13:55 **** Incremental Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+16:14:20 **** Auto Build of project batle_city_bsp_0 ****
+make -k all 
+'Finished building libraries'
+16:14:25 **** Incremental Build of configuration Debug for project Boomberman ****
+make all 
+make: Ništa za napraviti za `all'.
+16:14:25 **** Incremental Build of configuration Debug for project bomberman_app1 ****
+make all 
+make: Ništa za napraviti za `all'.
+16:14:26 **** Incremental Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+16:14:44 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:718:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:719:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:750:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:793:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:518:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:794:4: warning: passing argument 3 of 'place_explosion' from incompatible pointer type [enabled by default]
+../src/battle_city.c:165:13: note: expected 'unsigned char **' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:806:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:361:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:748:6: warning: unused variable 'mapChange' [-Wunused-variable]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  25372	   5016	   2156	  32544	   7f20	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+16:15:04 **** Incremental Build of configuration Debug for project Boomberman ****
+make all 
+make: Ništa za napraviti za `all'.
+16:15:05 **** Incremental Build of configuration Debug for project bomberman_app1 ****
+make all 
+make: Ništa za napraviti za `all'.
+16:15:05 **** Incremental Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+16:15:19 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:718:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:719:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:750:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:793:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:518:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:806:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:361:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:748:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '

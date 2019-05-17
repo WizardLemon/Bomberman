@@ -1,0 +1,50 @@
+16:15:19 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'place_explosion':
+../src/battle_city.c:168:3: warning: implicit declaration of function 'obstacles_detection' [-Wimplicit-function-declaration]
+../src/battle_city.c: In function 'random_move_enemy':
+../src/battle_city.c:718:2: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+../src/battle_city.c:719:2: warning: passing argument 4 of 'obstacles_detection' from incompatible pointer type [enabled by default]
+../src/battle_city.c:311:5: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c: In function 'battle_city':
+../src/battle_city.c:750:2: warning: passing argument 1 of 'map_reset' from incompatible pointer type [enabled by default]
+../src/battle_city.c:301:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:793:4: warning: passing argument 1 of 'destroy' from incompatible pointer type [enabled by default]
+../src/battle_city.c:518:13: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:806:3: warning: passing argument 1 of 'mario_move' from incompatible pointer type [enabled by default]
+../src/battle_city.c:361:15: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[40]'
+../src/battle_city.c:748:6: warning: unused variable 'mapChange' [-Wunused-variable]
+../src/battle_city.c: At top level:
+../src/battle_city.c:165:13: warning: 'place_explosion' defined but not used [-Wunused-function]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/bitmap.o ./src/main.o ./src/platform.o ./src/tools.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24684	   5012	   2160	  31856	   7c70	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+
+16:15:21 Build Finished (took 1s.675ms)
+
