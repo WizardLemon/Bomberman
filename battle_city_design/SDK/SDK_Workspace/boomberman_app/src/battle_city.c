@@ -162,7 +162,7 @@ enemy enemy4 = {
 };
 
 // random generator, nije za kretanje protivnika, ako ova funkcija ne radi ona se lik ne krece i treperi
-static void place_explosion(int x, int y, unsigned char ** map, unsigned char bomb_power) {
+static void detonate(int x, int y, unsigned char ** map, unsigned char bomb_power) {
 	int i;
 	for(i = 1; i <= bomb_power; i++) {
 		int obstacle_left = obstacles_detection(x, y, map1, DIR_LEFT, i);
@@ -171,25 +171,25 @@ static void place_explosion(int x, int y, unsigned char ** map, unsigned char bo
 		int obstacle_down = obstacles_detection(x, y, map1, DIR_DOWN, i);
 
 		if(!obstacle_left) { //Ako nema prepreke
-			map[x - i][y] = zameniSaExplosion;
+			map[y][x - i] = zameniSaExplosion;
 		} else if (obstacle_left == BOMB){
 			place_explosion(x - i, y, map, bomb_power);
 		}
 
 		if(!obstacle_right == BOMB) {
-			map[x + i][y] = zameniSaExplosion;
+			map[y][x + i] = zameniSaExplosion;
 		} else if (obstacle_right == BOMB){
 			place_explosion(x + i, y, map, bomb_power);
 		}
 
 		if(!obstacle_up) {
-			map[x][y - i] = zameniSaExplosion;
+			map[y - i][x] = zameniSaExplosion;
 		} else if (obstacle_up == BOMB){
 			place_explosion(x, y - i, map, bomb_power);
 		}
 
 		if(!obstacle_down) {
-			map[x][y + i] = zameniSaExplosion;
+			map[y + i][x] = zameniSaExplosion;
 		} else if (obstacle_down == BOMB){
 			place_explosion(x, y + i, map, bomb_power);
 		}
@@ -308,42 +308,39 @@ static void map_reset(unsigned char * map) {
 	}
 }
 
-int obstacles_detection(int x, int y, int deoMape, unsigned char * map, int dir, int position_distance) {
+int obstacles_detection(int x, int y, int deoMape, unsigned char * map, direction_t dir, int position_distance) {
 	if(position_distance > 0) {
 
-		float Xx = x;
-		float Yy = y;
+		int roundX = x/16;
+		int roundY = y/16;
 
-		int roundX = 0;
-		int roundY = 0;
-
-		roundX = floor(Xx / 16);
-		roundY = floor(Yy / 16);
+		roundX = x / 16;
+		roundY = y / 16;
 
 		unsigned char position_right = map1[roundY][roundX + position_distance];
 		unsigned char position_left = map1[roundY][roundX - position_distance];
 		unsigned char position_up = map1[roundY - position_distance][roundX];
 		unsigned char position_down = map1[roundY + position_distance][roundX];
-		if (dir == 0) {
+		if (dir == DIR_LEFT) {
 			if(position_right == 4) {
 				return 0;
 			} else {
 				return position_right;
 			}
-		} else if (dir == 1) {
+		} else if (dir == DIR_RIGHT) {
 			if(position_left == 4) {
 				return 0;
 			} else {
 				return position_left;
 			}
-		} else if (dir == 2) {
+		} else if (dir == DIR_UP) {
 			if(position_up == 4) {
 				return 0;
 			} else {
 				return position_up;
 			}
 		}
-		else if (dir == 3) {
+		else if (dir == DIR_DOWN) {
 			if(position_down == 4) {
 				return 0;
 			} else {
@@ -497,11 +494,9 @@ static int destroy_direction(int x, int y, int obstacle, characters * mario, int
 	if(fB == 1){									// bomberman
 			return 2;
 		}
-
 		if(bE==1){
 			return 5;
 		}
-
 	if(obstacle == 3){										// cigla
 		return 1;
 	}else if(obstacle == 5){								// enemy
@@ -708,10 +703,6 @@ static void destroy(unsigned char * map, int x, int y, characters * mario){
 
 }
 
-
-
-
-
 static void random_move_enemy(unsigned int *x, unsigned int *y, unsigned int type)
 {
 	int i = 0;
@@ -757,9 +748,9 @@ void battle_city() {
 	int roundX;
 	int roundY;
 	int bombs_coordinates[3][2], active_bombs_index = 0, exploding_bombs_index = 0;
-	int bombs_tick_counter[3];
-	int cnt;
+	int bombs_tick_counter[3] = {-1, -1, -1}; //nema postavljenih
 	int pom;
+	int available_bombs = 3;
 
 	map1[enemy1Y][enemy1X] = 5;
 
@@ -781,29 +772,30 @@ void battle_city() {
 			d = DIR_UP;
 		} else if (BTN_DOWN(buttons)){
 			d = DIR_DOWN;
-		}else if(BTN_SHOOT(buttons) && active_bombs <= 2){
+		} else if(BTN_SHOOT(buttons) && active_bombs < available_bombs){
 			xX = bomberman.x;
 			yY = bomberman.y;
 			roundX = floor(xX/16);
 			roundY = floor(yY/16);
 
-			pom = (active_bombs_index++)%3;
-			bombs_coordinates[pom][0] = roundX;
-			bombs_coordinates[pom][1] = roundY;
-			map1[bombs_coordinates[pom][0]][bombs_coordinates[pom][1]] = BOMB;
+			pom = (active_bombs_index++)%3; //cirkularni buffer za ove sto nisu eksplodirale
+			bombs_coordinates[pom][0] = roundY; //KOD NJIH PRVO IDE Y KOORDINATA IZ NEKOG RAZLOGA
+			bombs_coordinates[pom][1] = roundX;
+			bombs_tick_counter[pom] = 25;
+			map1[roundY][roundX] = BOMB;
 			active_bombs++;
 		}
 		//Ovde se ulazi kad istekne bomba
 		if(active_bombs > 0){
-			if(--cnt <= 0){
-				pom = (exploding_bombs_index++)%3;
-				map1[bombs_coordinates[pom][0]][bombs_coordinates[pom][1]] = BACKGROUND;
-				cnt = 25;
-				destroy(map1, roundX, roundY, &bomberman);
+			for(i = 0; i < 3; i++) {
+				if(bombs_tick_counter[i]-- == 0){
+					pom = (exploding_bombs_index++)%3; //Cirkularni buffer za eksplodirajuce
 
-				active_bombs--;
-				roundX=0;
-				roundY=0;
+					map1[bombs_coordinates[pom][0]][bombs_coordinates[pom][1]] = BACKGROUND;
+					destroy(map1, bombs_coordinates[pom][1], bombs_coordinates[pom][0], &bomberman);
+
+					active_bombs--;
+				}
 			}
 		}
 
