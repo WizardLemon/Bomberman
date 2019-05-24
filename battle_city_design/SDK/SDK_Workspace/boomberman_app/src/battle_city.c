@@ -14,7 +14,7 @@
 
 // ***** 16x16 IMAGES *****
 #define IMG_16x16_block			0x017F 		//2 - blok
-#define IMG_16x16_enemy		0x023F 		//5 - nepr
+#define IMG_16x16_enemy			0x023F 		//5 - nepr
 #define IMG_16x16_bckgnd		0x027F 		//0 - poz
 #define IMG_16x16_door			0x01FF 		//4 - vrata
 #define IMG_16x16_bomberman		0x013F 		//1 - bomberm
@@ -22,7 +22,7 @@
 #define IMG_16x16_bomb 			0x00FF 		//6 - bomba
 // ***** MAP *****
 
-#define MAP_BASE_ADDRESS		0x02BF 	// MAP_OFFSET in battle_city.vhd
+#define MAP_BASE_ADDRESS		0x02BF 		// MAP_OFFSET in battle_city.vhd
 #define MAP_X					0
 #define MAP_X2					640
 #define MAP_Y					4
@@ -63,7 +63,7 @@
 
 
 // ***** GLOBAL VARIABLES *****
-int lives = 0;
+int lives = 2;
 int score = 0;
 int mapPart = 1;
 int map_move = 0;
@@ -222,8 +222,8 @@ static void map_update(characters * mario) {
 	int x, y;
 	long int addr;
 
-	if(lifeDestroyR<5 && bW==0){
-		for (y = 0; y < MAP_HEIGHT; y++) {
+	if(lives > 0 && bW==0){
+		for (y = 0; y < MAP_HEIGHT; y++) {							// base mapa
 			for (x = 0; x < MAP_WIDTH; x++) {
 				addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
 						+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
@@ -255,7 +255,7 @@ static void map_update(characters * mario) {
 				}
 			}
 		}
-	}else if(lifeDestroyR==5){
+	}else if(lives == 0){											// game over mapa
 		for (y = 0; y < MAP_HEIGHT; y++) {
 			for (x = 0; x < MAP_WIDTH; x++) {
 				addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
@@ -277,7 +277,7 @@ static void map_update(characters * mario) {
 			}
 		}
 	}
-	else if(lifeDestroyR<5 && bW==1){
+	else if(lives > 0 && bW == 1) {									// game won mapa
 		for (y = 0; y < MAP_HEIGHT; y++) {
 			for (x = 0; x < MAP_WIDTH; x++) {
 				addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
@@ -308,24 +308,117 @@ static void map_reset(unsigned char * map) {
 	}
 }
 
-int obstacles_detection(int x, int y, unsigned char ** map, direction_t dir, int position_distance) {
-	if(position_distance > 0) {
+int bomberman_and_enemy(characters *mario)
+{
+	unsigned int xX;
+	unsigned int yY;
 
-		unsigned char position_right = map1[y][x + position_distance];
-		unsigned char position_left = map1[y][x - position_distance];
-		unsigned char position_up = map1[y - position_distance][x];
-		unsigned char position_down = map1[y + position_distance][x];
-		if (dir == DIR_LEFT) {
-			return position_left;
-		} else if (dir == DIR_RIGHT) {
-			return position_right;
-		} else if (dir == DIR_UP) {
-			return position_up;
-		} else if (dir == DIR_DOWN) {
-			return position_down;
-		} else {
-			return -1;
+	xX=mario->x;
+	yY=mario->y;
+
+	if(enemy1.x==xX && enemy1.y==yY){
+		return 1;
+	}else if(enemy2.x==xX && enemy2.y==yY){
+		return 1;
+	}else if(enemy3.x==xX && enemy3.y==yY){
+		return 1;
+	}else if(enemy4.x==xX && enemy4.y==yY){
+		return 1;
+	}else {
+		return 0;
+	}
+
+}
+
+
+int find_bomberman(characters *bomberman, int x, int y)
+{
+
+	unsigned int bombermanX = bomberman->x;
+	unsigned int bombermanY = bomberman->y;
+
+	if(bombermanX==x && bombermanY==y){
+		return 0;	// treba da vrati 1
+	}else if(bombermanX==x+1 && bombermanY==y){
+		return 1;
+	}else if(bombermanX==x+2 && bombermanY==y){
+		return 1;
+	}else if(bombermanX==x && bombermanY==y+1){
+		return 1;
+	}else if(bombermanX==x && bombermanY==y+2){
+		return 1;
+	}
+	else if(bombermanX==x && bombermanY==y-1){
+			return 1;
 		}
+	else if(bombermanX==x && bombermanY==y-2){
+			return 1;
+		}
+	else if(bombermanX==x-1 && bombermanY==y){
+			return 1;
+		}
+	else if(bombermanX==x-2 && bombermanY==y){
+			return 1;
+		}
+	else {
+		return 0;
+	}
+}
+
+int obstacles_detection(int x, int y, unsigned char ** map, direction_t dir, int position_distance) {
+
+	int position_right = map1[y][x + position_distance];
+	int position_left = map1[y][x - position_distance];
+	int position_up = map1[y - position_distance][x];
+	int position_down = map1[y + position_distance][x];
+
+	if (dir == DIR_LEFT) {
+
+		return position_left;
+
+	} else if (dir == DIR_RIGHT) {
+
+		return position_right;
+
+	} else if (dir == DIR_UP) {
+
+		return position_up;
+
+	} else if (dir == DIR_DOWN) {
+
+		return position_down;
+
+	} else {
+		return -1;
+	}
+}
+
+// Prototip funkcije za detekciju eksplozije
+int explosion_detection(int x, int y, unsigned char ** map, direction_t dir, int position_distance) {
+
+	int position_right = map1[y][x + position_distance];
+	int position_left = map1[y][x - position_distance];
+	int position_up = map1[y - position_distance][x];
+	int position_down = map1[y + position_distance][x];
+
+	int bomberman_close = find_bomberman(&bomberman, x, y);
+
+	if (dir == DIR_LEFT) {
+		if(bomberman_close)
+			return BOMBERMAN;
+		return position_left;
+	} else if (dir == DIR_RIGHT) {
+		if(bomberman_close)
+			return BOMBERMAN;
+		return position_right;
+	} else if (dir == DIR_UP) {
+		if(bomberman_close)
+			return BOMBERMAN;
+		return position_up;
+	} else if (dir == DIR_DOWN) {
+		if(bomberman_close)
+			return BOMBERMAN;
+		return position_down;
 	} else {
 		return -1;
 	}
@@ -396,65 +489,6 @@ static void destroy_enemy_at(int x, int y){
 	}
 }
 
-static int bomberman_and_enemy(characters *mario)
-{
-	unsigned int xX;
-	unsigned int yY;
-
-	xX=mario->x;
-	yY=mario->y;
-
-	if(enemy1.x==xX && enemy1.y==yY){
-		return 1;
-	}else if(enemy2.x==xX && enemy2.y==yY){
-		return 1;
-	}else if(enemy3.x==xX && enemy3.y==yY){
-		return 1;
-	}else if(enemy4.x==xX && enemy4.y==yY){
-		return 1;
-	}else {
-		return 0;
-	}
-
-}
-
-
-static int find_bomberman(characters *mario, int x, int y)
-{
-
-	unsigned int xX = mario->x;
-	unsigned int yY = mario->y;
-
-	//xil_printf("MAR: x=%d\ty=%d\n\r", xX, yY);
-	//xil_printf("BMB: x=%d\ty=%d\n\r\n\r", x, y);
-
-	if(xX==x && yY==y){
-		return 1;
-	}else if(xX==x+1 && yY==y){
-		return 1;
-	}else if(xX==x+2 && yY==y){
-		return 1;
-	}else if(xX==x && yY==y+1){
-		return 1;
-	}else if(xX==x && yY==y+2){
-		return 1;
-	}
-	else if(xX==x && yY==y-1){
-			return 1;
-		}
-	else if(xX==x && yY==y-2){
-			return 1;
-		}
-	else if(xX==x-1 && yY==y){
-			return 1;
-		}
-	else if(xX==x-2 && yY==y){
-			return 1;
-		}
-	else {
-		return 0;
-	}
-}
 
 static int bomberman_win(characters *mario){
 
@@ -487,8 +521,8 @@ static void destroy_field(int x, int y, characters * mario, unsigned char ** map
 
 static void destroy(unsigned char ** map, int x, int y, characters * mario, int bomb_power){
 	int obstacle = 0;
-	int bomberman_exploded=0;
-	int bomberman_collision=0;
+	int bomberman_exploded = 0;
+	int bomberman_collision = 0;
 	int bW = 0;
 	int i;
 
@@ -498,16 +532,16 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 	//left
 	for(i = 1; i <= bomb_power; i++) {
 		unsigned char stop_flag = 0;
-		obstacle_left = obstacles_detection(x, y, map1, DIR_LEFT, i);
+		obstacle_left = explosion_detection(x, y, map, DIR_LEFT, i);
 		switch(obstacle_left) {
 		case BACKGROUND:
-			destroy_field(x, y, mario, map1, DIR_LEFT, i);
+			destroy_field(x, y, mario, map, DIR_LEFT, i);
 			break;
 		case BOMBERMAN:
-			lifeDestroyR++;
+			lives--;
 			break;
 		case BRICK:
-			destroy_field(x, y, mario, map1, DIR_LEFT, i);
+			destroy_field(x, y, mario, map, DIR_LEFT, i);
 			stop_flag = 1;
 			break;
 		case BLOCK:
@@ -515,7 +549,7 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 			break;
 		case ENEMY:
 			destroy_enemy_at(x - i, y);
-			destroy_field(x, y, mario, map1, DIR_LEFT, i);
+			destroy_field(x, y, mario, map, DIR_LEFT, i);
 			if(++enemyCnt == 4) {
 				map1[12][18]=DOOR;
 				bW = bomberman_win(mario);
@@ -532,16 +566,16 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 	//Right
 	for(i = 1; i <= bomb_power; i++) {
 		unsigned char stop_flag = 0;
-		obstacle_right = obstacles_detection(x, y, map1, DIR_RIGHT, i);
+		obstacle_right = explosion_detection(x, y, map, DIR_RIGHT, i);
 		switch(obstacle_right) {
 		case BACKGROUND:
-			destroy_field(x, y, mario, map1, DIR_RIGHT, i);
+			destroy_field(x, y, mario, map, DIR_RIGHT, i);
 			break;
 		case BOMBERMAN:
-			lifeDestroyR++;
+			lives--;
 			break;
 		case BRICK:
-			destroy_field(x, y, mario, map1, DIR_RIGHT, i);
+			destroy_field(x, y, mario, map, DIR_RIGHT, i);
 			stop_flag = 1;
 			break;
 		case BLOCK:
@@ -549,7 +583,7 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 			break;
 		case ENEMY:
 			destroy_enemy_at(x + i, y);
-			destroy_field(x, y, mario, map1, DIR_RIGHT, i);
+			destroy_field(x, y, mario, map, DIR_RIGHT, i);
 			if(++enemyCnt == 4) {
 				map1[12][18] = DOOR;
 				bW = bomberman_win(mario);
@@ -566,16 +600,16 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 	//Up
 	for(i = 1; i <= bomb_power; i++) {
 		unsigned char stop_flag = 0;
-		obstacle_right = obstacles_detection(x, y, map1, DIR_UP, i);
-		switch(obstacle_right) {
+		obstacle_up = explosion_detection(x, y, map, DIR_UP, i);
+		switch(obstacle_up) {
 		case BACKGROUND:
-			destroy_field(x, y, mario, map1, DIR_UP, i);
+			destroy_field(x, y, mario, map, DIR_UP, i);
 			break;
 		case BOMBERMAN:
-			lifeDestroyR++;
+			lives--;
 			break;
 		case BRICK:
-			destroy_field(x, y, mario, map1, DIR_UP, i);
+			destroy_field(x, y, mario, map, DIR_UP, i);
 			stop_flag = 1;
 			break;
 		case BLOCK:
@@ -583,7 +617,7 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 			break;
 		case ENEMY:
 			destroy_enemy_at(x, y - i);
-			destroy_field(x, y, mario, map1, DIR_UP, i);
+			destroy_field(x, y, mario, map, DIR_UP, i);
 			if(++enemyCnt == 4) {
 				map1[12][18]=DOOR;
 				bW = bomberman_win(mario);
@@ -600,16 +634,16 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 	//Down
 	for(i = 1; i <= bomb_power; i++) {
 		unsigned char stop_flag = 0;
-		obstacle_right = obstacles_detection(x, y, map1, DIR_DOWN, i);
-		switch(obstacle_right) {
+		obstacle_down = explosion_detection(x, y, map, DIR_DOWN, i);
+		switch(obstacle_down) {
 		case BACKGROUND:
-			destroy_field(x, y, mario, map1, DIR_DOWN, i);
+			destroy_field(x, y, mario, map, DIR_DOWN, i);
 			break;
 		case BOMBERMAN:
-			lifeDestroyR++;
+			lives--;
 			break;
 		case BRICK:
-			destroy_field(x, y, mario, map1, DIR_DOWN, i);
+			destroy_field(x, y, mario, map, DIR_DOWN, i);
 			stop_flag = 1;
 			break;
 		case BLOCK:
@@ -617,7 +651,7 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 			break;
 		case ENEMY:
 			destroy_enemy_at(x, y + i);
-			destroy_field(x, y, mario, map1, DIR_DOWN, i);
+			destroy_field(x, y, mario, map, DIR_DOWN, i);
 			if(++enemyCnt == 4) {
 				map1[12][18]=DOOR;
 				bW = bomberman_win(mario);
@@ -630,192 +664,6 @@ static void destroy(unsigned char ** map, int x, int y, characters * mario, int 
 			break;
 		}
 	}
-
-/*
-	//Right destroy
-	obstacle = obstacles_detection(x, y, map, DIR_RIGHT, 1);
-	fB = find_bomberman(mario, x, y);
-	bE = bomberman_and_enemy(mario);
-	bW = bomberman_win(mario);
-	if(bW==1){
-		map_update(mario);
-	}
-	if(destroy_direction(x + 1, y, obstacle, mario, fB, bE) == 1){
-		map1[y][x + 1] = BACKGROUND;
-	}else if (destroy_direction(x+1, y, obstacle, mario, fB, bE) == ENEMY){
-		map1[y][x + 1] = BACKGROUND;
-		if(++enemyCnt==4){
-			map1[12][18]=DOOR;
-		}
-	}else if(destroy_direction(x + 1,y,obstacle, mario, fB, bE )==2 || bE==1 ){
-		lifeDestroyR++;
-		if(lifeDestroyR==3){
-			map1[2][35]=BACKGROUND;
-		}else if(lifeDestroyR==4){
-			map1[2][36]=BACKGROUND;
-		}else if(lifeDestroyR==5){
-			map_update(mario);
-		}
-
-	}
-	else if(destroy_direction(x+1, y, obstacle, mario, fB, bE) == 0) {
-		obstacle = obstacles_detection(x+1, y, map, DIR_RIGHT, 1);
-		fB = find_bomberman(mario, x,y);
-		bE=bomberman_and_enemy(mario);
-		if(destroy_direction(x+2, y, obstacle, mario, fB, bE) == 1){
-				map1[y][x+2] = BACKGROUND;
-		} else if (destroy_direction(x+2, y, obstacle,mario, fB, bE) == ENEMY){
-				map1[y][x-1]=BACKGROUND;
-				if(++enemyCnt==4){
-					map1[12][18]=DOOR;
-				}
-		}else if(destroy_direction(x+2,y,obstacle, mario, fB, bE )==2 || bE==1){
-			lifeDestroyR++;
-			if(lifeDestroyR==3){
-				map1[2][35]=BACKGROUND;
-			}else if(lifeDestroyR==4){
-				map1[2][36]=BACKGROUND;
-			}else if(lifeDestroyR==5){
-				map_update(mario);
-			}
-		}
-	}
-
-	//Left destroy
-	obstacle = obstacles_detection(x, y, map, DIR_LEFT, 1);
-	fB = find_bomberman(mario, x,y);
-	bE=bomberman_and_enemy(mario);
-	if(destroy_direction(x-1, y, obstacle,mario, fB, bE) == 1){
-		map1[y][x-1] = BACKGROUND;
-	}
-	else if (destroy_direction(x-1, y, obstacle,mario, fB, bE) == ENEMY){
-			map1[y][x-1]=BACKGROUND;
-			if(++enemyCnt==4){
-				map1[12][18]=DOOR;
-			}
-	}else if(destroy_direction(x-1,y,obstacle, mario, fB, bE )==2 || bE==1){
-		lifeDestroyR++;
-		if(lifeDestroyR==3){
-		map1[2][35]=BACKGROUND;
-		}else if(lifeDestroyR==4){
-			map1[2][36]=BACKGROUND;
-		}else if(lifeDestroyR==5){
-			map_update(mario);
-		}
-	}
-	else if(destroy_direction(x-1, y, obstacle,mario, fB, bE) == 0) {
-		map1[mario->y+1][mario->x]=BACKGROUND;
-		obstacle = obstacles_detection(x-1, y, map, DIR_LEFT, 1);
-		fB = find_bomberman(mario, x,y);
-		bE=bomberman_and_enemy(mario);
-		if(destroy_direction(x-2, y, obstacle,mario, fB, bE) == 1){
-				map1[y][x-2] = BACKGROUND;
-		}else if (destroy_direction(x-2, y, obstacle,mario, fB, bE) == ENEMY){
-				map1[y][x-1]=BACKGROUND;
-				if(++enemyCnt==4){
-					map1[12][18]=DOOR;
-				}
-		}else if(destroy_direction(x-2,y,obstacle, mario, fB, bE )==2  || bE==1){
-			lifeDestroyR++;
-			if(lifeDestroyR==3){
-				map1[2][35]=BACKGROUND;
-			}else if(lifeDestroyR==4){
-				map1[2][36]=BACKGROUND;
-			}else if(lifeDestroyR==5){
-				map_update(mario);
-			}
-		}
-	}
-
-	//Up destroy
-	obstacle = obstacles_detection(x, y, map, DIR_UP, 1);
-	fB = find_bomberman(mario, x,y);
-	bE=bomberman_and_enemy(mario);
-	if(destroy_direction(x, y-1, obstacle,mario, fB, bE) == 1){
-		map1[y-1][x] = BACKGROUND;
-	}else if (destroy_direction(x, y-1, obstacle,mario, fB, bE) == ENEMY){
-		map1[y-1][x] = BACKGROUND;
-		if(++enemyCnt==4){
-			map1[12][18] = DOOR;
-		}
-	}else if(destroy_direction(x,y-1,obstacle, mario, fB, bE )==2 || bE==1){
-		lifeDestroyR++;
-		if(lifeDestroyR==3){
-			map1[2][35] = BACKGROUND;
-		}else if(lifeDestroyR==4){
-			map1[2][36] = BACKGROUND;
-		}else if(lifeDestroyR==5){
-			map_update(mario);
-		}
-	}
-	else if(destroy_direction(x, y-1, obstacle,mario, fB, bE) == 0) {
-		obstacle = obstacles_detection(x, y-1, map, DIR_UP, 1);
-		fB = find_bomberman(mario, x,y);
-		bE=bomberman_and_enemy(mario);
-		if(destroy_direction(x, y-2, obstacle,mario, fB, bE) == 1){
-				map1[y-2][x] = BACKGROUND;
-		}else if (destroy_direction(x, y-2, obstacle,mario, fB, bE) == ENEMY){
-				map1[y-y][x] = BACKGROUND;
-				if(++enemyCnt==4){
-					map1[12][18] = DOOR;
-				}
-		}else if(destroy_direction(x,y-2,obstacle, mario, fB, bE )==2 || bE==1){
-			lifeDestroyR++;
-			if(lifeDestroyR==3){
-			map1[2][35] = BACKGROUND;
-			}else if(lifeDestroyR==4){
-				map1[2][36] = BACKGROUND;
-			}else if(lifeDestroyR==5){
-				map_update(mario);
-			}
-		}
-	}
-
-	//Down destroy
-	obstacle = obstacles_detection(x, y, map, DIR_DOWN, 1);
-	fB = find_bomberman(mario, x, y);
-	bE=bomberman_and_enemy(mario);
-	if(destroy_direction(x, y+1, obstacle, mario, fB, bE) == 1){
-		map1[y+1][x] = BACKGROUND;
-	}else if (destroy_direction(x, y+1, obstacle, mario, fB, bE) == ENEMY){
-		map1[y+1][x] = BACKGROUND;
-		if(++enemyCnt==4){
-			map1[12][18] = DOOR;
-		}
-	}else if(destroy_direction(x, y + 1, obstacle, mario, fB, bE ) == 2  || bE == 1){
-		lifeDestroyR++;
-		if(lifeDestroyR == 3){
-		map1[2][35] = BACKGROUND;
-		}else if(lifeDestroyR == 4){
-			map1[2][36] = BACKGROUND;
-		}else if(lifeDestroyR == 5){
-			map_update(mario);
-		}
-	}
-	else if(destroy_direction(x, y + 1, obstacle,mario, fB, bE) == 0) {
-		obstacle = obstacles_detection(x, y + 1, map, DIR_DOWN, 1);
-		fB = find_bomberman(mario, x, y);
-		bE = bomberman_and_enemy(mario);
-		if(destroy_direction(x, y+2, obstacle,mario, fB, bE) == 1){
-			map1[y + 2][x] = BACKGROUND;
-		}else if (destroy_direction(x, y+2, obstacle,mario, fB, bE) == ENEMY){
-				map1[y + 2][x] = BACKGROUND;
-				if(++enemyCnt==4){
-					map1[12][18]=DOOR;
-			}
-		}else if(destroy_direction(x,y+2,obstacle, mario, fB, bE )==2 || bE==1){
-			lifeDestroyR++;
-			if(lifeDestroyR==3){
-				map1[2][35]=BACKGROUND;
-			}else if(lifeDestroyR==4){
-				map1[2][36]=BACKGROUND;
-			}else if(lifeDestroyR==5){
-				map_update(mario);
-			}
-		}
-	}
-*/
-
 }
 
 static void random_move_enemy(enemy * enm, unsigned char ** map)
