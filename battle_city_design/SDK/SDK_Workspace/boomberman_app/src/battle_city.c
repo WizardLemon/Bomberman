@@ -76,8 +76,7 @@
 #define DOOR_POSITION_Y					12
 
 // ***** GLOBAL VARIABLES *****
-int lives = 2;
-int ENEMY_NUMBER = ENEMY_NUMBER;
+int lives = 10;
 int enemies_destroyed = 0;
 int bW = 0;
 int zameniSaExplosion = 6;
@@ -470,19 +469,47 @@ static bool_t bomberman_move(unsigned char ** map, characters * bomberman, direc
 	return b_false;
 }
 
-static void destroy_enemy_at(enemy * enm, int x, int y){
-	if(enm->x == x && enm->y == y){
+static void destroy_enemy(enemy * enm, int x, int y, direction_t dir, int distance){
+	unsigned char flag = 0;
+
+	switch(dir) {
+	case DIR_LEFT:
+		if((enm->x == x - distance) && enm->y == y){
+				flag = 1;
+			}
+		break;
+	case DIR_RIGHT:
+		if((enm->x == x + distance) && enm->y == y){
+				flag = 1;
+			}
+		break;
+	case DIR_UP:
+		if(enm->x == x && enm->y == (y - distance)){
+				flag = 1;
+			}
+		break;
+	case DIR_DOWN:
+		if(enm->x == x && enm->y == (y + distance)){
+				flag = 1;
+			}
+		break;
+	default:
+		break;
+	}
+
+	if(flag) {
 		enm->destroyed = 1;
 		enm->type = 0;
 		enm->x = 0;
 		enm->y = 0;
+		enemies_destroyed++;
 	}
 }
 
 
 static int bomberman_win(characters *bomberman){
 
-	if((bomberman->y)==12 && (bomberman->x)==18){
+	if((bomberman->y) == DOOR_POSITION_Y && (bomberman->x) == DOOR_POSITION_X){
 		return 1;
 	}else {
 		return 0;
@@ -513,13 +540,59 @@ static void destroy(unsigned char ** map, int x, int y, characters * bomberman, 
 	int obstacle = 0;
 	int bomberman_exploded = 0;
 	int bomberman_collision = 0;
-	int bW = 0;
-	int i, j;
+	int directions, i, j;
+	unsigned short stop_flag;
+	int explosion_obstacle;
 
-	int obstacle_left, obstacle_right,
-		obstacle_up, obstacle_down;
+	for(directions = 0; directions < 4; directions++) {
+		for(i = 0; i <= bomb_power; i++) {
+			stop_flag = 0;
+			explosion_obstacle = explosion_detection(x, y, map1, (direction_t)directions, i);
+			switch(explosion_obstacle) {
+			case BACKGROUND:
+				destroy_field(x, y, bomberman, map1, (direction_t)directions, i);
+				break;
+			case BOMBERMAN:
+				lives--;
+				bomberman->x = BOMBERMAN_STARTING_POSITION_X;
+				bomberman->y = BOMBERMAN_STARTING_POSITION_Y;
+				char_spawn(bomberman);
+				break;
+			case BRICK:
+				destroy_field(x, y, bomberman, map1, (direction_t)directions, i);
+				stop_flag = 1;
+				break;
+			case BLOCK:
+				stop_flag = 1;
+				break;
+			case ENEMY:
+				//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
+				//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
+				for(j = 0; j < ENEMY_NUMBER; j++) {
+					if(!enemies[j].destroyed) {
+						destroy_enemy(&enemies[j], x, y, (direction_t)directions, i);
+					}
+				}
 
-	//left
+				destroy_field(x, y, bomberman, map1, (direction_t)directions, i);
+				if(enemies_destroyed == 4) {
+					map1[12][18] = DOOR;
+					bW = bomberman_win(bomberman);
+					if(bW) {
+						map_update(bomberman);
+					}
+				}
+				break;
+			default:;
+			}
+
+			if(stop_flag) {
+				break;
+			}
+		}
+	}
+
+	/*//left
 	for(i = 1; i <= bomb_power; i++) {
 		unsigned char stop_flag = 0;
 		obstacle_left = explosion_detection(x, y, map1, DIR_LEFT, i);
@@ -541,13 +614,13 @@ static void destroy(unsigned char ** map, int x, int y, characters * bomberman, 
 			//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
 			//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
 			for(j = 0; j < ENEMY_NUMBER; j++) {
-				if(!enemies[i].destroyed) {
+				if(!enemies[j].destroyed) {
 					destroy_enemy_at(&enemies[j], x - i, y);
 				}
 			}
 
 			destroy_field(x, y, bomberman, map1, DIR_LEFT, i);
-			if(++enemies_destroyed == 4) {
+			if(enemies_destroyed == 4) {
 				map1[12][18] = DOOR;
 				bW = bomberman_win(bomberman);
 				if(bW) {
@@ -582,12 +655,12 @@ static void destroy(unsigned char ** map, int x, int y, characters * bomberman, 
 			//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
 			//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
 			for(j = 0; j < ENEMY_NUMBER; j++) {
-				if(!enemies[i].destroyed) {
+				if(!enemies[j].destroyed) {
 					destroy_enemy_at(&enemies[j], x + i, y);
 				}
 			}
 			destroy_field(x, y, bomberman, map1, DIR_RIGHT, i);
-			if(++enemies_destroyed == 4) {
+			if(enemies_destroyed == 4) {
 				map1[12][18] = DOOR;
 				bW = bomberman_win(bomberman);
 				if(bW) {
@@ -622,12 +695,12 @@ static void destroy(unsigned char ** map, int x, int y, characters * bomberman, 
 			//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
 			//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
 			for(j = 0; j < ENEMY_NUMBER; j++) {
-				if(!enemies[i].destroyed) {
+				if(!enemies[j].destroyed) {
 					destroy_enemy_at(&enemies[j], x, y - i);
 				}
 			}
 			destroy_field(x, y, bomberman, map1, DIR_UP, i);
-			if(++enemies_destroyed == 4) {
+			if(enemies_destroyed == 4) {
 				map1[12][18] = DOOR;
 				bW = bomberman_win(bomberman);
 				if(bW) {
@@ -662,12 +735,12 @@ static void destroy(unsigned char ** map, int x, int y, characters * bomberman, 
 			//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
 			//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
 			for(j = 0; j < ENEMY_NUMBER; j++) {
-				if(!enemies[i].destroyed) {
+				if(!enemies[j].destroyed) {
 					destroy_enemy_at(&enemies[j], x, y + i);
 				}
 			}
 			destroy_field(x, y, bomberman, map1, DIR_DOWN, i);
-			if(++enemies_destroyed == 4) {
+			if(enemies_destroyed == 4) {
 				map1[12][18] = DOOR;
 				bW = bomberman_win(bomberman);
 				if(bW) {
@@ -678,7 +751,7 @@ static void destroy(unsigned char ** map, int x, int y, characters * bomberman, 
 		if(stop_flag) {
 			break;
 		}
-	}
+	}*/
 }
 
 static void random_move_enemy(enemy * enm, unsigned char ** map)
@@ -687,9 +760,10 @@ static void random_move_enemy(enemy * enm, unsigned char ** map)
 	direction_t dir = (direction_t)(rand()%4);
 	int x = enm->x;
 	int y = enm->y;
+	int fb = find_bomberman(&bomberman, x, y, dir, 1);
 	int obstacle = obstacles_detection(x, y, map1, dir, 1);
-	if(enm->destroyed == 0) {
-		if(obstacle == BACKGROUND || obstacle == BOMBERMAN) {
+	if(!enm->destroyed) {
+		if(obstacle == BACKGROUND || fb) {
 			map1[y][x] = BACKGROUND;
 			switch(dir) {
 			case DIR_LEFT:
@@ -709,6 +783,12 @@ static void random_move_enemy(enemy * enm, unsigned char ** map)
 			map1[y][x] = enm->type;
 			enm->x = x;
 			enm->y = y;
+			if(fb) {
+				lives--;
+				bomberman.x = BOMBERMAN_STARTING_POSITION_X;
+				bomberman.y = BOMBERMAN_STARTING_POSITION_Y;
+				char_spawn(&bomberman);
+			}
 		}
 	} else {
 		enm->type = BACKGROUND;
