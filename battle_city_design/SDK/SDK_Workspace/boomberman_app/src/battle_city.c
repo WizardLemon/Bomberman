@@ -209,6 +209,7 @@ static unsigned char bomberman_win(bomberman_t *bomberman){
 			return 1;
 		}
 	}
+
 	return 0;
 }
 
