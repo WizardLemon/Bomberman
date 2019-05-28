@@ -679,11 +679,13 @@ static void check_and_move_enemies(unsigned char map[30][40], bomberman_t * bomb
 	wait(100000);
 }
 
+
 void battle_city() {
 	unsigned int buttons;
 
 	map_reset(map1);
-
+	map_update(map_main_menu, &player_one);
+/*
 	map_update(map1, &player_one);
 
 	char_spawn(map1, &player_one);
@@ -732,5 +734,6 @@ void battle_city() {
 		wait(100000);
 
 	}
+*/
 }
 
