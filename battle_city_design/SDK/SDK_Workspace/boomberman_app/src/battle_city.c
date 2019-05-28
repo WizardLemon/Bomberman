@@ -46,7 +46,7 @@
 #define TANK_AI_REG_L2                  6
 #define TANK_AI_REG_H2                  7
 #define TANK_AI_REG_L3                  2
-#define TANK_AI_REG_H3                  3
+#define TANK_AI_REG_H3                  3.
 #define TANK_AI_REG_L4                  10
 #define TANK_AI_REG_H4                  11
 #define TANK_AI_REG_L5                  12
@@ -80,12 +80,14 @@
 #define ENEMY_WAIT_CYCLE_NUMBER			3
 
 // ***** GLOBAL VARIABLES *****
-int lives = STARTING_LIFE_COUNT;
-int enemies_destroyed = 0;
-int win_condition = 0;
-int lose_condition = 0;
-int active_bombs = 0;
-int zameniSaExplosion = 6;
+unsigned char lives = STARTING_LIFE_COUNT;
+unsigned char enemies_destroyed = 0;
+unsigned char win_condition = 0;
+unsigned char lose_condition = 0;
+unsigned char active_bombs;
+unsigned char bomb_power;
+unsigned char available_bombs;
+unsigned char zameniSaExplosion = 6;
 int bombs_coordinates[3][2], active_bombs_index = 0, exploding_bombs_index = 0;
 int bombs_tick_counter[3] = {-1, -1, -1}; //nema postavljenih
 // ***** ENEMY SPAWN LOCATIONS *****
@@ -127,6 +129,14 @@ typedef struct{
 	unsigned char destroyed;
 } enemy;
 
+typedef struct bomb {
+	unsigned char x; 	//x i y koordinata bombe
+	unsigned char y;
+	char tick_counter;
+	unsigned char available;
+	unsigned char placed;
+}bomb_t;
+
 characters bomberman = {
 		BOMBERMAN_STARTING_POSITION_X,	         				 // x trenutni
 		BOMBERMAN_STARTING_POSITION_Y, 		                     // y trenutni
@@ -138,6 +148,30 @@ characters bomberman = {
 		TANK1_REG_H             		 // reg_h ?
 		};
 
+//INICIJALIZACIJA BOMBI
+bomb_t bombs[BOMB_MAX_NUMBER] = {
+		{
+				0,
+				0,
+				-1,
+				0,
+				0
+		},
+		{
+				0,
+				0,
+				-1,
+				0,
+				0
+		},
+		{
+				0,
+				0,
+				-1,
+				0,
+				0
+		}
+};
 
 //ZAMENJENO ZA LISTU NEPRIJATELJA
 enemy enemies[4] = {
@@ -174,8 +208,12 @@ enemy enemies[4] = {
 		}
 };
 
+static void wait(int wait_time) {
+	int i;
+	for(i = 0; i < wait_time; i++);
+}
 
-static int bomberman_win(characters *bomberman){
+static unsigned char bomberman_win(characters *bomberman){
 	if(enemies_destroyed == ENEMY_NUMBER) {
 		if((bomberman->y) == DOOR_POSITION_Y && (bomberman->x) == DOOR_POSITION_X){
 			return 1;
@@ -342,7 +380,7 @@ static int bomberman_and_enemy(characters *bomberman)
 
 }*/
 
-static int find_bomberman(characters *bomberman, int x, int y, direction_t dir, int bomb_power)
+static int find_bomberman(characters *bomberman, int x, int y, direction_t dir, int distance)
 {
 
 	unsigned int bombermanX = bomberman->x;
@@ -350,22 +388,22 @@ static int find_bomberman(characters *bomberman, int x, int y, direction_t dir, 
 
 	switch(dir) {
 	case DIR_LEFT:
-		if((x - bomb_power) == bombermanX && y == bombermanY) {
+		if((x - distance) == bombermanX && y == bombermanY) {
 			return 1;
 		}
 		break;
 	case DIR_RIGHT:
-		if((x + bomb_power) == bombermanX && y == bombermanY) {
+		if((x + distance) == bombermanX && y == bombermanY) {
 			return 1;
 		}
 		break;
 	case DIR_UP:
-		if(x == bombermanX && (y - bomb_power) == bombermanY) {
+		if(x == bombermanX && (y - distance) == bombermanY) {
 			return 1;
 		}
 		break;
 	case DIR_DOWN:
-		if(x == bombermanX && (y + bomb_power) == bombermanY) {
+		if(x == bombermanX && (y + distance) == bombermanY) {
 			return 1;
 		}
 		break;
@@ -437,8 +475,6 @@ static int explosion_detection(int x, int y, unsigned char map[30][40], directio
 static bool_t bomberman_move(unsigned char map[30][40], characters * bomberman, direction_t dir) {
 	unsigned int x = bomberman->x;
 	unsigned int y = bomberman->y;
-
-	int i;
 	int obstacle = 0;
 
 	obstacle = obstacles_detection(x, y, map, dir, 1);
@@ -472,13 +508,12 @@ static bool_t bomberman_move(unsigned char map[30][40], characters * bomberman, 
 			XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + bomberman->reg_h ),
 			((y*16) << 16) | (x*16));
 
-	for (i = 0; i < 1000000; i++) {
-	}
+	wait(1000000);
 
 	return b_false;
 }
 
-static void destroy_enemy(enemy * enm, int x, int y, direction_t dir, int distance){
+static void destroy_enemy(unsigned char map[30][40], enemy * enm, int x, int y, direction_t dir, int distance){
 	unsigned char flag = 0;
 
 	switch(dir) {
@@ -507,12 +542,14 @@ static void destroy_enemy(enemy * enm, int x, int y, direction_t dir, int distan
 	}
 
 	if(flag) {
+		map[enm->y][enm->x] = BACKGROUND;
 		enm->destroyed = 1;
 		enm->type = 0;
 		enm->x = 0;
 		enm->y = 0;
 		enemies_destroyed++;
 	}
+
 }
 
 //Brisanje polja u prosledjenom pravcu na distanci distance
@@ -534,12 +571,29 @@ static void destroy_field(int x, int y, characters * bomberman, unsigned char ma
 	}
 }
 
+static unsigned char find_bomb_index(unsigned char map[30][40], unsigned char x, unsigned char y) {
+	unsigned char i;
+	for(i = 0; i < available_bombs; i++) {
+		if(bombs[i].placed) {
+			if(bombs[i].x == x && bombs[i].y == y){
+				return i;
+			}
+		}
+	}
+	return BOMB_MAX_NUMBER;
+}
 
-static void destroy(unsigned char map[30][40], int x, int y, characters * bomberman, int bomb_power){
-	int directions, i, j;
-	unsigned short stop_flag;
-	int explosion_obstacle;
+static void detonate(unsigned char map[30][40], unsigned char x, unsigned char y, characters * bomberman, unsigned char bomb_index){
+	unsigned char directions, i, j;
+	unsigned char stop_flag;
+	unsigned char explosion_obstacle;
 
+	map1[y][x] = BACKGROUND;
+	active_bombs--;
+	bombs[bomb_index].placed = 0;
+	bombs[bomb_index].tick_counter = -1;
+	bombs[bomb_index].x = 0;
+	bombs[bomb_index].y = 0;
 	for(directions = 0; directions < 4; directions++) {
 		for(i = 0; i <= bomb_power; i++) {
 			stop_flag = 0;
@@ -553,6 +607,8 @@ static void destroy(unsigned char map[30][40], int x, int y, characters * bomber
 				bomberman->x = BOMBERMAN_STARTING_POSITION_X;
 				bomberman->y = BOMBERMAN_STARTING_POSITION_Y;
 				char_spawn(bomberman);
+				if(obstacles_detection(x, y, map1, (direction_t)directions, i) == BOMB)
+					goto bomb_label;//u slucaju da je bomba ispod
 				break;
 			case BRICK:
 				destroy_field(x, y, bomberman, map1, (direction_t)directions, i);
@@ -566,7 +622,7 @@ static void destroy(unsigned char map[30][40], int x, int y, characters * bomber
 				//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
 				for(j = 0; j < ENEMY_NUMBER; j++) {
 					if(!enemies[j].destroyed) {
-						destroy_enemy(&enemies[j], x, y, (direction_t)directions, i);
+						destroy_enemy(map1, &enemies[j], x, y, (direction_t)directions, i);
 					}
 				}
 
@@ -579,6 +635,24 @@ static void destroy(unsigned char map[30][40], int x, int y, characters * bomber
 					}
 				}
 				break;
+			case BOMB:
+				bomb_label:
+				switch((direction_t)directions) {
+				case DIR_LEFT:
+					detonate(map1, x - i, y, bomberman, find_bomb_index(map1, x - i, y));
+					break;
+				case DIR_RIGHT:
+					detonate(map1, x + i, y, bomberman, find_bomb_index(map1, x + i, y));
+					break;
+				case DIR_UP:
+					detonate(map1, x, y - i, bomberman, find_bomb_index(map1, x, y - i));
+					break;
+				case DIR_DOWN:
+					detonate(map1, x, y + i, bomberman, find_bomb_index(map1, x, y + i));
+					break;
+				default:;
+				}
+				break;
 			default:;
 			}
 
@@ -587,257 +661,89 @@ static void destroy(unsigned char map[30][40], int x, int y, characters * bomber
 			}
 		}
 	}
-
-	/*//left
-	for(i = 1; i <= bomb_power; i++) {
-		unsigned char stop_flag = 0;
-		obstacle_left = explosion_detection(x, y, map1, DIR_LEFT, i);
-		switch(obstacle_left) {
-		case BACKGROUND:
-			destroy_field(x, y, bomberman, map1, DIR_LEFT, i);
-			break;
-		case BOMBERMAN:
-			lives--;
-			break;
-		case BRICK:
-			destroy_field(x, y, bomberman, map1, DIR_LEFT, i);
-			stop_flag = 1;
-			break;
-		case BLOCK:
-			stop_flag = 1;
-			break;
-		case ENEMY:
-			//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
-			//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
-			for(j = 0; j < ENEMY_NUMBER; j++) {
-				if(!enemies[j].destroyed) {
-					destroy_enemy_at(&enemies[j], x - i, y);
-				}
-			}
-
-			destroy_field(x, y, bomberman, map1, DIR_LEFT, i);
-			if(enemies_destroyed == 4) {
-				map1[12][18] = DOOR;
-				win_condition = bomberman_win(bomberman);
-				if(win_condition) {
-					map_update(bomberman);
-				}
-			}
-		}
-		if(stop_flag) {
-			break;
-		}
-	}
-
-	//Right
-	for(i = 1; i <= bomb_power; i++) {
-		unsigned char stop_flag = 0;
-		obstacle_right = explosion_detection(x, y, map1, DIR_RIGHT, i);
-		switch(obstacle_right) {
-		case BACKGROUND:
-			destroy_field(x, y, bomberman, map1, DIR_RIGHT, i);
-			break;
-		case BOMBERMAN:
-			lives--;
-			break;
-		case BRICK:
-			destroy_field(x, y, bomberman, map1, DIR_RIGHT, i);
-			stop_flag = 1;
-			break;
-		case BLOCK:
-			stop_flag = 1;
-			break;
-		case ENEMY:
-			//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
-			//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
-			for(j = 0; j < ENEMY_NUMBER; j++) {
-				if(!enemies[j].destroyed) {
-					destroy_enemy_at(&enemies[j], x + i, y);
-				}
-			}
-			destroy_field(x, y, bomberman, map1, DIR_RIGHT, i);
-			if(enemies_destroyed == 4) {
-				map1[12][18] = DOOR;
-				win_condition = bomberman_win(bomberman);
-				if(win_condition) {
-					map_update(bomberman);
-				}
-			}
-		}
-		if(stop_flag) {
-			break;
-		}
-	}
-
-	//Up
-	for(i = 1; i <= bomb_power; i++) {
-		unsigned char stop_flag = 0;
-		obstacle_up = explosion_detection(x, y, map, DIR_UP, i);
-		switch(obstacle_up) {
-		case BACKGROUND:
-			destroy_field(x, y, bomberman, map1, DIR_UP, i);
-			break;
-		case BOMBERMAN:
-			lives--;
-			break;
-		case BRICK:
-			destroy_field(x, y, bomberman, map1, DIR_UP, i);
-			stop_flag = 1;
-			break;
-		case BLOCK:
-			stop_flag = 1;
-			break;
-		case ENEMY:
-			//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
-			//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
-			for(j = 0; j < ENEMY_NUMBER; j++) {
-				if(!enemies[j].destroyed) {
-					destroy_enemy_at(&enemies[j], x, y - i);
-				}
-			}
-			destroy_field(x, y, bomberman, map1, DIR_UP, i);
-			if(enemies_destroyed == 4) {
-				map1[12][18] = DOOR;
-				win_condition = bomberman_win(bomberman);
-				if(win_condition) {
-					map_update(bomberman);
-				}
-			}
-		}
-		if(stop_flag) {
-			break;
-		}
-	}
-
-	//Down
-	for(i = 1; i <= bomb_power; i++) {
-		unsigned char stop_flag = 0;
-		obstacle_down = explosion_detection(x, y, map1, DIR_DOWN, i);
-		switch(obstacle_down) {
-		case BACKGROUND:
-			destroy_field(x, y, bomberman, map1, DIR_DOWN, i);
-			break;
-		case BOMBERMAN:
-			lives--;
-			break;
-		case BRICK:
-			destroy_field(x, y, bomberman, map1, DIR_DOWN, i);
-			stop_flag = 1;
-			break;
-		case BLOCK:
-			stop_flag = 1;
-			break;
-		case ENEMY:
-			//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
-			//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
-			for(j = 0; j < ENEMY_NUMBER; j++) {
-				if(!enemies[j].destroyed) {
-					destroy_enemy_at(&enemies[j], x, y + i);
-				}
-			}
-			destroy_field(x, y, bomberman, map1, DIR_DOWN, i);
-			if(enemies_destroyed == 4) {
-				map1[12][18] = DOOR;
-				win_condition = bomberman_win(bomberman);
-				if(win_condition) {
-					map_update(bomberman);
-				}
-			}
-		}
-		if(stop_flag) {
-			break;
-		}
-	}*/
 }
 
-static void random_move_enemy(enemy * enm, unsigned char map[30][40])
-{
-	int i = 0;
-	direction_t dir = (direction_t)(rand()%4);
-	int x = enm->x;
-	int y = enm->y;
-	int fb = find_bomberman(&bomberman, x, y, dir, 1);
-	int obstacle = obstacles_detection(x, y, map1, dir, 1);
-	if(!enm->destroyed) {
-		if(!((enm->current_wait_cycle++)%ENEMY_WAIT_CYCLE_NUMBER)) {
-			if(obstacle == BACKGROUND || fb) {
-				map1[y][x] = BACKGROUND;
-				switch(dir) {
-				case DIR_LEFT:
-					x -= 1;
-					break;
-				case DIR_RIGHT:
-					x += 1;
-					break;
-				case DIR_UP:
-					y -= 1;
-					break;
-				case DIR_DOWN:
-					y += 1;
-					break;
-				default:;
-				}
-				map1[y][x] = enm->type;
-				enm->x = x;
-				enm->y = y;
-				if(fb) {
-					lives--;
-					bomberman.x = BOMBERMAN_STARTING_POSITION_X;
-					bomberman.y = BOMBERMAN_STARTING_POSITION_Y;
-					char_spawn(&bomberman);
-				}
-			}
-		}
-	} else {
-		enm->type = BACKGROUND;
-		map1[y][x] = BACKGROUND;
-	}
-	for (i = 0; i < 100000; i++) {
-	}
-}
-
-static void place_bomb(characters * bomberman) {
+static void place_bomb(unsigned char map[30][40], characters * bomberman) {
 	unsigned char x = bomberman->x;
 	unsigned char y = bomberman->y;
-	if(map1[y][x] == BACKGROUND || map1[y][x] == BOMBERMAN) {
-		unsigned char pom = (active_bombs_index++)%3; //cirkularni buffer za ove sto nisu eksplodirale
-		bombs_coordinates[pom][0] = y; //KOD NJIH PRVO IDE Y KOORDINATA IZ NEKOG RAZLOGA
-		bombs_coordinates[pom][1] = x;
-		bombs_tick_counter[pom] = BOMB_TICK_COUNT;
-		map1[y][x] = BOMB;
-		active_bombs++;
-	}
-}
-
-static void check_and_detonate_bombs() {
 	unsigned char i;
-	if(active_bombs > 0){
-		unsigned char pom = 0;
-		for(i = 0; i < 3; i++) {
-			if(bombs_tick_counter[i]-- == 0){
-				pom = (exploding_bombs_index++)%3; //Cirkularni buffer za eksplodirajuce
-
-				map1[bombs_coordinates[pom][0]][bombs_coordinates[pom][1]] = BACKGROUND;
-				destroy(map1, bombs_coordinates[pom][1], bombs_coordinates[pom][0], &bomberman, 2); //POSLEDNJI PARAMETAR JE JACINA BOMBE
-
-				active_bombs--;
+	if(map1[y][x] == BACKGROUND && active_bombs < available_bombs) { //OVO JE DA NE BISMO MOGLI DA STAVLJAMO NA BOMBU
+		active_bombs++;
+		for(i = 0; i < available_bombs; i++) {
+			if(!bombs[i].placed) {
+				bombs[i].placed = 1;
+				bombs[i].tick_counter = BOMB_TICK_COUNT;
+				bombs[i].x = x;
+				bombs[i].y = y;
+				map1[y][x] = BOMB;
+				break;
 			}
 		}
 	}
 }
 
-static void check_and_destroy_enemies() {
+static void check_and_detonate_bombs(characters * bomberman) {
 	unsigned char i;
-	for(i = 0; i < ENEMY_NUMBER; i++) {
-		if(!enemies[i].destroyed) {
-			random_move_enemy(&enemies[i], map1);
+	if(active_bombs > 0){
+		for(i = 0; i < available_bombs; i++) {
+			if(bombs[i].placed) {
+				if(bombs[i].tick_counter-- == 0) {
+					detonate(map1, bombs[i].x, bombs[i].y, bomberman, i);
+				}
+			}
 		}
 	}
+}
+
+static void check_and_move_enemies() {
+	unsigned char i;
+	direction_t dir;
+	unsigned char fb;
+	unsigned char x, y;
+	unsigned char obstacle;
+	for(i = 0; i < ENEMY_NUMBER; i++) {
+		x = enemies[i].x;
+		y = enemies[i].y;
+		dir = (direction_t)(rand()%4);
+		fb = find_bomberman(&bomberman, x, y, dir, 1);
+		obstacle = obstacles_detection(x, y, map1, dir, 1);
+		if(!enemies[i].destroyed) {
+			if(!((enemies[i].current_wait_cycle++)%ENEMY_WAIT_CYCLE_NUMBER)) {
+				if(obstacle == BACKGROUND || (fb && obstacle != BOMB)) { //NEPRIJATELJ NE SME DA STANE NA POLJE NA KOJEM JE I BOMBERMAN I BOMBA
+					map1[y][x] = BACKGROUND;
+					switch(dir) {
+					case DIR_LEFT:
+						x -= 1;
+						break;
+					case DIR_RIGHT:
+						x += 1;
+						break;
+					case DIR_UP:
+						y -= 1;
+						break;
+					case DIR_DOWN:
+						y += 1;
+						break;
+					default:;
+					}
+					map1[y][x] = enemies[i].type;
+					enemies[i].x = x;
+					enemies[i].y = y;
+					if(fb) {
+						lives--;
+						bomberman.x = BOMBERMAN_STARTING_POSITION_X;
+						bomberman.y = BOMBERMAN_STARTING_POSITION_Y;
+						char_spawn(&bomberman);
+					}
+				}
+			}
+		}
+	}
+	wait(100000);
 }
 
 void battle_city() {
 	unsigned int buttons;
-	int i;
 
 	map_reset(map1);
 	map_update(&bomberman);
@@ -847,15 +753,21 @@ void battle_city() {
 	//int bombs_coordinates[3][2], active_bombs_index = 0, exploding_bombs_index = 0;
 	//int bombs_tick_counter[3] = {-1, -1, -1}; //nema postavljenih
 	//int pom;
-	int available_bombs = 3;
+	lives = STARTING_LIFE_COUNT;
+	enemies_destroyed = 0;
+	win_condition = 0;
+	lose_condition = 0;
+	bomb_power = 2;
+	active_bombs = 0;
+	available_bombs = BOMB_MAX_NUMBER;
 
-	map1[enemy1Y][enemy1X] = 5;
+	map1[enemy1Y][enemy1X] = ENEMY;
 
-	map1[enemy2Y][enemy2X] = 5;
+	map1[enemy2Y][enemy2X] = ENEMY;
 
-	map1[enemy3Y][enemy3X] = 5;
+	map1[enemy3Y][enemy3X] = ENEMY;
 
-	map1[enemy4Y][enemy4X] = 5;
+	map1[enemy4Y][enemy4X] = ENEMY;
 
 	while (1) {
 		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
@@ -870,25 +782,24 @@ void battle_city() {
 				d = DIR_UP;
 			} else if (BTN_DOWN(buttons)){
 				d = DIR_DOWN;
-			} else if(BTN_SHOOT(buttons) && active_bombs < available_bombs){
+			} else if(BTN_SHOOT(buttons)){
 
-				place_bomb(&bomberman);
+				place_bomb(map1, &bomberman);
 			}
 		}
 
 
 		//Ovde se ulazi kad istekne bomba
 
-		check_and_detonate_bombs();
+		check_and_detonate_bombs(&bomberman);
 
-		check_and_destroy_enemies();
+		check_and_move_enemies();
 
 		map_update(&bomberman);
 
 		bomberman_move(map1, &bomberman, d);
 
-		for (i = 0; i < 100000; i++) {
-		}
+		wait(100000);
 
 	}
 }
