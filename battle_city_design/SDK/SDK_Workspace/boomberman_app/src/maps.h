@@ -5,6 +5,7 @@ typedef struct map_structure {
 	unsigned char map_grid[30][40];
 	unsigned char bomberman_start_x;
 	unsigned char bomberman_start_y;
+	unsigned char enemy_speed;
 	signed char enemy_count; //OVO NE SME DA PREVAZILAZI 10
 	unsigned char enemy_start_x[10]; //Pocetna x
 	unsigned char enemy_start_y[10];

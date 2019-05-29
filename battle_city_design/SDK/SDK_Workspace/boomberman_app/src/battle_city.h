@@ -10,5 +10,7 @@
 
 
 void battle_city();
+void draw_map(unsigned char map[30][40]);
+
 
 #endif /* BATTLE_CITY_H_ */

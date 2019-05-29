@@ -223,84 +223,53 @@ static void char_spawn(unsigned char map[30][40], bomberman_t * character) {
 			((character->y)*16) << 16 | (character->x*16));
 }
 
-static void map_update(unsigned char map[30][40], bomberman_t * bomberman) {
-	int x, y;
+void draw_map(unsigned char map[30][40]) {
 	long int addr;
-	win_condition = bomberman_win(bomberman);
-	if(bomberman->lives > 0 && win_condition == 0){
-		for (y = 0; y < MAP_HEIGHT; y++) {							// base mapa
-			for (x = 0; x < MAP_WIDTH; x++) {
-				addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
-						+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
-				switch (map[y][x]) {								//ovde menjam mapu
-				case BACKGROUND:
-					Xil_Out32(addr, IMG_16x16_bckgnd);
-					break;
-				case BOMBERMAN:
-					Xil_Out32(addr, IMG_16x16_bomberman);
-					break;
-				case BLOCK:
-					Xil_Out32(addr, IMG_16x16_block);
-					break;
-				case BRICK:
-					Xil_Out32(addr, IMG_16x16_brick);
-					break;
-				case DOOR:
-					Xil_Out32(addr, IMG_16x16_door);
-					break;
-				case ENEMY:
-					Xil_Out32(addr, IMG_16x16_enemy);
-					break;
-				case BOMB:
-					Xil_Out32(addr, IMG_16x16_bomb);
-					break;
-				default:
-					Xil_Out32(addr, IMG_16x16_bckgnd);
-					break;
-				}
-			}
-		}
-	}else if(bomberman->lives <= 0) { //OVDE IMAMO BUG, AKO JE BOMBERMAN UMRO NA POCETNOM POLJU ONDA CE SE TU I RESPAVNOVATI I KONSTATNO CE UMIRATI
-		lose_condition = 1;
-		for (y = 0; y < MAP_HEIGHT; y++) {
-			for (x = 0; x < MAP_WIDTH; x++) {
-				addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
-						+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
-				switch (map_game_over[y][x]) {								//ovde menjam mapu
-				case 0:
-					Xil_Out32(addr, IMG_16x16_bckgnd);
-					break;
-				case 1:
-					Xil_Out32(addr, IMG_16x16_bomberman);
-					break;
-				case 6:
-					Xil_Out32(addr, IMG_16x16_bomb);
-					break;
-				default:
-					Xil_Out32(addr, IMG_16x16_bckgnd);
-					break;
-				}
+	unsigned char x, y;
+	for (y = 0; y < MAP_HEIGHT; y++) {							// base mapa
+		for (x = 0; x < MAP_WIDTH; x++) {
+			addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
+					+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
+			switch (map[y][x]) {								//ovde menjam mapu
+			case BACKGROUND:
+				Xil_Out32(addr, IMG_16x16_bckgnd);
+				break;
+			case BOMBERMAN:
+				Xil_Out32(addr, IMG_16x16_bomberman);
+				break;
+			case BLOCK:
+				Xil_Out32(addr, IMG_16x16_block);
+				break;
+			case BRICK:
+				Xil_Out32(addr, IMG_16x16_brick);
+				break;
+			case DOOR:
+				Xil_Out32(addr, IMG_16x16_door);
+				break;
+			case ENEMY:
+				Xil_Out32(addr, IMG_16x16_enemy);
+				break;
+			case BOMB:
+				Xil_Out32(addr, IMG_16x16_bomb);
+				break;
+			default:
+				Xil_Out32(addr, IMG_16x16_bckgnd);
+				break;
 			}
 		}
 	}
-	else if(bomberman->lives > 0 && win_condition == 1) {									// game won mapa
-		for (y = 0; y < MAP_HEIGHT; y++) {
-			for (x = 0; x < MAP_WIDTH; x++) {
-				addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
-						+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
-				switch (map_win[y][x]) {								//ovde menjam mapu
-				case 0:
-					Xil_Out32(addr, IMG_16x16_bckgnd);
-					break;
-				case 1:
-					Xil_Out32(addr, IMG_16x16_bomberman);
-					break;
-				default:
-					Xil_Out32(addr, IMG_16x16_bckgnd);
-					break;
-				}
-			}
-		}
+}
+
+static void map_update(unsigned char map[30][40], bomberman_t * bomberman) {
+	win_condition = bomberman_win(bomberman);
+	if(bomberman->lives > 0 && win_condition == 0){
+		draw_map(map);
+	}else if(bomberman->lives <= 0) { //OVDE IMAMO BUG, AKO JE BOMBERMAN UMRO NA POCETNOM POLJU ONDA CE SE TU I RESPAVNOVATI I KONSTATNO CE UMIRATI
+		lose_condition = 1; //Ovo se koristi da bi smo onemogucili da se bomberman krece nakon izgubljene igre
+		draw_map(map_game_over);
+	}
+	else if(bomberman->lives > 0 && win_condition == 1) {	// game won mapa
+		draw_map(map_win);
 	}
 }
 

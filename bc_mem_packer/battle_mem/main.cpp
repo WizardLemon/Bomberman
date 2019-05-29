@@ -63,16 +63,16 @@ int main( )
 	num_colors = 1;
 
 	base_addr = IMAGE_8x8_BASE_ADDR;
-/*
+	/*
     fprintf( mem_file, "\n\n--\t\t\t***** 8x8 IMAGES *****\n\n\n" );
     fprintf( def_file, "\n\n// ***** 8x8 IMAGES *****\n\n" );
 
     process_images( dir, mem_file, def_file, &base_addr, IMG_8x8 );
-*/
+	*/
     fprintf( mem_file, "\n\n--\t\t\t***** 16x16 IMAGES *****\n\n\n" );
     fprintf( def_file, "\n\n// ***** 16x16 IMAGES *****\n\n" );
 
-    process_images( dir, mem_file, def_file, &base_addr, IMG_16x16 );
+	process_images( dir, mem_file, def_file, &base_addr, IMG_16x16 );
 
     fprintf( mem_file, "\n\n--\t\t\t***** MAP *****\n\n\n" );
     fprintf( def_file, "\n\n// ***** MAP *****\n\n" );

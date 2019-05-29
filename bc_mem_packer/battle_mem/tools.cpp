@@ -106,8 +106,8 @@ void image_to_mem( FILE * f, unsigned long addr, unsigned char * img, unsigned c
 
 void process_images( const char * dir, FILE * mem_file, FILE * def_file, unsigned long * base_addr, unsigned char type )
 {
-    char            search_dir[ MAX_PATH ];
-    char            file_path[ MAX_PATH ];
+    char            search_dir[ 200 ];
+    char            file_path[ 200 ];
     char            def_name[ 128 ];
     unsigned char * img;
     WIN32_FIND_DATA find_data;
