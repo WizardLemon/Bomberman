@@ -1,9 +1,0 @@
-#include "main_menu.h"
-
-map_structure_t main_menu(){
-
-
-	while(1) {
-
-	}
-}

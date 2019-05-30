@@ -90,3 +90,4 @@ Failed to Scan JTAG Chain
 09:46:26.611 INFO  - Updating hardware inferred compiler options for boomberman_app. 
 09:46:26.630 INFO  - Clearing existing target manager status. 
 09:46:28.964 INFO  - Workspace synchronized with the new hardware specification file. Cleaning dependent projects... 
+10:48:36.655 ERROR - Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near  

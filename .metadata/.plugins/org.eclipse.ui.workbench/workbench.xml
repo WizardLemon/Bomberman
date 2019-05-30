@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="16" version="2.0">
+<workbench progressCount="20" version="2.0">
 <workbenchAdvisor/>
 <window height="852" maximized="true" width="960" x="249" y="-19">
 <fastViewData fastViewLocation="1024"/>
@@ -34,17 +34,42 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="battle_city.c" partName="battle_city.c" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/battle_city.c" title="battle_city.c" tooltip="boomberman_app/src/battle_city.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/battle_city.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="19586" selectionTopPixel="11430"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="maps.h" partName="maps.h" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/maps.h" title="maps.h" tooltip="boomberman_app/src/maps.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/maps.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="31" selectionOffset="406" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="platform.c" partName="platform.c" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/platform.c" title="platform.c" tooltip="boomberman_app/src/platform.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/platform.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="84" selectionTopPixel="0"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="maps.c" partName="maps.c" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/maps.c" title="maps.c" tooltip="boomberman_app/src/maps.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/maps.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15308" selectionTopPixel="1961"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="battle_city.h" partName="battle_city.h" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/battle_city.h" title="battle_city.h" tooltip="boomberman_app/src/battle_city.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/battle_city.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="252" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main_menu.h" partName="main_menu.h" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/main_menu.h" title="main_menu.h" tooltip="boomberman_app/src/main_menu.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/main_menu.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main_menu.c" partName="main_menu.c" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/main_menu.c" title="main_menu.c" tooltip="boomberman_app/src/main_menu.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/main_menu.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1249" selectionTopPixel="116"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="battle_city.c" partName="battle_city.c" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/battle_city.c" title="battle_city.c" tooltip="boomberman_app/src/battle_city.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/battle_city.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="208" selectionTopPixel="3105"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="D:/ra126-2016/Bomberman/battle_city_design/SDK/SDK_Workspace/boomberman_app/src/main.c" title="main.c" tooltip="boomberman_app/src/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/boomberman_app/src/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1499" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -57,8 +82,9 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Warnings (2 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -154,7 +180,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="250" ratioRight="750" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.13095862" ratioLeft="250" ratioRight="1659" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottom" ratio="0.7496136" ratioLeft="485" ratioRight="162" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -188,98 +214,166 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.hw.ui.HwSpecXMLEditor" path="/battle_city_design_hw_platform/system.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/battle_city.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/main_menu.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/main_menu.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/maps.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/battle_city.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/batle_city_bsp_0/microblaze_0/include/xparameters.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/platform.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/platform.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/platform_config.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/boomberman_app/src/main.c"/>
 </editors>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="battle_city.c" index="1">
+<item historyLabel="battle_city.h" index="0">
+<position info="not_deleted" x="685" y="0"/>
+</item>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="5389" y="798"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="727" y="0"/>
+</item>
+<item historyLabel="main_menu.h" index="1">
+<position info="not_deleted" x="180" y="0"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="22" y="0"/>
+</item>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="5349" y="37"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="642" y="16"/>
+</item>
+<item historyLabel="battle_city.h" index="0">
+<position info="not_deleted" x="79" y="0"/>
+</item>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="5349" y="0"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="642" y="16"/>
+</item>
+<item historyLabel="maps.h" index="3">
+<position info="not_deleted" x="406" y="31"/>
+</item>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="5349" y="0"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="642" y="16"/>
+</item>
+<item historyLabel="battle_city.h" index="0">
+<position info="not_deleted" x="79" y="0"/>
+</item>
+<item historyLabel="main_menu.h" index="1">
+<position info="not_deleted" x="2" y="0"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="642" y="16"/>
+</item>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="5349" y="0"/>
+</item>
+<item historyLabel="xparameters.h" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="9720" y="0"/>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="333" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="8371" y="19"/>
+<item historyLabel="platform.h" index="6">
+<position info="not_deleted" x="4" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="18903" y="0"/>
+<item historyLabel="platform.c" index="7">
+<position info="not_deleted" x="2415" y="17"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="2332" y="7"/>
+<item historyLabel="platform_config.h" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="system.xml" index="0"/>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="2332" y="7"/>
+<item historyLabel="platform.c" index="7">
+<position info="not_deleted" x="2415" y="17"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="4587" y="0"/>
+<item historyLabel="platform.h" index="6">
+<position info="not_deleted" x="4" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="8371" y="19"/>
+<item historyLabel="xparameters.h" index="5">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position/>
+<item historyLabel="platform.h" index="6">
+<position info="not_deleted" x="4" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="4451" y="0"/>
+<item historyLabel="platform.c" index="7">
+<position info="not_deleted" x="2415" y="17"/>
 </item>
-<item historyLabel="platform.c" index="2">
-<position info="not_deleted" x="84" y="0"/>
+<item historyLabel="platform_config.h" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="4451" y="0"/>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="642" y="16"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position/>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="230" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="4434" y="15"/>
+<item historyLabel="battle_city.h" index="0">
+<position info="not_deleted" x="252" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="5076" y="0"/>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="656" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="2240" y="17"/>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="230" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="4522" y="0"/>
+<item historyLabel="battle_city.h" index="0">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="18540" y="11"/>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="230" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position/>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="701" y="15"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="18540" y="0"/>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="230" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="19907" y="0"/>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="701" y="15"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="12419" y="7"/>
+<item historyLabel="battle_city.h" index="0">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="18540" y="11"/>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="208" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="18782" y="0"/>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="701" y="15"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="18785" y="0"/>
+<item historyLabel="battle_city.h" index="0">
+<position info="not_deleted" x="252" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position/>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="208" y="0"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="19532" y="0"/>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="701" y="15"/>
 </item>
-<item historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="19648" y="0"/>
+<item historyLabel="battle_city.c" index="4">
+<position info="not_deleted" x="208" y="0"/>
 </item>
-<item active="true" historyLabel="battle_city.c" index="1">
-<position info="not_deleted" x="18865" y="0"/>
+<item historyLabel="main_menu.h" index="1">
+<position info="not_deleted" x="2" y="0"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="701" y="15"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="1202" y="0"/>
+</item>
+<item historyLabel="main_menu.c" index="2">
+<position info="not_deleted" x="1249" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="9">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -298,11 +392,38 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="boomberman_app/src/main.c">
+<persistable path="/boomberman_app/src/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="platform_config.h" tooltip="boomberman_app/src/platform_config.h">
+<persistable path="/boomberman_app/src/platform_config.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="platform.c" tooltip="boomberman_app/src/platform.c">
 <persistable path="/boomberman_app/src/platform.c"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="platform.h" tooltip="boomberman_app/src/platform.h">
+<persistable path="/boomberman_app/src/platform.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="xparameters.h" tooltip="batle_city_bsp_0/microblaze_0/include/xparameters.h">
+<persistable path="/batle_city_bsp_0/microblaze_0/include/xparameters.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="battle_city.c" tooltip="boomberman_app/src/battle_city.c">
 <persistable path="/boomberman_app/src/battle_city.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main_menu.c" tooltip="boomberman_app/src/main_menu.c">
+<persistable path="/boomberman_app/src/main_menu.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main_menu.h" tooltip="boomberman_app/src/main_menu.h">
+<persistable path="/boomberman_app/src/main_menu.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="battle_city.h" tooltip="boomberman_app/src/battle_city.h">
+<persistable path="/boomberman_app/src/battle_city.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="maps.c" tooltip="boomberman_app/src/maps.c">
+<persistable path="/boomberman_app/src/maps.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="maps.h" tooltip="boomberman_app/src/maps.h">
+<persistable path="/boomberman_app/src/maps.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.xilinx.sdk.hw.ui.HwSpecXMLEditor" name="system.xml" tooltip="battle_city_design_hw_platform/system.xml">
 <persistable path="/battle_city_design_hw_platform/system.xml"/>
