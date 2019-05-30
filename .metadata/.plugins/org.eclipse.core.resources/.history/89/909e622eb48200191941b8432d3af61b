@@ -1,0 +1,81 @@
+#include "main_menu.h"
+#include "battle_city.h"
+#include "xio.h"
+#include "xparameters.h"
+#include "xil_io.h"
+
+#define SPEED_OPTION_X 24
+#define SPEED_OPTION_Y 21
+#define COUNT_OPTION_X 24
+#define COUNT_OPTION_Y 16
+
+void print_number(unsigned char number) {
+	long int addr;
+	unsigned char x, y;
+	for (y = 0; y < MAP_HEIGHT; y++) {							// base mapa
+		for (x = 0; x < MAP_WIDTH; x++) {
+			addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
+					+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
+			switch (map[y][x]) {								//ovde menjam mapu
+			case BACKGROUND:
+				Xil_Out32(addr, IMG_16x16_bckgnd);
+				break;
+			case BOMBERMAN:
+				Xil_Out32(addr, IMG_16x16_bomberman);
+				break;
+			case BLOCK:
+				Xil_Out32(addr, IMG_16x16_block);
+				break;
+			case BRICK:
+				Xil_Out32(addr, IMG_16x16_brick);
+				break;
+			case DOOR:
+				Xil_Out32(addr, IMG_16x16_door);
+				break;
+			case ENEMY:
+				Xil_Out32(addr, IMG_16x16_enemy);
+				break;
+			case BOMB:
+				Xil_Out32(addr, IMG_16x16_bomb);
+				break;
+			default:
+				Xil_Out32(addr, IMG_16x16_bckgnd);
+				break;
+			}
+		}
+	}
+}
+
+map_structure_t main_menu(){
+	unsigned char menu_option = 0;
+	unsigned char buttons = 0;
+
+	bomberman_t menu_indicator;
+	menu_indicator.x = COUNT_OPTION_X;
+	menu_indicator.y = COUNT_OPTION_Y;
+
+	while(1) {
+		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
+		if (BTN_LEFT(buttons)) {
+
+		} else if (BTN_RIGHT(buttons)) {
+
+		} else if (BTN_UP(buttons)){
+			if((++menu_option)%2) {
+				menu_indicator.y = SPEED_OPTION_Y;
+			} else {
+				menu_indicator.y = COUNT_OPTION_Y;
+			}
+			char_spawn(map_main_menu, &menu_indicator);
+		} else if (BTN_DOWN(buttons)){
+			if((++menu_option)%2) {
+				menu_indicator.y = SPEED_OPTION_Y;
+			} else {
+				menu_indicator.y = COUNT_OPTION_Y;
+			}
+			char_spawn(map_main_menu, &menu_indicator);
+		} else if(BTN_SHOOT(buttons)){
+
+		}
+	}
+}

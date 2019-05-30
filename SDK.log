@@ -79,3 +79,14 @@ Failed to Scan JTAG Chain
  
 16:31:19.726 INFO  - FPGA configured successfully with bitstream "D:/ra126-2016/Bomberman/battle_city_design_hw_platform/download.bit" 
 16:40:36.841 ERROR - Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near  
+09:46:13.562 INFO  - Processing command line option -hwspec D:\ra126-2016\Bomberman\battle_city_design\SDK\SDK_Export\hw\battle_city.xml. 
+09:46:14.685 INFO  - The hardware specification for project 'battle_city_design_hw_platform' is different from D:\ra126-2016\Bomberman\battle_city_design\SDK\SDK_Export\hw\battle_city.xml. 
+09:46:14.733 INFO  - Copied contents of D:\ra126-2016\Bomberman\battle_city_design\SDK\SDK_Export\hw\battle_city.xml into \battle_city_design_hw_platform\system.xml. 
+09:46:14.736 INFO  - Copied contents of D:\ra126-2016\Bomberman\battle_city_design\SDK\SDK_Export\hw\battle_city.bit into \battle_city_design_hw_platform\system.bit. 
+09:46:14.738 INFO  - Copied contents of D:\ra126-2016\Bomberman\battle_city_design\SDK\SDK_Export\hw\battle_city_bd.bmm into \battle_city_design_hw_platform\system_bd.bmm. 
+09:46:15.131 INFO  - Synchronizing projects in the workspace with the hardware platform specification changes. 
+09:46:24.992 INFO  - Updating hardware inferred compiler options for Boomberman. 
+09:46:25.802 INFO  - Updating hardware inferred compiler options for bomberman_app1. 
+09:46:26.611 INFO  - Updating hardware inferred compiler options for boomberman_app. 
+09:46:26.630 INFO  - Clearing existing target manager status. 
+09:46:28.964 INFO  - Workspace synchronized with the new hardware specification file. Cleaning dependent projects... 

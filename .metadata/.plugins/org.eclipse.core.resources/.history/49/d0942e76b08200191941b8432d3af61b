@@ -1,0 +1,22 @@
+#include "main_menu.h"
+
+map_structure_t main_menu(){
+	unsigned char menu_option = 0;
+
+
+	while(1) {
+			if (BTN_LEFT(buttons)) {
+				d = DIR_LEFT;
+			} else if (BTN_RIGHT(buttons)) {
+				d = DIR_RIGHT;
+			} else if (BTN_UP(buttons)){
+				d = DIR_UP;
+			} else if (BTN_DOWN(buttons)){
+				d = DIR_DOWN;
+			} else if(BTN_SHOOT(buttons)){
+
+			}
+		}
+
+	}
+}

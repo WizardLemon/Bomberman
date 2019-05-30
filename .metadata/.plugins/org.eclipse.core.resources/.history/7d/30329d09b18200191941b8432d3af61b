@@ -1,0 +1,24 @@
+#include "main_menu.h"
+#include "battle_city.h"
+#include "xparameters.h"
+#include "xil_io.h"
+
+map_structure_t main_menu(){
+	unsigned char menu_option = 0;
+	unsigned char buttons = 0;
+
+	while(1) {
+		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
+		if (BTN_LEFT(buttons)) {
+
+		} else if (BTN_RIGHT(buttons)) {
+
+		} else if (BTN_UP(buttons)){
+
+		} else if (BTN_DOWN(buttons)){
+
+		} else if(BTN_SHOOT(buttons)){
+
+		}
+	}
+}

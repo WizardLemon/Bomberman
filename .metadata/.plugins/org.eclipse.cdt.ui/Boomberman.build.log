@@ -1,6 +1,7 @@
-16:31:28 **** Incremental Build of configuration Debug for project Boomberman ****
-make all 
-make: Ništa za napraviti za `all'.
+09:46:29 **** Clean-only build of configuration Debug for project Boomberman ****
+make clean 
+Cannot run program "make": The directory name is invalid.
 
-16:31:28 Build Finished (took 187ms)
+
+09:46:29 Build Finished (took 7ms)
 

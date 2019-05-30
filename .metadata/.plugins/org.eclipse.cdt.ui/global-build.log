@@ -591,3 +591,2059 @@ ELF file	: boomberman_app.elf
 elfcheck passed.
 'Finished building: boomberman_app.elf.elfcheck'
 ' '
+09:46:15 **** Auto Build of project batle_city_bsp_0 ****
+make -k all 
+libgen -hw ../battle_city_design_hw_platform/system.xml\
+	       \
+	       -pe microblaze_0 \
+	       -log libgen.log \
+	       system.mss
+libgen
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: libgen -hw ../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 -log libgen.log system.mss 
+
+
+Staging source files.
+Running DRCs.
+Running generate.
+Running post_generate.
+Running include - 'make -s include "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mlittle-endian -mno-xl-soft-mul -mxl-barrel-shift
+-mxl-pattern-compare -mcpu=v8.50.b  -O2 -c" "EXTRA_COMPILER_FLAGS=-g
+-ffunction-sections -fdata-sections"'.
+
+Running libs - 'make -s libs "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mlittle-endian -mno-xl-soft-mul -mxl-barrel-shift
+-mxl-pattern-compare -mcpu=v8.50.b  -O2 -c" "EXTRA_COMPILER_FLAGS=-g
+-ffunction-sections -fdata-sections"'.
+"Compiling common"
+"Compiling standalone";
+"Compiling uartlite"
+"Compiling gpio"
+"Compiling bram"
+"Compiling cpu"
+Running execs_generate.
+'Finished building libraries'
+09:46:28 **** Clean-only build of project batle_city_bsp_0 ****
+make -k clean 
+rm -rf microblaze_0
+09:46:29 **** Clean-only build of configuration Debug for project Boomberman ****
+make clean 
+Cannot run program "make": The directory name is invalid.
+
+09:46:29 **** Clean-only build of configuration Debug for project bomberman_app1 ****
+make clean 
+Cannot run program "make": The directory name is invalid.
+
+09:46:29 **** Clean-only build of configuration Debug for project boomberman_app ****
+make clean 
+Cannot run program "make": The directory name is invalid.
+
+09:46:29 **** Build of project batle_city_bsp_0 ****
+make -k all 
+libgen -hw ../battle_city_design_hw_platform/system.xml\
+	       \
+	       -pe microblaze_0 \
+	       -log libgen.log \
+	       system.mss
+libgen
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: libgen -hw ../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 -log libgen.log system.mss 
+
+
+Staging source files.
+Running DRCs.
+Running generate.
+Running post_generate.
+Running include - 'make -s include "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mlittle-endian -mno-xl-soft-mul -mxl-barrel-shift
+-mxl-pattern-compare -mcpu=v8.50.b  -O2 -c" "EXTRA_COMPILER_FLAGS=-g
+-ffunction-sections -fdata-sections"'.
+
+Running libs - 'make -s libs "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mlittle-endian -mno-xl-soft-mul -mxl-barrel-shift
+-mxl-pattern-compare -mcpu=v8.50.b  -O2 -c" "EXTRA_COMPILER_FLAGS=-g
+-ffunction-sections -fdata-sections"'.
+"Compiling common"
+"Compiling standalone";
+"Compiling uartlite"
+"Compiling gpio"
+"Compiling bram"
+"Compiling cpu"
+Running execs_generate.
+'Finished building libraries'
+09:47:47 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:616:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+'Finished building: ../src/battle_city.c'
+' '
+make: *** Nema propisa za izradu mete `src/bitmap.o', kojeg traži `boomberman_app.elf'.  Zaustavi.
+09:48:17 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+'Finished building: ../src/maps.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.d" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15828	   4968	   2156	  22952	   59a8	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+09:48:48 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+09:48:54 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+'Finished building: ../src/maps.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+./src/maps.o:(.bss.map+0x0): multiple definition of `map'
+./src/battle_city.o:(.bss.map+0x0): first defined here
+./src/maps.o:(.data.map_game_over+0x0): multiple definition of `map_game_over'
+./src/battle_city.o:(.data.map_game_over+0x0): first defined here
+./src/maps.o:(.data.map_win+0x0): multiple definition of `map_win'
+./src/battle_city.o:(.data.map_win+0x0): first defined here
+./src/maps.o:(.data.map_main_menu+0x0): multiple definition of `map_main_menu'
+./src/battle_city.o:(.data.map_main_menu+0x0): first defined here
+./src/maps.o:(.data.map1+0x0): multiple definition of `map1'
+./src/battle_city.o:(.data.map1+0x0): first defined here
+collect2: ld returned 1 exit status
+make: *** [boomberman_app.elf] Greška 1
+09:49:29 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+../src/maps.c:3:15: error: redefinition of 'map_game_over'
+../src/maps.h:19:15: note: previous definition of 'map_game_over' was here
+../src/maps.c:36:15: error: redefinition of 'map_win'
+../src/maps.h:53:15: note: previous definition of 'map_win' was here
+../src/maps.c:69:15: error: redefinition of 'map_main_menu'
+../src/maps.h:86:15: note: previous definition of 'map_main_menu' was here
+../src/maps.c:111:15: error: redefinition of 'map1'
+../src/maps.h:128:15: note: previous definition of 'map1' was here
+make: *** [src/maps.o] Greška 1
+09:49:44 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+../src/maps.c:36:15: error: redefinition of 'map_win'
+../src/maps.h:22:15: note: previous definition of 'map_win' was here
+../src/maps.c:69:15: error: redefinition of 'map_main_menu'
+../src/maps.h:55:15: note: previous definition of 'map_main_menu' was here
+../src/maps.c:111:15: error: redefinition of 'map1'
+../src/maps.h:97:15: note: previous definition of 'map1' was here
+make: *** [src/maps.o] Greška 1
+09:49:47 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+In file included from ../src/maps.c:1:0:
+../src/maps.h:14:24: warning: 'map' initialized and declared 'extern' [enabled by default]
+../src/maps.c:36:15: error: redefinition of 'map_win'
+../src/maps.h:22:15: note: previous definition of 'map_win' was here
+../src/maps.c:69:15: error: redefinition of 'map_main_menu'
+../src/maps.h:55:15: note: previous definition of 'map_main_menu' was here
+../src/maps.c:111:15: error: redefinition of 'map1'
+../src/maps.h:97:15: note: previous definition of 'map1' was here
+make: *** [src/maps.o] Greška 1
+09:50:10 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+In file included from ../src/maps.c:1:0:
+../src/maps.h:14:24: warning: 'map' initialized and declared 'extern' [enabled by default]
+In file included from ../src/maps.c:1:0:
+../src/maps.h:23:22: warning: 'map_main_menu' initialized and declared 'extern' [enabled by default]
+../src/maps.c:69:15: error: redefinition of 'map_main_menu'
+../src/maps.h:23:22: note: previous definition of 'map_main_menu' was here
+../src/maps.c:111:15: error: redefinition of 'map1'
+../src/maps.h:65:15: note: previous definition of 'map1' was here
+make: *** [src/maps.o] Greška 1
+09:50:31 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+In file included from ../src/maps.c:1:0:
+../src/maps.h:14:24: warning: 'map' initialized and declared 'extern' [enabled by default]
+In file included from ../src/maps.c:1:0:
+../src/maps.h:25:22: warning: 'map1' initialized and declared 'extern' [enabled by default]
+../src/maps.c:111:15: error: redefinition of 'map1'
+../src/maps.h:25:22: note: previous definition of 'map1' was here
+make: *** [src/maps.o] Greška 1
+09:50:43 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+In file included from ../src/maps.c:1:0:
+../src/maps.h:14:24: warning: 'map' initialized and declared 'extern' [enabled by default]
+In file included from ../src/maps.c:1:0:
+../src/maps.h:25:2: error: expected identifier or '(' before '=' token
+make: *** [src/maps.o] Greška 1
+09:50:49 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+In file included from ../src/maps.c:1:0:
+../src/maps.h:14:24: warning: 'map' initialized and declared 'extern' [enabled by default]
+'Finished building: ../src/maps.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+./src/maps.o:(.bss.map+0x0): multiple definition of `map'
+./src/battle_city.o:(.bss.map+0x0): first defined here
+./src/maps.o:(.data.map_game_over+0x0): multiple definition of `map_game_over'
+./src/battle_city.o:(.data.map_game_over+0x0): first defined here
+./src/maps.o:(.data.map_win+0x0): multiple definition of `map_win'
+./src/battle_city.o:(.data.map_win+0x0): first defined here
+./src/maps.o:(.data.map_main_menu+0x0): multiple definition of `map_main_menu'
+./src/battle_city.o:(.data.map_main_menu+0x0): first defined here
+./src/maps.o:(.data.map1+0x0): multiple definition of `map1'
+./src/battle_city.o:(.data.map1+0x0): first defined here
+collect2: ld returned 1 exit status
+make: *** [boomberman_app.elf] Greška 1
+09:50:56 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+./src/maps.o:(.bss.map+0x0): multiple definition of `map'
+./src/battle_city.o:(.bss.map+0x0): first defined here
+./src/maps.o:(.data.map_game_over+0x0): multiple definition of `map_game_over'
+./src/battle_city.o:(.data.map_game_over+0x0): first defined here
+./src/maps.o:(.data.map_win+0x0): multiple definition of `map_win'
+./src/battle_city.o:(.data.map_win+0x0): first defined here
+./src/maps.o:(.data.map_main_menu+0x0): multiple definition of `map_main_menu'
+./src/battle_city.o:(.data.map_main_menu+0x0): first defined here
+./src/maps.o:(.data.map1+0x0): multiple definition of `map1'
+./src/battle_city.o:(.data.map1+0x0): first defined here
+collect2: ld returned 1 exit status
+make: *** [boomberman_app.elf] Greška 1
+09:52:15 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:616:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+09:52:17 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+09:52:23 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+09:53:08 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+09:53:45 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:6:1: warning: control reaches end of non-void function [-Wreturn-type]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+09:54:01 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+09:54:02 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+09:54:36 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:4:16: warning: unused variable 'menu_option' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+09:56:01 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+09:56:10 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:8:4: warning: implicit declaration of function 'BTN_LEFT' [-Wimplicit-function-declaration]
+../src/main_menu.c:8:17: error: 'buttons' undeclared (first use in this function)
+../src/main_menu.c:8:17: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:9:5: error: 'd' undeclared (first use in this function)
+../src/main_menu.c:9:9: error: 'DIR_LEFT' undeclared (first use in this function)
+../src/main_menu.c:10:4: warning: implicit declaration of function 'BTN_RIGHT' [-Wimplicit-function-declaration]
+../src/main_menu.c:11:9: error: 'DIR_RIGHT' undeclared (first use in this function)
+../src/main_menu.c:12:4: warning: implicit declaration of function 'BTN_UP' [-Wimplicit-function-declaration]
+../src/main_menu.c:13:9: error: 'DIR_UP' undeclared (first use in this function)
+../src/main_menu.c:14:4: warning: implicit declaration of function 'BTN_DOWN' [-Wimplicit-function-declaration]
+../src/main_menu.c:15:9: error: 'DIR_DOWN' undeclared (first use in this function)
+../src/main_menu.c:16:4: warning: implicit declaration of function 'BTN_SHOOT' [-Wimplicit-function-declaration]
+../src/main_menu.c:4:16: warning: unused variable 'menu_option' [-Wunused-variable]
+../src/main_menu.c: At top level:
+../src/main_menu.c:22:1: error: expected identifier or '(' before '}' token
+make: *** [src/main_menu.o] Greška 1
+09:56:42 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:9:4: warning: implicit declaration of function 'BTN_LEFT' [-Wimplicit-function-declaration]
+../src/main_menu.c:9:17: error: 'buttons' undeclared (first use in this function)
+../src/main_menu.c:9:17: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:10:5: error: 'd' undeclared (first use in this function)
+../src/main_menu.c:10:9: error: 'DIR_LEFT' undeclared (first use in this function)
+../src/main_menu.c:11:4: warning: implicit declaration of function 'BTN_RIGHT' [-Wimplicit-function-declaration]
+../src/main_menu.c:12:9: error: 'DIR_RIGHT' undeclared (first use in this function)
+../src/main_menu.c:13:4: warning: implicit declaration of function 'BTN_UP' [-Wimplicit-function-declaration]
+../src/main_menu.c:14:9: error: 'DIR_UP' undeclared (first use in this function)
+../src/main_menu.c:15:4: warning: implicit declaration of function 'BTN_DOWN' [-Wimplicit-function-declaration]
+../src/main_menu.c:16:9: error: 'DIR_DOWN' undeclared (first use in this function)
+../src/main_menu.c:17:4: warning: implicit declaration of function 'BTN_SHOOT' [-Wimplicit-function-declaration]
+../src/main_menu.c:5:16: warning: unused variable 'menu_option' [-Wunused-variable]
+../src/main_menu.c: At top level:
+../src/main_menu.c:23:1: error: expected identifier or '(' before '}' token
+make: *** [src/main_menu.o] Greška 1
+09:57:10 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:9:4: warning: implicit declaration of function 'BTN_LEFT' [-Wimplicit-function-declaration]
+../src/main_menu.c:9:17: error: 'buttons' undeclared (first use in this function)
+../src/main_menu.c:9:17: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:10:4: warning: implicit declaration of function 'BTN_RIGHT' [-Wimplicit-function-declaration]
+../src/main_menu.c:11:4: warning: implicit declaration of function 'BTN_UP' [-Wimplicit-function-declaration]
+../src/main_menu.c:12:4: warning: implicit declaration of function 'BTN_DOWN' [-Wimplicit-function-declaration]
+../src/main_menu.c:13:4: warning: implicit declaration of function 'BTN_SHOOT' [-Wimplicit-function-declaration]
+../src/main_menu.c:5:16: warning: unused variable 'menu_option' [-Wunused-variable]
+../src/main_menu.c: At top level:
+../src/main_menu.c:19:1: error: expected identifier or '(' before '}' token
+make: *** [src/main_menu.o] Greška 1
+09:57:25 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:9:8: error: 'buttons' undeclared (first use in this function)
+../src/main_menu.c:9:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:5:16: warning: unused variable 'menu_option' [-Wunused-variable]
+../src/main_menu.c: At top level:
+../src/main_menu.c:19:1: error: expected identifier or '(' before '}' token
+make: *** [src/main_menu.o] Greška 1
+09:57:33 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+In file included from ../src/battle_city.c:1:0:
+../src/battle_city.h:16:18: error: unknown type name 'map_structure_t'
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:610:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+make: *** [src/battle_city.o] Greška 1
+09:58:31 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+In file included from ../src/battle_city.c:1:0:
+../src/battle_city.h:16:18: error: unknown type name 'map_structure_t'
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:610:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+make: *** [src/battle_city.o] Greška 1
+09:58:56 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:610:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+'Finished building: ../src/battle_city.c'
+' '
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:5:16: warning: unused variable 'menu_option' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+09:59:41 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:9:3: warning: implicit declaration of function 'XIo_In32' [-Wimplicit-function-declaration]
+../src/main_menu.c:9:23: error: 'XPAR_IO_PERIPH_BASEADDR' undeclared (first use in this function)
+../src/main_menu.c:9:23: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:5:16: warning: unused variable 'menu_option' [-Wunused-variable]
+make: *** [src/main_menu.o] Greška 1
+10:00:04 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:10:13: error: 'XPAR_IO_PERIPH_BASEADDR' undeclared (first use in this function)
+../src/main_menu.c:10:13: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:6:16: warning: unused variable 'menu_option' [-Wunused-variable]
+make: *** [src/main_menu.o] Greška 1
+10:00:17 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:8:16: warning: unused variable 'menu_option' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:00:25 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:10:3: warning: implicit declaration of function 'XIo_In32' [-Wimplicit-function-declaration]
+../src/main_menu.c:10:23: error: 'XPAR_IO_PERIPH_BASEADDR' undeclared (first use in this function)
+../src/main_menu.c:10:23: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:6:16: warning: unused variable 'menu_option' [-Wunused-variable]
+make: *** [src/main_menu.o] Greška 1
+10:00:28 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c:3:10: warning: missing terminating " character [enabled by default]
+../src/main_menu.c:3:10: error: #include expects "FILENAME" or <FILENAME>
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:11:3: warning: implicit declaration of function 'XIo_In32' [-Wimplicit-function-declaration]
+../src/main_menu.c:11:23: error: 'XPAR_IO_PERIPH_BASEADDR' undeclared (first use in this function)
+../src/main_menu.c:11:23: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:7:16: warning: unused variable 'menu_option' [-Wunused-variable]
+make: *** [src/main_menu.o] Greška 1
+10:00:31 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:11:13: error: 'XPAR_IO_PERIPH_BASEADDR' undeclared (first use in this function)
+../src/main_menu.c:11:13: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:7:16: warning: unused variable 'menu_option' [-Wunused-variable]
+make: *** [src/main_menu.o] Greška 1
+10:00:38 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:8:16: warning: unused variable 'menu_option' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:00:41 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:11:3: warning: implicit declaration of function 'XIo_In32' [-Wimplicit-function-declaration]
+../src/main_menu.c:7:16: warning: unused variable 'menu_option' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:00:49 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:8:16: warning: unused variable 'menu_option' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:01:22 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:8:16: warning: unused variable 'menu_option' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:01:31 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+10:01:34 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+In file included from ../src/battle_city.c:1:0:
+../src/battle_city.h:20:44: error: unknown type name 'bomberman_t'
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:610:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+make: *** [src/battle_city.o] Greška 1
+10:01:39 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+In file included from ../src/battle_city.c:1:0:
+../src/battle_city.h:20:44: error: unknown type name 'bomberman_t'
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:610:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+make: *** [src/battle_city.o] Greška 1
+10:01:57 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:103:3: error: conflicting types for 'bomberman_t'
+../src/battle_city.h:21:3: note: previous declaration of 'bomberman_t' was here
+../src/battle_city.c:211:6: error: conflicting types for 'char_spawn'
+../src/battle_city.h:31:6: note: previous declaration of 'char_spawn' was here
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:610:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+make: *** [src/battle_city.o] Greška 1
+10:02:10 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:103:3: error: conflicting types for 'bomberman_t'
+../src/battle_city.h:22:3: note: previous declaration of 'bomberman_t' was here
+../src/battle_city.c:211:6: error: conflicting types for 'char_spawn'
+../src/battle_city.h:32:6: note: previous declaration of 'char_spawn' was here
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:610:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+make: *** [src/battle_city.o] Greška 1
+10:02:13 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:600:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+'Finished building: ../src/battle_city.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:03:26 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:14:2: error: expected identifier before 'while'
+../src/main_menu.c:10:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+../src/main_menu.c:9:16: warning: unused variable 'buttons' [-Wunused-variable]
+../src/main_menu.c:8:16: warning: unused variable 'menu_option' [-Wunused-variable]
+../src/main_menu.c:28:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/main_menu.o] Greška 1
+10:04:44 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:17:2: error: expected expression before 'while'
+../src/main_menu.c:13:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+../src/main_menu.c:12:16: warning: unused variable 'buttons' [-Wunused-variable]
+../src/main_menu.c:11:16: warning: unused variable 'menu_option' [-Wunused-variable]
+../src/main_menu.c:31:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/main_menu.o] Greška 1
+10:05:40 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:17:2: error: expected expression before 'while'
+../src/main_menu.c:13:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+../src/main_menu.c:12:16: warning: unused variable 'buttons' [-Wunused-variable]
+../src/main_menu.c:11:16: warning: unused variable 'menu_option' [-Wunused-variable]
+../src/main_menu.c:31:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/main_menu.o] Greška 1
+10:06:33 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:19:2: error: expected expression before 'while'
+../src/main_menu.c:15:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+../src/main_menu.c:14:16: warning: unused variable 'buttons' [-Wunused-variable]
+../src/main_menu.c:13:16: warning: unused variable 'menu_option' [-Wunused-variable]
+../src/main_menu.c:33:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [src/main_menu.o] Greška 1
+10:06:50 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:15:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+../src/main_menu.c:13:16: warning: unused variable 'menu_option' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:09:27 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:09:38 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:09:48 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:11:20 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:13:08 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+10:13:23 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+make: Ništa za napraviti za `all'.
+10:14:28 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:14:41 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+'Finished building: ../src/maps.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:17:39 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+../src/maps.c:146:5: warning: missing braces around initializer [-Wmissing-braces]
+../src/maps.c:146:5: warning: (near initialization for 'numbers[0][0]') [-Wmissing-braces]
+'Finished building: ../src/maps.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:19:55 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+../src/maps.c:155:14: error: expected '}' before '.' token
+make: *** [src/maps.o] Greška 1
+10:20:05 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/maps.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/maps.d" -MT"src/maps.d" -o "src/maps.o" "../src/maps.c"
+'Finished building: ../src/maps.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:21:22 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:21:38 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:22:29 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:14:7: error: 'y' undeclared (first use in this function)
+../src/main_menu.c:14:7: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:15:8: error: 'x' undeclared (first use in this function)
+../src/main_menu.c:16:4: error: 'addr' undeclared (first use in this function)
+../src/main_menu.c:17:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/main_menu.c:19:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:20:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:22:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:23:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:25:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:26:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:28:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:29:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:31:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:32:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:34:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:35:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:37:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:38:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:22:40 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:18:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/main_menu.c:18:13: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:19:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:20:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:21:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:23:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:24:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:26:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:27:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:29:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:30:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:32:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:33:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:35:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:36:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:38:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:39:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:23:19 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c:12:41: error: unknown type name 'position'
+make: *** [src/main_menu.o] Greška 1
+10:23:49 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:19:18: error: 'SPEED' undeclared (first use in this function)
+../src/main_menu.c:19:18: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:22:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/main_menu.c:23:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:23:53 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:19:18: error: 'SPEED' undeclared (first use in this function)
+../src/main_menu.c:19:18: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:22:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/main_menu.c:23:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:23:55 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:19:18: error: 'SPEED' undeclared (first use in this function)
+../src/main_menu.c:19:18: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:22:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/main_menu.c:23:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:24:04 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:19:18: error: 'SPEED' undeclared (first use in this function)
+../src/main_menu.c:19:18: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:22:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/main_menu.c:23:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:24:14 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:19:18: error: 'SPEED' undeclared (first use in this function)
+../src/main_menu.c:19:18: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:22:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/main_menu.c:23:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:25:55 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:22:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/main_menu.c:22:13: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:23:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:27:51 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'char_spawn':
+../src/battle_city.c:201:2: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/battle_city.c:201:2: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c: In function 'draw_map':
+../src/battle_city.c:215:13: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/battle_city.c: In function 'map_reset':
+../src/battle_city.c:263:3: error: 'MAP_BASE_ADDRESS' undeclared (first use in this function)
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:599:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+make: *** [src/battle_city.o] Greška 1
+10:28:01 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:599:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+'Finished building: ../src/battle_city.c'
+' '
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:23:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:24:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:28:16 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:23:18: error: subscripted value is neither array nor pointer nor vector
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:24:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:28:28 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:24:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:24:9: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:25:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/main_menu.c:27:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:28:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:30:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:31:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:33:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:34:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:36:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:37:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:39:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:40:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:42:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:43:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:28:44 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:23:4: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:23:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:25:9: error: 'BACKGROUND' undeclared (first use in this function)
+../src/main_menu.c:28:9: error: 'BOMBERMAN' undeclared (first use in this function)
+../src/main_menu.c:29:5: error: 'IMG_16x16_bomberman' undeclared (first use in this function)
+../src/main_menu.c:31:9: error: 'BLOCK' undeclared (first use in this function)
+../src/main_menu.c:34:9: error: 'BRICK' undeclared (first use in this function)
+../src/main_menu.c:35:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/main_menu.c:37:9: error: 'DOOR' undeclared (first use in this function)
+../src/main_menu.c:38:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/main_menu.c:40:9: error: 'ENEMY' undeclared (first use in this function)
+../src/main_menu.c:41:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/main_menu.c:43:9: error: 'BOMB' undeclared (first use in this function)
+../src/main_menu.c:44:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+../src/main_menu.c:47:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+make: *** [src/main_menu.o] Greška 1
+10:28:58 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'print_number':
+../src/main_menu.c:23:4: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/main_menu.c:23:4: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/main_menu.o] Greška 1
+10:29:25 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c:108:3: error: 'IMG_16x16_bomberman' undeclared here (not in a function)
+../src/battle_city.c: In function 'draw_map':
+../src/battle_city.c:211:5: error: 'IMG_16x16_bckgnd' undeclared (first use in this function)
+../src/battle_city.c:211:5: note: each undeclared identifier is reported only once for each function it appears in
+../src/battle_city.c:217:5: error: 'IMG_16x16_block' undeclared (first use in this function)
+../src/battle_city.c:220:5: error: 'IMG_16x16_brick' undeclared (first use in this function)
+../src/battle_city.c:223:5: error: 'IMG_16x16_door' undeclared (first use in this function)
+../src/battle_city.c:226:5: error: 'IMG_16x16_enemy' undeclared (first use in this function)
+../src/battle_city.c:229:5: error: 'IMG_16x16_bomb' undeclared (first use in this function)
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:592:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+make: *** [src/battle_city.o] Greška 1
+10:29:33 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/battle_city.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/battle_city.d" -MT"src/battle_city.d" -o "src/battle_city.o" "../src/battle_city.c"
+../src/battle_city.c: In function 'check_and_move_enemies':
+../src/battle_city.c:592:3: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+'Finished building: ../src/battle_city.c'
+' '
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:30:05 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:31:36 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:42:4: error: too few arguments to function 'print_number'
+../src/main_menu.c:16:6: note: declared here
+../src/main_menu.c:43:3: error: expected ';' before '}' token
+../src/main_menu.c:31:16: warning: unused variable 'enemy_speed' [-Wunused-variable]
+../src/main_menu.c:30:16: warning: unused variable 'enemy_number' [-Wunused-variable]
+make: *** [src/main_menu.o] Greška 1
+10:32:55 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:31:16: warning: unused variable 'enemy_speed' [-Wunused-variable]
+../src/main_menu.c:30:16: warning: unused variable 'enemy_number' [-Wunused-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:37:38 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:49:25: error: 'ENEMY_MAX_COUNT' undeclared (first use in this function)
+../src/main_menu.c:49:25: note: each undeclared identifier is reported only once for each function it appears in
+../src/main_menu.c:33:16: warning: unused variable 'enemy_speed' [-Wunused-variable]
+make: *** [src/main_menu.o] Greška 1
+10:38:10 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:38:48 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:38:57 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:39:26 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:41:10 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:81:3: warning: passing argument 1 of 'print' makes pointer from integer without a cast [enabled by default]
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: expected 'char *' but argument is of type 'unsigned char'
+../src/main_menu.c:81:3: error: too many arguments to function 'print'
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: declared here
+../src/main_menu.c:82:3: warning: passing argument 1 of 'print' makes pointer from integer without a cast [enabled by default]
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: expected 'char *' but argument is of type 'unsigned char'
+../src/main_menu.c:82:3: error: too many arguments to function 'print'
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: declared here
+../src/main_menu.c:36:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+make: *** [src/main_menu.o] Greška 1
+10:41:21 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:81:3: warning: passing argument 1 of 'print' makes pointer from integer without a cast [enabled by default]
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: expected 'char *' but argument is of type 'unsigned char'
+../src/main_menu.c:81:3: error: too many arguments to function 'print'
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: declared here
+../src/main_menu.c:82:3: warning: passing argument 1 of 'print' makes pointer from integer without a cast [enabled by default]
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: expected 'char *' but argument is of type 'unsigned char'
+../src/main_menu.c:82:3: error: too many arguments to function 'print'
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: declared here
+../src/main_menu.c:83:3: error: too few arguments to function 'print'
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: declared here
+../src/main_menu.c:36:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+make: *** [src/main_menu.o] Greška 1
+10:41:37 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:81:3: warning: passing argument 1 of 'print' makes pointer from integer without a cast [enabled by default]
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: expected 'char *' but argument is of type 'unsigned char'
+../src/main_menu.c:81:3: error: too many arguments to function 'print'
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: declared here
+../src/main_menu.c:82:3: warning: passing argument 1 of 'print' makes pointer from integer without a cast [enabled by default]
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: expected 'char *' but argument is of type 'unsigned char'
+../src/main_menu.c:82:3: error: too many arguments to function 'print'
+../../batle_city_bsp_0/microblaze_0/include/xil_printf.h:49:6: note: declared here
+../src/main_menu.c:36:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+make: *** [src/main_menu.o] Greška 1
+10:42:01 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+../src/main_menu.c: In function 'main_menu':
+../src/main_menu.c:36:14: warning: variable 'menu_indicator' set but not used [-Wunused-but-set-variable]
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:42:42 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main_menu.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main_menu.d" -MT"src/main_menu.d" -o "src/main_menu.o" "../src/main_menu.c"
+'Finished building: ../src/main_menu.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  15852	   4968	   2156	  22976	   59c0	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '
+10:43:00 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:44:5: warning: implicit declaration of function 'main_menu' [-Wimplicit-function-declaration]
+../src/main.c:46:5: error: too few arguments to function 'battle_city'
+../src/battle_city.h:40:6: note: declared here
+make: *** [src/main.o] Greška 1
+10:43:05 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:44:5: warning: implicit declaration of function 'main_menu' [-Wimplicit-function-declaration]
+../src/main.c:46:5: error: incompatible type for argument 1 of 'battle_city'
+../src/battle_city.h:40:6: note: expected 'map_structure_t' but argument is of type 'unsigned char (*)[40]'
+make: *** [src/main.o] Greška 1
+10:43:18 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:45:5: warning: implicit declaration of function 'main_menu' [-Wimplicit-function-declaration]
+../src/main.c:47:5: error: incompatible type for argument 1 of 'battle_city'
+../src/battle_city.h:40:6: note: expected 'map_structure_t' but argument is of type 'unsigned char (*)[40]'
+make: *** [src/main.o] Greška 1
+10:43:33 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c:37:23: fatal error: main_main.h: No such file or directory
+compilation terminated.
+make: *** [src/main.o] Greška 1
+10:43:40 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:47:5: error: incompatible type for argument 1 of 'battle_city'
+../src/battle_city.h:40:6: note: expected 'map_structure_t' but argument is of type 'unsigned char (*)[40]'
+make: *** [src/main.o] Greška 1
+10:44:32 **** Auto Build of configuration Debug for project boomberman_app ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../batle_city_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: boomberman_app.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../batle_city_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.b -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "boomberman_app.elf"  ./src/battle_city.o ./src/main.o ./src/main_menu.o ./src/maps.o ./src/platform.o   
+'Finished building target: boomberman_app.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size boomberman_app.elf  |tee "boomberman_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  16592	   6168	   2152	  24912	   6150	boomberman_app.elf
+'Finished building: boomberman_app.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck boomberman_app.elf -hw ../../battle_city_design_hw_platform/system.xml -pe microblaze_0  |tee "boomberman_app.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.6 Build EDK_P.68d
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../battle_city_design_hw_platform/system.xml -pe
+microblaze_0 boomberman_app.elf 
+
+ELF file	: boomberman_app.elf
+elfcheck passed.
+'Finished building: boomberman_app.elf.elfcheck'
+' '

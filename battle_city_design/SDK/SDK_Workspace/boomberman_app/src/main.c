@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include "platform.h"
 #include "battle_city.h"
+#include "main_menu.h"
 
 int main()
 {
@@ -41,7 +42,9 @@ int main()
 
     xil_printf("Hello World\n\r");
 
-    battle_city();
+    main_menu();
+    map_structure_t map;
+    battle_city(map);
 
     return 0;
 }

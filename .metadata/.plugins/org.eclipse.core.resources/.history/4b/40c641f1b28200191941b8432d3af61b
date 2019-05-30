@@ -1,0 +1,45 @@
+#include "main_menu.h"
+#include "battle_city.h"
+#include "xio.h"
+#include "xparameters.h"
+#include "xil_io.h"
+
+#define SPEED_OPTION_X 24
+#define SPEED_OPTION_Y 21
+#define COUNT_OPTION_X 24
+#define COUNT_OPTION_Y 16
+
+map_structure_t main_menu(){
+	unsigned char menu_option = 0;
+	unsigned char buttons = 0;
+
+	bomberman_t menu_indicator;
+	menu_indicator.x = COUNT_OPTION_X;
+	menu_indicator.y = COUNT_OPTION_Y;
+
+	while(1) {
+		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
+		if (BTN_LEFT(buttons)) {
+
+
+		} else if (BTN_RIGHT(buttons)) {
+			if((++menu_option)%2) {
+				menu_indicator.y = SPEED_OPTION_Y;
+			} else {
+				menu_indicator.y = COUNT_OPTION_Y;
+			}
+			char_spawn(map_main_menu, &menu_indicator);
+		} else if (BTN_UP(buttons)){
+			if((--menu_option)%2) {
+				menu_indicator.y = SPEED_OPTION_Y;
+			} else {
+				menu_indicator.y = COUNT_OPTION_Y;
+			}
+			char_spawn(map_main_menu, &menu_indicator);
+		} else if (BTN_DOWN(buttons)){
+
+		} else if(BTN_SHOOT(buttons)){
+
+		}
+	}
+}
