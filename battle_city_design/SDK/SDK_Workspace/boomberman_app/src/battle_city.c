@@ -174,7 +174,7 @@ enemy enemies[4] = {
 		}
 };
 
-static void wait(int wait_time) {
+void wait(int wait_time) {
 	int i;
 	for(i = 0; i < wait_time; i++);
 }

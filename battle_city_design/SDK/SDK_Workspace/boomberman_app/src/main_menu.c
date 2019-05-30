@@ -18,11 +18,11 @@ typedef enum {
 void print_number(unsigned char number, option_t option) {
 	long int addr;
 	unsigned char x, y;
-	for (y = SPEED_OPTION_Y; y < SPEED_OPTION_Y + 3; y++) {							// base mapa
+	for (y = SPEED_OPTION_Y; y < SPEED_OPTION_Y + 5; y++) {							// base mapa
 		for (x = SPEED_OPTION_X; x < SPEED_OPTION_X + 3; x++) {
 			addr = XPAR_BATTLE_CITY_PERIPH_0_BASEADDR
 					+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
-			Xil_Out32(addr, IMG_16x16_block);
+			Xil_Out32(addr, numbers[number][y][x]);
 		}
 	}
 }
@@ -81,5 +81,6 @@ map_structure_t main_menu(){
 		print_number(enemy_number, SPEED_OPTION);
 		print_number(enemy_number, COUNT_OPTION);
 		char_spawn(map_main_menu, &menu_indicator);
+		wait(300000);
 	}
 }

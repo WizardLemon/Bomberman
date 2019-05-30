@@ -40,5 +40,6 @@ typedef struct {
 void battle_city(map_structure_t passed_map);
 void draw_map(unsigned char map[30][40]);
 void char_spawn(unsigned char map[30][40], bomberman_t * character);
+void wait(int wait_time);
 
 #endif /* BATTLE_CITY_H_ */

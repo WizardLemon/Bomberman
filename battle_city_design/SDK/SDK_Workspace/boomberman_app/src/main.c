@@ -42,7 +42,7 @@ int main()
 
     xil_printf("Hello World\n\r");
 
-    main_menu();
+    //main_menu();
     map_structure_t map;
     battle_city(map);
 
