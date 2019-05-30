@@ -1,4 +1,4 @@
-10:44:32 **** Auto Build of configuration Debug for project boomberman_app ****
+10:46:40 **** Auto Build of configuration Debug for project boomberman_app ****
 make all 
 'Building file: ../src/main.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -30,5 +30,5 @@ elfcheck passed.
 'Finished building: boomberman_app.elf.elfcheck'
 ' '
 
-10:44:33 Build Finished (took 1s.273ms)
+10:46:41 Build Finished (took 1s.324ms)
 
