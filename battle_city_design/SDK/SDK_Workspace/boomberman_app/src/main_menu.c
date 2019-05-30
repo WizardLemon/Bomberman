@@ -17,6 +17,8 @@ typedef enum {
 	SPEED_OPTION = 0, COUNT_OPTION = 1
 }option_t;
 
+
+
 static void print_number(unsigned char number, option_t option) {
 	long int addr;
 	unsigned char i = -1, j = -1;
@@ -65,13 +67,16 @@ void main_menu(){
 	unsigned char enemy_speed = 1;
 	unsigned char buttons = 0;
 
-	bomberman_t menu_indicator; //INICIJALIZACIJA POTREBNA ZA CHAR_SPAWN
-	menu_indicator.x = MENU_INDICATOR_COUNT_X;
-	menu_indicator.y = MENU_INDICATOR_COUNT_Y;
-	menu_indicator.image = IMG_16x16_bomberman;
-	menu_indicator.lives = 3;
-	menu_indicator.reg_l = 	TANK1_REG_L;
-	menu_indicator.reg_h = TANK1_REG_H;
+	bomberman_t menu_indicator =
+	{
+			MENU_INDICATOR_COUNT_X,
+			MENU_INDICATOR_COUNT_Y,
+			IMG_16x16_bomberman,
+			0,
+			3,
+			TANK1_REG_L,
+			TANK1_REG_H
+	};
 
 	draw_map(map_main_menu);
 
@@ -89,11 +94,11 @@ void main_menu(){
 			}
 		} else if (BTN_RIGHT(buttons)) {
 			if(menu_indicator.y == MENU_INDICATOR_SPEED_Y) {
-				if(!((++enemy_speed)%ENEMY_MAX_SPEED)) {
+				if(!((enemy_speed++)%ENEMY_MAX_SPEED)) {
 					enemy_speed = 1;
 				}
 			} else {
-				if(!((++enemy_number)%ENEMY_MAX_NUMBER)) {
+				if(!((enemy_number++)%ENEMY_MAX_NUMBER)) {
 					enemy_number = 1;
 				}
 			}
@@ -104,6 +109,8 @@ void main_menu(){
 				menu_indicator.y = MENU_INDICATOR_COUNT_Y;
 			}
 		} else if(BTN_SHOOT(buttons)){
+			map_structures[0].enemy_count = enemy_number;
+			map_structures[0].enemy_speed = enemy_speed;
 			battle_city(&map_structures[0]);
 		}
 
