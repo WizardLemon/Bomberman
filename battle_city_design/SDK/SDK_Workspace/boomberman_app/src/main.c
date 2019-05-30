@@ -33,15 +33,14 @@
 
 #include <stdio.h>
 #include "platform.h"
+#include "main_menu.h"
 #include "battle_city.h"
 
 int main()
 {
     init_platform();
-
     xil_printf("Hello World\n\r");
-
-    battle_city();
+    main_menu();
 
     return 0;
 }

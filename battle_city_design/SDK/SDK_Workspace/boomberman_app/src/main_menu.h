@@ -10,5 +10,6 @@
 
 #include "maps.h"
 
+void main_menu();
 
 #endif /* MAIN_MENU_H_ */
