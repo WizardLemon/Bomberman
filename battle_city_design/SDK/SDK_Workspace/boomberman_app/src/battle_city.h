@@ -1,12 +1,14 @@
 #ifndef BATTLE_CITY_H_
 #define BATTLE_CITY_H_
 
+#include "maps.h"
+
 #define MAP_WIDTH           40  // 40
 #define MAP_HEIGHT          30 // 30
 
-#define SCREEN_WIDTH		640
-#define SCREEN_HEIGHT		480
-#define MAP_BASE_ADDRESS	0x02BF 		// MAP_OFFSET in battle_city.vhd
+#define TANK1_REG_L             8
+#define TANK1_REG_H             9
+#define MAP_BASE_ADDRESS		0x02BF
 
 // ***** 16x16 IMAGES *****
 #define IMG_16x16_block			0x017F 		//2 - blok
@@ -16,8 +18,16 @@
 #define IMG_16x16_bomberman		0x013F 		//1 - bomberm
 #define IMG_16x16_brick			0x01BF 		//3 - cigla
 #define IMG_16x16_bomb 			0x00FF 		//6 - bomba
+#define IMG_16x16_plus_expl
 
-#include "maps.h"
+#define SCREEN_WIDTH		640
+#define SCREEN_HEIGHT		480
+
+#define BTN_DOWN( b )           ( !( b & 0x01 ) )
+#define BTN_UP( b )             ( !( b & 0x10 ) )
+#define BTN_LEFT( b )           ( !( b & 0x02 ) )
+#define BTN_RIGHT( b )          ( !( b & 0x08 ) )
+#define BTN_SHOOT( b )          ( !( b & 0x04 ) )
 
 // struktura koja sadrzi osobine bombermana
 typedef struct {
@@ -31,15 +41,14 @@ typedef struct {
 	unsigned int reg_h;
 } bomberman_t;
 
-#define BTN_DOWN( b )           ( !( b & 0x01 ) )
-#define BTN_UP( b )             ( !( b & 0x10 ) )
-#define BTN_LEFT( b )           ( !( b & 0x02 ) )
-#define BTN_RIGHT( b )          ( !( b & 0x08 ) )
-#define BTN_SHOOT( b )          ( !( b & 0x04 ) )
+typedef enum {
+	BACKGROUND = 0, BOMBERMAN, BLOCK, BRICK, DOOR, ENEMY, BOMB, EXPLOSION
+} game_objects_t;
 
-void battle_city(map_structure_t passed_map);
+void battle_city(map_structure_t * map);
 void draw_map(unsigned char map[30][40]);
 void char_spawn(unsigned char map[30][40], bomberman_t * character);
-void wait(int wait_time);
+void wait(long int milliseconds);
+
 
 #endif /* BATTLE_CITY_H_ */
