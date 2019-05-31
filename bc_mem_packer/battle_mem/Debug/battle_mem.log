@@ -1,3 +1,17 @@
-﻿  LINK : D:\ra126-2016\Bomberman\bc_mem_packer\battle_mem\Debug\battle_mem.exe not found or not built by the last incremental link; performing full link
+﻿  tools.cpp
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(15): warning C4018: '<': signed/unsigned mismatch
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(21): warning C4018: '<': signed/unsigned mismatch
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(43): warning C4018: '<': signed/unsigned mismatch
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(35): warning C4101: 'mask': unreferenced local variable
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(36): warning C4101: 'bit': unreferenced local variable
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(154): warning C4101: 'y': unreferenced local variable
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(261): warning C4018: '<': signed/unsigned mismatch
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(262): warning C4018: '<': signed/unsigned mismatch
+d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(223): warning C4474: 'fprintf' : too many arguments passed for format string
+  d:\ra126-2016\bomberman\bc_mem_packer\battle_mem\tools.cpp(223): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  main.cpp
+  bitmap.cpp
+  Generating Code...
+  LINK : D:\ra126-2016\Bomberman\bc_mem_packer\battle_mem\Debug\battle_mem.exe not found or not built by the last incremental link; performing full link
   battle_mem.vcxproj -> D:\ra126-2016\Bomberman\bc_mem_packer\battle_mem\Debug\battle_mem.exe
   battle_mem.vcxproj -> D:\ra126-2016\Bomberman\bc_mem_packer\battle_mem\Debug\battle_mem.pdb (Full PDB)

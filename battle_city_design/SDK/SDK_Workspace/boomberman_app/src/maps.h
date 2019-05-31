@@ -1,15 +1,7 @@
 #ifndef _MAPS_H_
 #define _MAPS_H_
 
-#define LIVES_STARTING_X				36
-#define LIVES_STARTING_Y				2
-#define MAP_COUNT 1
-#define BOMBERMAN_STARTING_POSITION_1_X	8
-#define BOMBERMAN_STARTING_POSITION_1_Y 3
-#define ENEMY_DEFAULT_SPEED 1
-#define ENEMY_DEFAULT_COUNT 1
-#define ENEMY_MAX_NUMBER 9
-#define ENEMY_MAX_SPEED 9
+#include "macros.h"
 
 typedef struct enemy {
 	unsigned char x;

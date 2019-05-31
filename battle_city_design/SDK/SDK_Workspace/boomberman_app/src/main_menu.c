@@ -3,21 +3,11 @@
 #include "xio.h"
 #include "xparameters.h"
 #include "xil_io.h"
-
-#define COUNT_OPTION_X 24
-#define COUNT_OPTION_Y 18
-#define SPEED_OPTION_X 24
-#define SPEED_OPTION_Y 24
-#define MENU_INDICATOR_COUNT_X COUNT_OPTION_X + 4
-#define MENU_INDICATOR_COUNT_Y COUNT_OPTION_Y + 2
-#define MENU_INDICATOR_SPEED_X MENUINDICATOR_COUNT_X
-#define MENU_INDICATOR_SPEED_Y MENU_INDICATOR_COUNT_Y + 6
+#include "macros.h"
 
 typedef enum {
 	SPEED_OPTION = 0, COUNT_OPTION = 1
 }option_t;
-
-
 
 static void print_number(unsigned char number, option_t option) {
 	long int addr;
@@ -35,7 +25,7 @@ static void print_number(unsigned char number, option_t option) {
 					Xil_Out32(addr, IMG_16x16_block);
 					break;
 				default:
-					Xil_Out32(addr, IMG_16x16_bckgnd);
+					Xil_Out32(addr, IMG_16x16_background);
 					break;
 				}
 			}
@@ -52,7 +42,7 @@ static void print_number(unsigned char number, option_t option) {
 					Xil_Out32(addr, IMG_16x16_block);
 					break;
 				default:
-					Xil_Out32(addr, IMG_16x16_bckgnd);
+					Xil_Out32(addr, IMG_16x16_background);
 					break;
 				}
 
@@ -71,12 +61,17 @@ void main_menu(){
 	{
 			MENU_INDICATOR_COUNT_X,
 			MENU_INDICATOR_COUNT_Y,
+
 			IMG_16x16_bomberman,
 			0,
-			3,
-			TANK1_REG_L,
+			STARTING_BOMB_POWER,
+			STARTING_BOMB_NUMBER,              		 // nije destroyed
+			STARTING_LIFE_COUNT, 	//BROJ POCETNIH ZIVOTA
+
+			TANK1_REG_L,            		 // reg_l ?
 			TANK1_REG_H
 	};
+
 
 	draw_map(map_main_menu);
 

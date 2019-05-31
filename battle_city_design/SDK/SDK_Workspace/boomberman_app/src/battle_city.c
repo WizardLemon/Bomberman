@@ -3,26 +3,7 @@
 #include "xil_io.h"
 #include "xio.h"
 #include <math.h>
-
-	// MAP_OFFSET in battle_city.vhd
-#define MAP_X					0
-#define MAP_X2					640
-#define MAP_Y					4
-#define MAP_W					64
-#define MAP_H					56
-
-#define REGS_BASE_ADDRESS       ( MAP_BASE_ADDRESS + MAP_WIDTH * MAP_HEIGHT )
-//#define REGS_BASE_ADDRESS     (5439)
-
-#define TANK1_REG_L                     8
-#define TANK1_REG_H                     9
-#define BASE_REG_L						0
-#define BASE_REG_H	                    1
-
-#define BOMB_TICK_COUNT					20
-#define BOMB_MAX_NUMBER					3
-#define STARTING_LIFE_COUNT				3
-
+#include "macros.h"
 
 // ***** GLOBAL VARIABLES *****
 unsigned char enemies_destroyed;
@@ -106,7 +87,7 @@ void draw_map(unsigned char map[30][40]) {
 					+ 4 * (MAP_BASE_ADDRESS + y * MAP_WIDTH + x);
 			switch (map[y][x]) {								//ovde menjam mapu
 			case BACKGROUND:
-				Xil_Out32(addr, IMG_16x16_bckgnd);
+				Xil_Out32(addr, IMG_16x16_background);
 				break;
 			case BOMBERMAN:
 				Xil_Out32(addr, IMG_16x16_bomberman);
@@ -127,7 +108,7 @@ void draw_map(unsigned char map[30][40]) {
 				Xil_Out32(addr, IMG_16x16_bomb);
 				break;
 			default:
-				Xil_Out32(addr, IMG_16x16_bckgnd);
+				Xil_Out32(addr, IMG_16x16_background);
 				break;
 			}
 		}
@@ -363,6 +344,10 @@ static unsigned char find_bomb_index(unsigned char map[30][40], unsigned char x,
 	return BOMB_MAX_NUMBER;
 }
 
+/*static void place_random_power_up(map_structure_t * map, unsigned char x, unsigned char y) {
+	map->
+}*/
+
 //PREIMENOVANO IZ DESTROY
 static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, unsigned char bomb_index){
 	unsigned char directions, i, j;
@@ -539,14 +524,16 @@ void battle_city(map_structure_t * map) {
 	bomberman_t player_one = {
 		map->bomberman_start_x,	         				 // x trenutni
 		map->bomberman_start_y, 		                     // y trenutni
-		IMG_16x16_bomberman,  			 // type
-
-		0,                		 // nije destroyed
+		IMG_16x16_bomberman,
+		0, // type
+		STARTING_BOMB_POWER,
+		STARTING_BOMB_NUMBER,               		 // nije destroyed
 		STARTING_LIFE_COUNT, 	//BROJ POCETNIH ZIVOTA
 
 		TANK1_REG_L,            		 // reg_l ?
 		TANK1_REG_H             		 // reg_h ?
 	};
+
 
 	wait(500); // SETUP WAIT, POTREBNO DA SE NE BI DETEKTOVALO PRITISKANJE DUGMETA NAKON IZLASKA IZ MENIJA
 
