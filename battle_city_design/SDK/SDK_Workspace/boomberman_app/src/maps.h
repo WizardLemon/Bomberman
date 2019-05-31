@@ -18,6 +18,8 @@ typedef struct map_structure {
 	unsigned char bomberman_start_y;
 	unsigned char door_x;
 	unsigned char door_y;
+	unsigned char plus_bombs_placed;
+	unsigned char plus_explosion_placed;
 	unsigned char enemy_speed;
 	signed char enemy_count; //OVO NE SME DA PREVAZILAZI 10
 	enemy_t enemies[ENEMY_MAX_NUMBER];

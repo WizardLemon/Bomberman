@@ -215,9 +215,11 @@ map_structure_t map_structures[MAP_COUNT] = {
 			3, //BOMBERMAN STARTING POSITION Y
 			18, //DOOR X
 			12, //DOOR Y
+			0, //PLUS_BOMBS_PLACED
+			0, //PLUS_EXPLOSIONS_PLACED
 			ENEMY_DEFAULT_SPEED,
 			ENEMY_DEFAULT_COUNT,
-			{	//NEPRIJATELJI
+			{	//ENEMIES
 				{
 					19,
 					3,

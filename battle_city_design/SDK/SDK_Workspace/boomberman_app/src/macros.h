@@ -14,9 +14,6 @@
 #define MAP_W							64
 #define MAP_H							56
 
-
-//#define REGS_BASE_ADDRESS     (5439)
-
 #define TANK1_REG_L                     8
 #define TANK1_REG_H                     9
 #define BASE_REG_L						0
@@ -24,6 +21,8 @@
 #define BOMB_TICK_COUNT					20
 #define STARTING_LIFE_COUNT				3
 
+#define PLUS_BOMB_CHANCE_MOD			10
+#define PLUS_EXPLOSION_CHANCE_MOD		6
 #define LIVES_STARTING_X				36
 #define LIVES_STARTING_Y				2
 #define MAP_COUNT 						1

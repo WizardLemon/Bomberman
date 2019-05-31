@@ -107,6 +107,12 @@ void draw_map(unsigned char map[30][40]) {
 			case BOMB:
 				Xil_Out32(addr, IMG_16x16_bomb);
 				break;
+			case PLUS_BOMB:
+				Xil_Out32(addr, IMG_16x16_plus_bomb);
+				break;
+			case PLUS_EXPLOSION:
+				Xil_Out32(addr, IMG_16x16_plus_explosion);
+				break;
 			default:
 				Xil_Out32(addr, IMG_16x16_background);
 				break;
@@ -240,12 +246,24 @@ static int explosion_detection(unsigned char map[30][40], int x, int y, bomberma
 
 
 static void bomberman_move(map_structure_t * map, bomberman_t * bomberman, direction_t dir) {
-	unsigned int x = bomberman->x;
-	unsigned int y = bomberman->y;
-	int obstacle = 0;
+	unsigned char x = bomberman->x;
+	unsigned char y = bomberman->y;
+	unsigned char obstacle = 0;
 
 	obstacle = obstacles_detection(map->map_grid, x, y, dir, 1);
-	if(obstacle == BACKGROUND || obstacle == DOOR) {
+
+	switch(obstacle) {
+	case PLUS_BOMB:
+		bomberman->bomb_count++;
+		goto move_label;
+	case PLUS_EXPLOSION:
+		bomberman->bomb_power++;
+		goto move_label;
+		break;
+	case BACKGROUND:
+	case DOOR:
+		//UNUTRASNJI SWITCH
+		move_label:
 		switch(dir) {
 		case DIR_LEFT:
 			x -= 1;
@@ -265,11 +283,14 @@ static void bomberman_move(map_structure_t * map, bomberman_t * bomberman, direc
 		bomberman->x = x;
 		bomberman->y = y;
 		char_spawn(map->map_grid, bomberman);
-	} else if(obstacle == ENEMY) {
-		//KADA DODIRNEMO NEPRIJATELJA RESETUJEMO SE NA POCETNU i SMANJUJU SE ZIVOTI
-		kill_bomberman(map, bomberman);
+		break;
 
+	case ENEMY:
+		kill_bomberman(map, bomberman);
+		break;
+	default:;
 	}
+
 	wait(25);
 }
 
@@ -344,9 +365,20 @@ static unsigned char find_bomb_index(unsigned char map[30][40], unsigned char x,
 	return BOMB_MAX_NUMBER;
 }
 
-/*static void place_random_power_up(map_structure_t * map, unsigned char x, unsigned char y) {
-	map->
-}*/
+static void place_random_power_up(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman) {
+	if(bomberman->bomb_count < BOMB_MAX_NUMBER && map->plus_bombs_placed < BOMB_MAX_NUMBER) {
+		if(!(rand()/PLUS_BOMB_CHANCE_MOD)) {
+			map->map_grid[y][x] = PLUS_BOMB;
+			return;
+		}
+	}
+	if(bomberman->bomb_power < BOMB_MAX_POWER && map->plus_explosion_placed < BOMB_MAX_POWER) {
+		if(!(rand()/PLUS_EXPLOSION_CHANCE_MOD)) {
+			map->map_grid[y][x] = PLUS_EXPLOSION;
+			return;
+		}
+	}
+}
 
 //PREIMENOVANO IZ DESTROY
 static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, unsigned char bomb_index){
