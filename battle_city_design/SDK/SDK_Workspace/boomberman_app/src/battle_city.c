@@ -67,7 +67,7 @@ static unsigned char bomberman_win(map_structure_t * map, bomberman_t *bomberman
 }
 
 // character promenljiva je tip karaktera koji treba postaviti na mapu
-void char_spawn(unsigned char map[30][40], bomberman_t * character) {
+void char_spawn(bomberman_t * character) {
 	Xil_Out32(
 			XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + character->reg_l ),
 			(unsigned int )0x8F000000 | (unsigned int )character->image);
@@ -76,6 +76,8 @@ void char_spawn(unsigned char map[30][40], bomberman_t * character) {
 			((character->y)*16) << 16 | (character->x*16));
 }
 
+
+//OVA FUNKCIJA JEDINA PRIMA unsigned char map[30][40] DA BISIMO MOGLI DA JOJ PROSLEDIMO game_over/win mapu A DA NE MORAMO DA IH PAKUJEMO U map_structure_t
 void draw_map(unsigned char map[30][40]) {
 	long int addr;
 	unsigned char x, y;
@@ -203,7 +205,7 @@ static void kill_bomberman(map_structure_t * map, bomberman_t * bomberman) {
 																										//PRVI IZGUBLJENI ZIVOT CE POMERITI X OSU ZA  + 0
 	bomberman->x = map->bomberman_start_x;														//DRUGI IZGUBLJENI ZICOT CE POMERITI X OSU ZA + 1 I TO ZATO STO SE bomberman->lives smanjuje
 	bomberman->y = map->bomberman_start_y;
-	char_spawn(map->map_grid, bomberman);
+	char_spawn(bomberman);
 }
 
 // Prototip funkcije za detekciju eksplozije
@@ -289,7 +291,7 @@ static void bomberman_move(map_structure_t * map, bomberman_t * bomberman, direc
 		}
 		bomberman->x = x;
 		bomberman->y = y;
-		char_spawn(map->map_grid, bomberman);
+		char_spawn(bomberman);
 		break;
 
 	case ENEMY:
@@ -468,11 +470,11 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 	}
 }
 
-static void place_bomb(unsigned char map[30][40], bomberman_t * bomberman) {
+static void place_bomb(map_structure_t * map, bomberman_t * bomberman) {
 	unsigned char x = bomberman->x;
 	unsigned char y = bomberman->y;
 	unsigned char i;
-	if(map[y][x] == BACKGROUND && active_bombs < bomberman->bomb_count) { //OVO JE DA NE BISMO MOGLI DA STAVLJAMO NA BOMBU
+	if(map->map_grid[y][x] == BACKGROUND && active_bombs < bomberman->bomb_count) { //OVO JE DA NE BISMO MOGLI DA STAVLJAMO NA BOMBU
 		active_bombs++;
 		for(i = 0; i < bomberman->bomb_count; i++) { //PROLAZIMO KROZ SVE BOMBE
 			if(!bombs[i].placed) {
@@ -481,7 +483,7 @@ static void place_bomb(unsigned char map[30][40], bomberman_t * bomberman) {
 				bombs[i].tick_counter = BOMB_TICK_COUNT;
 				bombs[i].x = x;
 				bombs[i].y = y;
-				map[y][x] = BOMB;
+				map->map_grid[y][x] = BOMB;
 				break;
 			}
 		}
@@ -582,7 +584,7 @@ void battle_city(map_structure_t * map) {
 
 	map_update(map, &player_one);
 
-	char_spawn(map->map_grid, &player_one);
+	char_spawn(&player_one);
 
 	while (1) {
 		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
@@ -598,7 +600,7 @@ void battle_city(map_structure_t * map) {
 			} else if (BTN_DOWN(buttons)) {
 				d = DIR_DOWN;
 			} else if(BTN_SHOOT(buttons)) {
-				place_bomb(map->map_grid, &player_one);
+				place_bomb(map, &player_one);
 			}
 		}
 

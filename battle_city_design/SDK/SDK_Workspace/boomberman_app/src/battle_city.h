@@ -12,7 +12,8 @@ typedef struct {
 	unsigned char bomb_power;
 	unsigned char bomb_count;
 	signed char lives;
-
+	unsigned char enemies_destroyed;
+	
 
 	unsigned int reg_l;
 	unsigned int reg_h;
