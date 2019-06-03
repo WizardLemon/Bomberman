@@ -6,24 +6,7 @@
 #include "macros.h"
 
 // ***** GLOBAL VARIABLES *****
-//unsigned char zameniSaExplosion = 6;
-
-typedef enum {
-	DIR_LEFT = 0, DIR_RIGHT, DIR_UP, DIR_DOWN, DIR_STILL
-} direction_t;
-
-// struktura koja sadrzi osobine protivnika
-
-typedef struct bomb {
-	unsigned char x; 	//x i y koordinata bombe
-	unsigned char y;
-	char tick_counter;
-	unsigned char available;
-	unsigned char placed;
-}bomb_t;
-
-//INICIJALIZACIJA BOMBI
-bomb_t bombs[BOMB_MAX_NUMBER] = {
+bomb_t bombs[BOMB_MAX_NUMBER] = { //POSTO IMAMO MAKSIMALNO TRI BOMBE, ODMA IH OVDE INICIJALIZUJEMO
 		{
 				0,
 				0,
@@ -47,28 +30,28 @@ bomb_t bombs[BOMB_MAX_NUMBER] = {
 		}
 };
 
-void wait(long int milliseconds) {
+void wait(long int milliseconds) { //WAIT FUNKCIJA KOJA CEKA BROJ PROSLEDJENIH SEKUNDI
 	long int cycles = milliseconds*24000;
 	while(--cycles);
 }
 
-static unsigned char bomberman_win(map_structure_t * map, bomberman_t *bomberman){
-	if(bomberman->enemies_destroyed >= map->enemy_count) {
-		if(((bomberman->y) == map->door_y) && ((bomberman->x) == map->door_x)){
+static unsigned char bomberman_win(map_structure_t * map, bomberman_t *bomberman){ //FUNKCIJA KOJA PROVERAVA DA LI JE USLOV POBEDE ISPUNJEN
+	if(bomberman->enemies_destroyed >= map->enemy_count) {	//DA LI SU UBIJENI SVI NEPRIJATELJI
+		if(((bomberman->y) == map->door_y) && ((bomberman->x) == map->door_x)){ //DA LI STOJIMO NA VRATIMA
 			return 1;
 		}
 	}
 	return 0;
 }
 
-// character promenljiva je tip karaktera koji treba postaviti na mapu
-void char_spawn(bomberman_t * character) {
+// FUNKCIJA KOJA ODMA ISCRTAVA BOMBERMANA NA MAPU
+void char_spawn(bomberman_t * bomberman) {
 	Xil_Out32(
-			XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + character->reg_l ),
-			(unsigned int )0x8F000000 | (unsigned int )character->image);
+			XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + bomberman->reg_l ),
+			(unsigned int )0x8F000000 | (unsigned int )bomberman->image);
 	Xil_Out32(
-			XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + character->reg_h ),
-			((character->y)*16) << 16 | (character->x*16));
+			XPAR_BATTLE_CITY_PERIPH_0_BASEADDR + 4 * ( REGS_BASE_ADDRESS + bomberman->reg_h ),
+			((bomberman->y)*16) << 16 | (bomberman->x*16));
 }
 
 
@@ -116,6 +99,7 @@ void draw_map(unsigned char map[30][40]) {
 	}
 }
 
+//FUNKCIJA KOJA ISCRTAVA SVE NA MAPI OSIM BOMBERMANA, TO RADI char_spawn
 static void map_update(map_structure_t * map, bomberman_t * bomberman) {
 	bomberman->win_condition = bomberman_win(map, bomberman);
 	if(bomberman->lives > 0 && bomberman->win_condition == 0){
@@ -129,6 +113,7 @@ static void map_update(map_structure_t * map, bomberman_t * bomberman) {
 	}
 }
 
+//OVA FUNKCIJA MISLIM DA NE RADI NISTA, PROVERITI JOS
 static void map_reset() {
 	unsigned int i;
 
@@ -139,6 +124,8 @@ static void map_reset() {
 	}
 }
 
+//FUNKCIJA ZA PRONALAZENJA BOMBERMANA, ONA POSTOJI ZATO STO SE BOMBERMAN JEDINI NE UPISUJE U MAPU, 
+//NEGO SE NJEGOVA LOKACIJA PRATI PREKO MEMBERA STRUKTURE bomberman_t
 static int find_bomberman(bomberman_t *bomberman, unsigned char x, unsigned char y, direction_t dir, int distance)
 {
 
@@ -171,7 +158,8 @@ static int find_bomberman(bomberman_t *bomberman, unsigned char x, unsigned char
 	return 0;
 }
 
-static int obstacles_detection(map_structure_t * map, int x, int y, direction_t dir, int position_distance) {
+//FUNKCIJA ZA DETEKCIJU PREPREKA, KORISTI SE PRE POMERANJA BOMBERMANA I NEPRIJATELJA DA BISMO VIDELI DA LI SE MOZE POMERITI UOPSTE
+static unsigned char obstacles_detection(map_structure_t * map, unsigned char x, unsigned char y, direction_t dir, unsigned char position_distance) {
 
 	if (dir == DIR_LEFT) {
 
@@ -194,21 +182,23 @@ static int obstacles_detection(map_structure_t * map, int x, int y, direction_t 
 	}
 }
 
+//FUNKCIJA ZA UBIJANJE BOMBERMANA ZA SLUCAJ EKSPLOZIJE ILI NEPRIJATELJA
 static void kill_bomberman(map_structure_t * map, bomberman_t * bomberman) {
 	bomberman->lives--;
 	map->map_grid[LIVES_STARTING_Y][LIVES_STARTING_X + (STARTING_LIFE_COUNT - bomberman->lives - 1)] = BACKGROUND; //OVA LINIJA BRISE ODGOVARAJUCE ZIVOTE
 																										//PRVI IZGUBLJENI ZIVOT CE POMERITI X OSU ZA  + 0
-	bomberman->x = map->bomberman_start_x;														//DRUGI IZGUBLJENI ZICOT CE POMERITI X OSU ZA + 1 I TO ZATO STO SE bomberman->lives smanjuje
-	bomberman->y = map->bomberman_start_y;
-	char_spawn(bomberman);
+																									//DRUGI IZGUBLJENI ZICOT CE POMERITI X OSU ZA + 1 I TO ZATO STO SE bomberman->lives smanjuje
+	bomberman->x = map->bomberman_start_x; //RESETUJEMO GA NA POCETAK 														
+	bomberman->y = map->bomberman_start_y;	//RESETUJEMO GA NA POCETAK
+	char_spawn(bomberman); //ISCRTAVAMO GA NA POCETAK 
 }
 
-// Prototip funkcije za detekciju eksplozije
-static unsigned char explosion_detection(map_structure_t * map, int x, int y, bomberman_t * bomberman, direction_t dir, int position_distance) {
+//FUNKCIJA ZA PROVERU DA LI EKSPLOZIJA MOZE DA SE PROSTIRE U NEKOM SMERU
+static unsigned char explosion_detection(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, direction_t dir, int position_distance) {
 
-	int bomberman_close = find_bomberman(bomberman, x, y, dir, position_distance);
 	if(bomberman_close) {
-		return BOMBERMAN;
+	unsigned char bomberman_close = find_bomberman(bomberman, x, y, dir, position_distance);
+		return BOMBERMAN; //OBRATITI PAZNJU DA FUNKCIJA VRACA BOMBERMAN VREDNOST U SLUCAJU DA SMO NALETELI NA BOMBERMANA
 	} else {
 		switch(dir) {
 		case DIR_LEFT:
@@ -229,7 +219,7 @@ static unsigned char explosion_detection(map_structure_t * map, int x, int y, bo
 	}
 }
 
-//Brisanje polja u prosledjenom pravcu na distanci distance
+//ZAMENA POLJA ZA BACKGROUND NA X, Y POMERENO ZA DISTANCU DISTANCE U PRAVCU DIR
 static void destroy_field(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, direction_t dir, unsigned char distance) {
 	switch(dir) {
 	case DIR_LEFT:
@@ -248,6 +238,7 @@ static void destroy_field(map_structure_t * map, unsigned char x, unsigned char 
 	}
 }
 
+//FUNKCIJA ZA POMERANJE BOMBERMANA
 static void bomberman_move(map_structure_t * map, bomberman_t * bomberman, direction_t dir) {
 	unsigned char x = bomberman->x;
 	unsigned char y = bomberman->y;
@@ -258,16 +249,15 @@ static void bomberman_move(map_structure_t * map, bomberman_t * bomberman, direc
 	switch(obstacle) {
 	case PLUS_BOMB:
 		bomberman->bomb_count++;
-		destroy_field(map, x, y, bomberman, dir, 1);
-		goto move_label;
+		destroy_field(map, x, y, bomberman, dir, 1); //BRISANJE POLJA NAKON KUPLJENJA POWER-UP-A
+		goto move_label; //SKOK NA DONJU LABELU
 	case PLUS_EXPLOSION:
 		bomberman->bomb_power++;
-		destroy_field(map, x, y, bomberman, dir, 1);
+		destroy_field(map, x, y, bomberman, dir, 1); //BRISANJE POLJA NAKON KUPLJENJA POWER-UP-A
 		break;
 	case BACKGROUND:
 	case DOOR:
-		//UNUTRASNJI SWITCH
-		move_label:
+		move_label: //LABELA JE TU DA SE SWITCH ISPOD NE BI MORAO PONAVLJATI GORE
 		switch(dir) {
 		case DIR_LEFT:
 			x -= 1;
@@ -298,7 +288,8 @@ static void bomberman_move(map_structure_t * map, bomberman_t * bomberman, direc
 	wait(25);
 }
 
-static void destroy_enemy(map_structure_t * map, enemy_t * enm, int x, int y, direction_t dir, int distance){
+//FUNKCIJA ZA UNISTAVANJE SPECIFICNOG NEPRIJATELJA
+static void destroy_enemy(map_structure_t * map, enemy_t * enm, unsigned char x, unsigned char  y, direction_t dir, unsigned char distance){
 	unsigned char flag = 0;
 
 	switch(dir) {
@@ -337,6 +328,7 @@ static void destroy_enemy(map_structure_t * map, enemy_t * enm, int x, int y, di
 
 }
 
+//FUNKCIJA ZA SMESTANJE JEDNOG OD DVA POWER-UP-A
 static void place_random_power_up(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, direction_t direction, unsigned char distance) {
 	unsigned char pom = rand();
 	unsigned char power_up_type = 0;
@@ -344,7 +336,7 @@ static void place_random_power_up(map_structure_t * map, unsigned char x, unsign
 		if(!(pom%PLUS_BOMB_CHANCE_MOD)) {
 			map->plus_bombs_placed++;
 			power_up_type = PLUS_BOMB;
-			//OVO STOJI OVDE DA NE BISMO DVA POWER-UP-a NA ISTO POLJE STAVILI
+			
 		}
 	} else if(bomberman->bomb_power < BOMB_MAX_POWER && map->plus_explosion_placed < BOMB_MAX_POWER) {
 		if(!(pom%PLUS_EXPLOSION_CHANCE_MOD)) {
@@ -385,7 +377,7 @@ static unsigned char find_bomb_index(map_structure_t * map, unsigned char x, uns
 	return BOMB_MAX_NUMBER;
 }
 
-//PREIMENOVANO IZ DESTROY
+//FUNKCIJA KOJA SE BRINE O EKSPLOZIJI BOMBE, TAKODJE RESAVA REKURZIVNI POZIV U SLUCAJU DA JE DRUGA BOMBA NA PUTU EKSPLOZIJE TRENUTNE
 static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, unsigned char bomb_index){
 	unsigned char directions, i, j;
 	unsigned char stop_flag;
@@ -422,8 +414,8 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 				stop_flag = 1;
 				break;
 			case ENEMY:
-				//OVDE SAM UBACIO DA SE ITERIRA KROZ NEPRIJATELJE
-				//TO NAM DAJE DA MOZEMO DA BIRAMO KOLIKO CEMO NEPRIJATELJA
+				//PROVERAVA SE KOJI NEPRIJATELJ ZAPRAVO STOJI NA OVOM POLJU
+				//OVA PETLJA MOZE DA SE UBACI U SAMU FUNKCIJU DESTROY_ENEMY
 				for(j = 0; j < map->enemy_count; j++) {
 					if(!map->enemies[j].destroyed) {
 						destroy_enemy(map, &map->enemies[j], x, y, (direction_t)directions, i);
@@ -431,9 +423,8 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 				}
 
 				destroy_field(map, x, y, bomberman, (direction_t)directions, i);
-				if(bomberman->enemies_destroyed == map->enemy_count) {
-					map->map_grid[map->door_y][map->door_x] = DOOR;
-					bomberman->win_condition = bomberman_win(map, bomberman);
+				if(bomberman->enemies_destroyed == map->enemy_count) { //PROVERA ZA VRATA
+					map->map_grid[map->door_y][map->door_x] = DOOR; //STAVITI VRATA AKO SU SVI NEPRIJATELJI UNISTENI
 				}
 				break;
 			case BOMB:
@@ -441,16 +432,16 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 				stop_flag = 1;	//MORA SE AKTIVIRATI STOP FLAG ZATO STO BI INACE DVE UZASTOPNE BOMBE MOGLE DA ODUZMU DVA ZIVOTA
 				switch((direction_t)directions) {
 				case DIR_LEFT:
-					detonate(map, x - i, y, bomberman, find_bomb_index(map, x - i, y, bomberman));
+					detonate(map, x - i, y, bomberman, find_bomb_index(map, x - i, y, bomberman)); //REKURZIVNI POZIVI ZA BOMBU LEVO
 					break;
 				case DIR_RIGHT:
-					detonate(map, x + i, y, bomberman, find_bomb_index(map, x + i, y, bomberman));
+					detonate(map, x + i, y, bomberman, find_bomb_index(map, x + i, y, bomberman)); //REKURZIVNI POZIVI ZA BOMBU DESNO
 					break;
 				case DIR_UP:
-					detonate(map, x, y - i, bomberman, find_bomb_index(map, x, y - i, bomberman));
+					detonate(map, x, y - i, bomberman, find_bomb_index(map, x, y - i, bomberman)); //REKURZIVNI POZIVI ZA BOMBU GORE
 					break;
 				case DIR_DOWN:
-					detonate(map, x, y + i, bomberman, find_bomb_index(map, x, y + i, bomberman));
+					detonate(map, x, y + i, bomberman, find_bomb_index(map, x, y + i, bomberman)); //REKURZIVNI POZIVI ZA BOMBU DOLE
 					break;
 				default:;
 				}
@@ -465,6 +456,7 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 	}
 }
 
+//POSTAVLJANJE BOMBE
 static void place_bomb(map_structure_t * map, bomberman_t * bomberman) {
 	unsigned char x = bomberman->x;
 	unsigned char y = bomberman->y;
@@ -485,6 +477,7 @@ static void place_bomb(map_structure_t * map, bomberman_t * bomberman) {
 	}
 }
 
+//PROVERA DA LI SU BOMBE ISTEKLE I POZIV DETONATE U SLUCAJU DA JESU
 static void check_and_detonate_bombs(map_structure_t * map, bomberman_t * bomberman) {
 	unsigned char i;
 	if(bomberman->active_bombs > 0){
@@ -498,6 +491,7 @@ static void check_and_detonate_bombs(map_structure_t * map, bomberman_t * bomber
 	}
 }
 
+//PROLAZENJE KROZ NEPRIJATELJE I PROVERA DA LI SU UNISTINI, AKO NE SLEDI POMERANJE
 static void check_and_move_enemies(map_structure_t * map, bomberman_t * bomberman) {
 	unsigned char i;
 	direction_t dir;
@@ -507,11 +501,12 @@ static void check_and_move_enemies(map_structure_t * map, bomberman_t * bomberma
 	for(i = 0; i < map->enemy_count; i++) {
 		x = map->enemies[i].x;
 		y = map->enemies[i].y;
-		dir = (direction_t)(rand()%4);
+		dir = (direction_t)(rand()%4); //BIRAMO RANDOM SMER
 		fb = find_bomberman(bomberman, x, y, dir, 1);
-		obstacle = obstacles_detection(map, x, y, dir, 1);
-		if(!map->enemies[i].destroyed) {
-			if(!((map->enemies[i].current_wait_cycle++) % (ENEMY_MAX_SPEED - map->enemy_speed))) {
+		obstacle = obstacles_detection(map, x, y, dir, 1); //GLEDAMO DA LI SME DA SE KRECE U TOM SMERU
+		if(!map->enemies[i].destroyed) { // DA LI JE TAJ NEPRIJATELJ VEC UNISTEN
+			if(!((map->enemies[i].current_wait_cycle++) % (ENEMY_MAX_SPEED - map->enemy_speed))) { //PROVERA DA LI JE NEPRIJATELJU ISTEKAO WAIT_CYCLE
+				//UJEDNO OVDE^ POVECAVAMO CURRENT_WAIT_CYCLE
 				if(obstacle == BACKGROUND || (fb && obstacle != BOMB)) { //NEPRIJATELJ NE SME DA STANE NA POLJE NA KOJEM JE I BOMBERMAN I BOMBA
 					map->map_grid[y][x] = BACKGROUND;
 					switch(dir) {
@@ -541,14 +536,6 @@ static void check_and_move_enemies(map_structure_t * map, bomberman_t * bomberma
 	}
 }
 
-void init_battle(map_structure_t * map) {
-	unsigned char i;
-
-	for(i = 0; i < map->enemy_count; i++) {
-		map->map_grid[map->enemies[i].y][map->enemies[i].x] = ENEMY;
-	}
-}
-
 void battle_city(map_structure_t * map) {
 	unsigned int buttons;
 
@@ -574,8 +561,10 @@ void battle_city(map_structure_t * map) {
 	wait(500); // SETUP WAIT, POTREBNO DA SE NE BI DETEKTOVALO PRITISKANJE DUGMETA NAKON IZLASKA IZ MENIJA
 
 	map_reset(map);
-
-	init_battle(map);
+	
+	for(i = 0; i < map->enemy_count; i++) { //POSTAVLJANJE NEPRIJATELJA
+		map->map_grid[map->enemies[i].y][map->enemies[i].x] = ENEMY;
+	}
 
 	map_update(map, &player_one);
 
