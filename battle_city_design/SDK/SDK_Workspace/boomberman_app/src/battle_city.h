@@ -23,6 +23,20 @@ typedef struct {
 } bomberman_t;
 
 typedef enum {
+	DIR_LEFT = 0, DIR_RIGHT, DIR_UP, DIR_DOWN, DIR_STILL
+} direction_t;
+
+// struktura koja sadrzi osobine protivnika
+
+typedef struct bomb {
+	unsigned char x; 	//x i y koordinata bombe
+	unsigned char y;
+	char tick_counter;
+	unsigned char available;
+	unsigned char placed;
+}bomb_t;
+
+typedef enum {
 	BACKGROUND = 0, BOMBERMAN, BLOCK, BRICK, DOOR, ENEMY, BOMB, PLUS_BOMB, PLUS_EXPLOSION
 } game_objects_t;
 
