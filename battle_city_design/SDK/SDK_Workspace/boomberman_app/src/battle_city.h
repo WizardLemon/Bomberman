@@ -13,7 +13,10 @@ typedef struct {
 	unsigned char bomb_count;
 	signed char lives;
 	unsigned char enemies_destroyed;
-	
+	unsigned char win_condition;
+	unsigned char lose_condition;
+	unsigned char active_bombs;
+	unsigned char inverbable;
 
 	unsigned int reg_l;
 	unsigned int reg_h;

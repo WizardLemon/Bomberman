@@ -6,11 +6,6 @@
 #include "macros.h"
 
 // ***** GLOBAL VARIABLES *****
-unsigned char enemies_destroyed;
-unsigned char win_condition;
-unsigned char lose_condition;
-unsigned char active_bombs;
-unsigned char inverbable;
 //unsigned char zameniSaExplosion = 6;
 
 typedef enum {
@@ -58,7 +53,7 @@ void wait(long int milliseconds) {
 }
 
 static unsigned char bomberman_win(map_structure_t * map, bomberman_t *bomberman){
-	if(enemies_destroyed >= map->enemy_count) {
+	if(bomberman->enemies_destroyed >= map->enemy_count) {
 		if(((bomberman->y) == map->door_y) && ((bomberman->x) == map->door_x)){
 			return 1;
 		}
@@ -122,14 +117,14 @@ void draw_map(unsigned char map[30][40]) {
 }
 
 static void map_update(map_structure_t * map, bomberman_t * bomberman) {
-	win_condition = bomberman_win(map, bomberman);
-	if(bomberman->lives > 0 && win_condition == 0){
+	bomberman->win_condition = bomberman_win(map, bomberman);
+	if(bomberman->lives > 0 && bomberman->win_condition == 0){
 		draw_map(map->map_grid);
 	}else if(bomberman->lives <= 0) { //OVDE IMAMO BUG, AKO JE BOMBERMAN UMRO NA POCETNOM POLJU ONDA CE SE TU I RESPAVNOVATI I KONSTATNO CE UMIRATI
-		lose_condition = 1; //Ovo se koristi da bi smo onemogucili da se bomberman krece nakon izgubljene igre
+		bomberman->lose_condition = 1; //Ovo se koristi da bi smo onemogucili da se bomberman krece nakon izgubljene igre
 		draw_map(map_game_over);
 	}
-	else if(bomberman->lives > 0 && win_condition == 1) {	// game won mapa
+	else if(bomberman->lives > 0 && bomberman->win_condition == 1) {	// game won mapa
 		draw_map(map_win);
 	}
 }
@@ -337,7 +332,7 @@ static void destroy_enemy(map_structure_t * map, enemy_t * enm, int x, int y, di
 		enm->type = 0;
 		enm->x = 0;
 		enm->y = 0;
-		enemies_destroyed++;
+		bomberman->enemies_destroyed++;
 	}
 
 }
@@ -398,7 +393,7 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 
 	//OVDE DEAKTIVIRAMO BOMBU
 	map->map_grid[y][x] = BACKGROUND;
-	active_bombs--;
+	bomberman->active_bombs--;
 	bombs[bomb_index].placed = 0;
 	bombs[bomb_index].tick_counter = -1;
 	bombs[bomb_index].x = 0;
@@ -436,9 +431,9 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 				}
 
 				destroy_field(map, x, y, bomberman, (direction_t)directions, i);
-				if(enemies_destroyed == map->enemy_count) {
+				if(bomberman->enemies_destroyed == map->enemy_count) {
 					map->map_grid[map->door_y][map->door_x] = DOOR;
-					win_condition = bomberman_win(map, bomberman);
+					bomberman->win_condition = bomberman_win(map, bomberman);
 				}
 				break;
 			case BOMB:
@@ -474,8 +469,8 @@ static void place_bomb(map_structure_t * map, bomberman_t * bomberman) {
 	unsigned char x = bomberman->x;
 	unsigned char y = bomberman->y;
 	unsigned char i;
-	if(map->map_grid[y][x] == BACKGROUND && active_bombs < bomberman->bomb_count) { //OVO JE DA NE BISMO MOGLI DA STAVLJAMO NA BOMBU
-		active_bombs++;
+	if(map->map_grid[y][x] == BACKGROUND && bomberman->active_bombs < bomberman->bomb_count) { //OVO JE DA NE BISMO MOGLI DA STAVLJAMO NA BOMBU
+		bomberman->active_bombs++;
 		for(i = 0; i < bomberman->bomb_count; i++) { //PROLAZIMO KROZ SVE BOMBE
 			if(!bombs[i].placed) {
 				//INICIJALIZACIJA BOMBE
@@ -492,7 +487,7 @@ static void place_bomb(map_structure_t * map, bomberman_t * bomberman) {
 
 static void check_and_detonate_bombs(map_structure_t * map, bomberman_t * bomberman) {
 	unsigned char i;
-	if(active_bombs > 0){
+	if(bomberman->active_bombs > 0){
 		for(i = 0; i < bomberman->bomb_count; i++) {
 			if(bombs[i].placed) { //PROVERAVAMO ZA SVAKU BOMBU DA LI JE POSTAVLJENA
 				if(bombs[i].tick_counter-- == 0) {  // I DA LI JOJ JE ISTEKLO VREME
@@ -548,11 +543,6 @@ static void check_and_move_enemies(map_structure_t * map, bomberman_t * bomberma
 
 void init_battle(map_structure_t * map) {
 	unsigned char i;
-	enemies_destroyed = 0;
-	win_condition = 0;
-	lose_condition = 0;
-	active_bombs = 0;
-	inverbable = 0;
 
 	for(i = 0; i < map->enemy_count; i++) {
 		map->map_grid[map->enemies[i].y][map->enemies[i].x] = ENEMY;
@@ -566,11 +556,16 @@ void battle_city(map_structure_t * map) {
 		map->bomberman_start_x,	         				 // x trenutni
 		map->bomberman_start_y, 		                     // y trenutni
 		IMG_16x16_bomberman,
-		0, // type
+		0, // NOT DESTROYED
 		STARTING_BOMB_POWER,
-		STARTING_BOMB_NUMBER,               		 // nije destroyed
-		STARTING_LIFE_COUNT, 	//BROJ POCETNIH ZIVOTA
-
+		STARTING_BOMB_NUMBER,               		 
+		STARTING_LIFE_COUNT, 	
+		0, //ENEMIES DESTROYED
+		0,	//WIN CONDITION
+		0,	//LOSE CONDITION
+		0,	//ACIVE BOMBS
+		0,	//INVERBABLE
+		
 		TANK1_REG_L,            		 // reg_l ?
 		TANK1_REG_H             		 // reg_h ?
 	};
@@ -590,7 +585,7 @@ void battle_city(map_structure_t * map) {
 		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
 
 		direction_t d = DIR_STILL;
-		if(!win_condition && !lose_condition) {
+		if(!bomberman->win_condition && !bomberman->lose_condition) {
 			if (BTN_LEFT(buttons)) {
 				d = DIR_LEFT;
 			} else if (BTN_RIGHT(buttons)) {
