@@ -35,7 +35,8 @@ void wait(long int milliseconds) { //WAIT FUNKCIJA KOJA CEKA BROJ PROSLEDJENIH S
 	while(--cycles);
 }
 
-static unsigned char bomberman_win(map_structure_t * map, bomberman_t *bomberman){ //FUNKCIJA KOJA PROVERAVA DA LI JE USLOV POBEDE ISPUNJEN
+//FUNKCIJA KOJA PROVERAVA DA LI JE USLOV POBEDE ISPUNJEN
+static unsigned char bomberman_win(map_structure_t * map, bomberman_t *bomberman){ 
 	if(bomberman->enemies_destroyed >= map->enemy_count) {	//DA LI SU UBIJENI SVI NEPRIJATELJI
 		if(((bomberman->y) == map->door_y) && ((bomberman->x) == map->door_x)){ //DA LI STOJIMO NA VRATIMA
 			return 1;
@@ -332,18 +333,18 @@ static void destroy_enemy(map_structure_t * map, enemy_t * enm, unsigned char x,
 static void place_random_power_up(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, direction_t direction, unsigned char distance) {
 	unsigned char pom = rand();
 	unsigned char power_up_type = 0;
-	if(bomberman->bomb_count < BOMB_MAX_NUMBER && map->plus_bombs_placed < BOMB_MAX_NUMBER) {
-		if(!(pom%PLUS_BOMB_CHANCE_MOD)) {
+	if(!(pom%PLUS_BOMB_CHANCE_MOD)) {
+		if(bomberman->bomb_count < BOMB_MAX_NUMBER && map->plus_bombs_placed < BOMB_MAX_NUMBER) {
 			map->plus_bombs_placed++;
-			power_up_type = PLUS_BOMB;
-			
+			power_up_type = PLUS_BOMB;	
 		}
-	} else if(bomberman->bomb_power < BOMB_MAX_POWER && map->plus_explosion_placed < BOMB_MAX_POWER) {
-		if(!(pom%PLUS_EXPLOSION_CHANCE_MOD)) {
+	} else if(!(pom%PLUS_EXPLOSION_CHANCE_MOD)) {
+		if(bomberman->bomb_power < BOMB_MAX_POWER && map->plus_explosion_placed < BOMB_MAX_POWER) {
 			map->plus_explosion_placed++;
 			power_up_type = PLUS_EXPLOSION;
 		}
 	}
+	
 	switch(direction)  {
 	case DIR_LEFT:
 		map->map_grid[y][x - distance] = power_up_type;
@@ -362,9 +363,7 @@ static void place_random_power_up(map_structure_t * map, unsigned char x, unsign
 	}
 }
 
-
-
-//OVO SE KORISTI ZA REKURZIVNI POZIV DA BI OTKRILI KOJU BOMBU AKTIVIRAMO SA DRUGOM BOMBOM
+//OVO SE KORISTI DA BI PRONASLI INDEX OD BOMBE KOJU DETONIRAMO
 static unsigned char find_bomb_index(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman) {
 	unsigned char i;
 	for(i = 0; i < bomberman->bomb_count; i++) {
@@ -374,7 +373,7 @@ static unsigned char find_bomb_index(map_structure_t * map, unsigned char x, uns
 			}
 		}
 	}
-	return BOMB_MAX_NUMBER;
+	return BOMB_MAX_NUMBER; //OVO JE SAMO RANDOM POSTO MORAMO NESTO DA VRATIMO
 }
 
 //FUNKCIJA KOJA SE BRINE O EKSPLOZIJI BOMBE, TAKODJE RESAVA REKURZIVNI POZIV U SLUCAJU DA JE DRUGA BOMBA NA PUTU EKSPLOZIJE TRENUTNE
@@ -556,7 +555,6 @@ void battle_city(map_structure_t * map) {
 		TANK1_REG_L,            		 // reg_l ?
 		TANK1_REG_H             		 // reg_h ?
 	};
-
 
 	wait(500); // SETUP WAIT, POTREBNO DA SE NE BI DETEKTOVALO PRITISKANJE DUGMETA NAKON IZLASKA IZ MENIJA
 
