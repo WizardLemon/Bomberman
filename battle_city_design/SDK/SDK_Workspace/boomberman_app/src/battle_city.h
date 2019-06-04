@@ -42,7 +42,7 @@ typedef enum {
 
 void battle_city(map_structure_t * map);
 void draw_map(unsigned char map[30][40]);
-void char_spawn(unsigned char map[30][40], bomberman_t * character);
+void char_spawn(bomberman_t * character);
 void wait(long int milliseconds);
 
 

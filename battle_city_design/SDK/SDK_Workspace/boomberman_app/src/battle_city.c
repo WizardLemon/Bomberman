@@ -196,9 +196,10 @@ static void kill_bomberman(map_structure_t * map, bomberman_t * bomberman) {
 
 //FUNKCIJA ZA PROVERU DA LI EKSPLOZIJA MOZE DA SE PROSTIRE U NEKOM SMERU
 static unsigned char explosion_detection(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, direction_t dir, int position_distance) {
+	unsigned char bomberman_close = find_bomberman(bomberman, x, y, dir, position_distance);
 
 	if(bomberman_close) {
-	unsigned char bomberman_close = find_bomberman(bomberman, x, y, dir, position_distance);
+
 		return BOMBERMAN; //OBRATITI PAZNJU DA FUNKCIJA VRACA BOMBERMAN VREDNOST U SLUCAJU DA SMO NALETELI NA BOMBERMANA
 	} else {
 		switch(dir) {
@@ -290,7 +291,7 @@ static void bomberman_move(map_structure_t * map, bomberman_t * bomberman, direc
 }
 
 //FUNKCIJA ZA UNISTAVANJE SPECIFICNOG NEPRIJATELJA
-static void destroy_enemy(map_structure_t * map, enemy_t * enm, unsigned char x, unsigned char  y, direction_t dir, unsigned char distance){
+static void destroy_enemy(map_structure_t * map, enemy_t * enm, unsigned char x, unsigned char  y, bomberman_t * bomberman, direction_t dir, unsigned char distance){
 	unsigned char flag = 0;
 
 	switch(dir) {
@@ -417,7 +418,7 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 				//OVA PETLJA MOZE DA SE UBACI U SAMU FUNKCIJU DESTROY_ENEMY
 				for(j = 0; j < map->enemy_count; j++) {
 					if(!map->enemies[j].destroyed) {
-						destroy_enemy(map, &map->enemies[j], x, y, (direction_t)directions, i);
+						destroy_enemy(map, &map->enemies[j], x, y, bomberman, (direction_t)directions, i);
 					}
 				}
 
@@ -536,7 +537,8 @@ static void check_and_move_enemies(map_structure_t * map, bomberman_t * bomberma
 }
 
 void battle_city(map_structure_t * map) {
-	unsigned int buttons;
+	unsigned char buttons;
+	unsigned char i;
 
 	bomberman_t player_one = {
 		map->bomberman_start_x,	         				 // x trenutni
@@ -572,7 +574,7 @@ void battle_city(map_structure_t * map) {
 		buttons = XIo_In32( XPAR_IO_PERIPH_BASEADDR );
 
 		direction_t d = DIR_STILL;
-		if(!bomberman->win_condition && !bomberman->lose_condition) {
+		if(!player_one.win_condition && !player_one.lose_condition) {
 			if (BTN_LEFT(buttons)) {
 				d = DIR_LEFT;
 			} else if (BTN_RIGHT(buttons)) {

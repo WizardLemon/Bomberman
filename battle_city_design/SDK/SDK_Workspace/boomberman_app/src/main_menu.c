@@ -67,6 +67,11 @@ void main_menu(){
 			STARTING_BOMB_POWER,
 			STARTING_BOMB_NUMBER,              		 // nije destroyed
 			STARTING_LIFE_COUNT, 	//BROJ POCETNIH ZIVOTA
+			0, //ENEMIES DESTROYED
+			0,	//WIN CONDITION
+			0,	//LOSE CONDITION
+			0,	//ACIVE BOMBS
+			0,	//INVERBABLE
 
 			TANK1_REG_L,            		 // reg_l ?
 			TANK1_REG_H
@@ -111,7 +116,7 @@ void main_menu(){
 
 		print_number(enemy_speed, SPEED_OPTION);
 		print_number(enemy_number, COUNT_OPTION);
-		char_spawn(map_main_menu, &menu_indicator);
+		char_spawn(&menu_indicator);
 		wait(100);
 	}
 }
