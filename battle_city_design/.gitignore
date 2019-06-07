@@ -5,7 +5,7 @@
 /blockdiagram
 /revup
 /hdl
-__xps
+/__xps
 *.log
 *.svf
 *.scr
@@ -32,7 +32,7 @@ Debug/
 Release/
 .metadata/
 /SDK/SDK_Workspace/*_hw_platform/
-/SDK/SDK_Workspace/*_bsp/
+/SDK/SDK_Workspace/*_bsp*/
 /SDK/SDK_Export/
 
 # ISE

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<item value="D:\ra126-2016\Bomberman\battle_city_design_hw_platform\system_bd.bmm" key="battle_city_design_hw_platform-bmmFile"/>
-	<item value="bootloop" key="battle_city_design_hw_platform-microblaze_0-initElf"/>
-	<item value="D:\ra126-2016\Bomberman\battle_city_design_hw_platform\system.bit" key="battle_city_design_hw_platform-bitFile"/>
-</section>
