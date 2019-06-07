@@ -12,21 +12,21 @@ bomb_t bombs[BOMB_MAX_NUMBER] = { //POSTO IMAMO MAKSIMALNO TRI BOMBE, ODMA IH OV
 				0,
 				-1,
 				0,
-				0
+				0,
+				0 //BOMB EXPLOSION STAGE
 		},
 		{
 				0,
 				0,
 				-1,
 				0,
-				0
+				0 //BOMB EXPLOSION STAGE
 		},
 		{
 				0,
 				0,
 				-1,
-				0,
-				0
+				0 //BOMB EXPLOSION STAGE
 		}
 };
 
@@ -91,6 +91,9 @@ void draw_map(unsigned char map[30][40]) {
 				break;
 			case PLUS_EXPLOSION:
 				Xil_Out32(addr, IMG_16x16_plus_explosion);
+				break;
+			case EXPLOSION_CENTER1:
+				Xil_Out32(addr, IMG_16x16_1intersection);
 				break;
 			default:
 				Xil_Out32(addr, IMG_16x16_background);
@@ -256,7 +259,7 @@ static void bomberman_move(map_structure_t * map, bomberman_t * bomberman, direc
 	case PLUS_EXPLOSION:
 		bomberman->bomb_power++;
 		destroy_field(map, x, y, bomberman, dir, 1); //BRISANJE POLJA NAKON KUPLJENJA POWER-UP-A
-		break;
+		//NEMA BREAK-A ZATO STO ZELIMO DA PRODJE DOLE
 	case BACKGROUND:
 	case DOOR:
 		move_label: //LABELA JE TU DA SE SWITCH ISPOD NE BI MORAO PONAVLJATI GORE
@@ -377,6 +380,12 @@ static unsigned char find_bomb_index(map_structure_t * map, unsigned char x, uns
 	return BOMB_MAX_NUMBER; //OVO JE SAMO RANDOM POSTO MORAMO NESTO DA VRATIMO
 }
 
+static void explosion_helper(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, direction_t dir, unsigned char explosion_distance) {
+	if(!explosion_distance) {
+		map[y][x] = explosion_distance;
+	}
+}
+
 //FUNKCIJA KOJA SE BRINE O EKSPLOZIJI BOMBE, TAKODJE RESAVA REKURZIVNI POZIV U SLUCAJU DA JE DRUGA BOMBA NA PUTU EKSPLOZIJE TRENUTNE
 static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, unsigned char bomb_index){
 	unsigned char directions, i, j;
@@ -390,7 +399,8 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 	bombs[bomb_index].tick_counter = -1;
 	bombs[bomb_index].x = 0;
 	bombs[bomb_index].y = 0;
-	//-
+	bombs[bomb_index].bomb_explosion_stage = EXPLOSION_CENTER1;
+	//
 
 	for(directions = 0; directions < 4; directions++) {
 		for(i = 0; i <= bomberman->bomb_power; i++) {
@@ -399,6 +409,7 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 			switch(explosion_obstacle) {
 			case BACKGROUND:
 				destroy_field(map, x, y, bomberman, (direction_t)directions, i);
+				//map->map_grid[y][x] = EXPLOSION_CENTER1;
 				break;
 			case BOMBERMAN:
 				kill_bomberman(map, bomberman);
@@ -446,7 +457,7 @@ static void detonate(map_structure_t * map, unsigned char x, unsigned char y, bo
 				default:;
 				}
 				break;
-			default:;
+			default:; //U SLUCAJU SVEGA OSTALOG
 			}
 
 			if(stop_flag) {
