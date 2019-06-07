@@ -382,7 +382,7 @@ static unsigned char find_bomb_index(map_structure_t * map, unsigned char x, uns
 
 static void explosion_helper(map_structure_t * map, unsigned char x, unsigned char y, bomberman_t * bomberman, direction_t dir, unsigned char explosion_distance) {
 	if(!explosion_distance) {
-		map[y][x] = explosion_distance;
+		//map[y][x] = explosion_distance;
 	}
 }
 

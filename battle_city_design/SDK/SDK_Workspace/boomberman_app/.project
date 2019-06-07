@@ -3,6 +3,7 @@
 	<name>boomberman_app</name>
 	<comment></comment>
 	<projects>
+		<project>standalone_bsp_0</project>
 		<project>batle_city_bsp_0</project>
 		<project>boomberman_app_bsp</project>
 	</projects>
