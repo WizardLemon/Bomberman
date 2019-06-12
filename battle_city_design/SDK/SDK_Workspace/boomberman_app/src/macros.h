@@ -36,6 +36,7 @@
 #define BOMB_MAX_POWER					6
 #define STARTING_BOMB_NUMBER			1
 #define STARTING_BOMB_POWER				1
+#define EXPLOSION_DURATION				10
 
 #define MAP_WIDTH						40  // 40
 #define MAP_HEIGHT         				30 // 30
@@ -50,69 +51,37 @@
 
 // ***** 16x16 IMAGES *****
 
-#define IMG_16x16_1end_down			0x00FF
-#define IMG_16x16_1end_left			0x013F
-#define IMG_16x16_1end_right			0x017F
-#define IMG_16x16_1end_up			0x01BF
-#define IMG_16x16_1intersection			0x01FF
-#define IMG_16x16_1middle_horizontal			0x023F
-#define IMG_16x16_1middle_vertical			0x027F
-#define IMG_16x16_2end_down			0x02BF
-#define IMG_16x16_2end_left			0x02FF
-#define IMG_16x16_2end_right			0x033F
-#define IMG_16x16_2end_up			0x037F
-#define IMG_16x16_2intersection			0x03BF
-#define IMG_16x16_2middle_horizontal			0x03FF
-#define IMG_16x16_2middle_vertical			0x043F
-#define IMG_16x16_3end_down			0x047F
-#define IMG_16x16_3end_left			0x04BF
-#define IMG_16x16_3end_right			0x04FF
-#define IMG_16x16_3end_up			0x053F
-#define IMG_16x16_3intersection			0x057F
-#define IMG_16x16_3middle_horizontal			0x05BF
-#define IMG_16x16_3middle_vertical			0x05FF
-#define IMG_16x16_4end_down			0x063F
-#define IMG_16x16_4end_left			0x067F
-#define IMG_16x16_4end_right			0x06BF
-#define IMG_16x16_4end_up			0x06FF
-#define IMG_16x16_4intersection			0x073F
-#define IMG_16x16_4middle_horizontal			0x077F
-#define IMG_16x16_4middle_vertical			0x07BF
-#define IMG_16x16_5end_down			0x07FF
-#define IMG_16x16_5end_left			0x083F
-#define IMG_16x16_5end_right			0x087F
-#define IMG_16x16_5end_up			0x08BF
-#define IMG_16x16_5intersection			0x08FF
-#define IMG_16x16_5middle_horizontal			0x093F
-#define IMG_16x16_5middle_vertical			0x097F
-#define IMG_16x16_6end_down			0x09BF
-#define IMG_16x16_6end_left			0x09FF
-#define IMG_16x16_6end_right			0x0A3F
-#define IMG_16x16_6end_up			0x0A7F
-#define IMG_16x16_6intersection			0x0ABF
-#define IMG_16x16_6middle_horizontal			0x0AFF
-#define IMG_16x16_6middle_vertical			0x0B3F
-#define IMG_16x16_7end_down			0x0B7F
-#define IMG_16x16_7end_left			0x0BBF
-#define IMG_16x16_7end_right			0x0BFF
-#define IMG_16x16_7end_up			0x0C3F
-#define IMG_16x16_7middle_horizontal			0x0C7F
-#define IMG_16x16_7middle_vertical			0x0CBF
-#define IMG_16x16_background			0x0CFF
-#define IMG_16x16_block			0x0D3F
-#define IMG_16x16_bomb			0x0D7F
-#define IMG_16x16_bomberman			0x0DBF
-#define IMG_16x16_bomberman_bomb			0x0DFF
-#define IMG_16x16_brick			0x0E3F
-#define IMG_16x16_door			0x0E7F
-#define IMG_16x16_enemy			0x0EBF
-#define IMG_16x16_plus_bomb			0x0EFF
-#define IMG_16x16_plus_explosion			0x0F3F
+// ***** 16x16 IMAGES *****
+
+#define IMG_16x16_3end_up			0x00FF
+#define IMG_16x16_3intersection			0x013F
+#define IMG_16x16_3middle_horizontal			0x017F
+#define IMG_16x16_4end_up			0x01BF
+#define IMG_16x16_4intersection			0x01FF
+#define IMG_16x16_4middle_horizontal			0x023F
+#define IMG_16x16_5end_up			0x027F
+#define IMG_16x16_5intersection			0x02BF
+#define IMG_16x16_5middle_horizontal			0x02FF
+#define IMG_16x16_6end_up			0x033F
+#define IMG_16x16_6intersection			0x037F
+#define IMG_16x16_6middle_horizontal			0x03BF
+#define IMG_16x16_7end_up			0x03FF
+#define IMG_16x16_7middle_horizontal			0x043F
+#define IMG_16x16_background			0x047F
+#define IMG_16x16_block			0x04BF
+#define IMG_16x16_bomb			0x04FF
+#define IMG_16x16_bomberman			0x053F
+#define IMG_16x16_bomberman_bomb			0x057F
+#define IMG_16x16_brick			0x05BF
+#define IMG_16x16_door			0x05FF
+#define IMG_16x16_enemy			0x063F
+#define IMG_16x16_plus_bomb			0x067F
+#define IMG_16x16_plus_explosion			0x06BF
 
 
 // ***** MAP *****
 
-#define MAP_BASE_ADDRESS			0x0F7F
+#define MAP_BASE_ADDRESS			0x06FF
 #define REGS_BASE_ADDRESS       ( MAP_BASE_ADDRESS + MAP_WIDTH * MAP_HEIGHT )
 
 #define SCREEN_WIDTH					640

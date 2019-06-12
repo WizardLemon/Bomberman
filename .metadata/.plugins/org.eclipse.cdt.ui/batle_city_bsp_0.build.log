@@ -1,0 +1,6 @@
+16:31:20 **** Auto Build of project batle_city_bsp_0 ****
+make -k all 
+'Finished building libraries'
+
+16:31:20 Build Finished (took 145ms)
+
