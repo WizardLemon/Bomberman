@@ -214,9 +214,11 @@ static unsigned char obstacles_detection(map_structure_t * map, unsigned char x,
 
 		return map->map_grid[y - position_distance][x];
 
-	} else  {
+	} else if (dir == DIR_DOWN) {
 
 		return map->map_grid[y + position_distance][x];
+	} else {
+		return map->map_grid[y][x];
 	}
 }
 
